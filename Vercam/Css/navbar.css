@@ -1,42 +1,47 @@
-/* Navbar Modern Style */
-.navbar {
-    font-family: 'Roboto', Arial, sans-serif;
-    min-height: 70px;
-    box-shadow: 0 2px 12px rgba(67,233,123,0.07);
-}
-.navbar-nav .nav-link {
-    transition: color 0.2s, border-bottom 0.2s;
-    font-size: 1.08rem;
-    padding: 0.5rem 1.1rem;
-    border-radius: 0.5rem;
-    background: none;
-    border-bottom: 2px solid transparent;
-    font-weight: 500;
-}
-.navbar-nav .nav-link:hover {
-    color: #198754;
-    border-bottom: 2px solid #198754;
-    background: none;
-}
-.navbar-nav .nav-link.active {
-    color: #198754;
-    border-bottom: 2px solid #198754;
-    background: none;
-}
-.navbar-brand {
-    letter-spacing: 0.5px;
-}
-.navbar-brand img {
-    box-shadow: 0 2px 8px rgba(0,0,0,0.08);
-    background: #fff;
-    border-radius: 50%;
-    margin-right: 8px;
+.navbar-toggler {
+    display: none;
 }
 @media (max-width: 991px) {
-    .navbar-nav {
-        text-align: center;
+    .navbar-toggler {
+        display: block !important;
     }
-    .navbar-nav .nav-link {
-        margin-bottom: 0.5rem;
+}
+/* Navbar stile minimal, logo a sinistra, hamburger a destra */
+.navbar {
+    background: #fff;
+    border-bottom: 1px solid #eee;
+    min-height: 80px;
+    box-shadow: 0 2px 12px rgba(67,233,123,0.07);
+    font-family: 'Roboto', Arial, sans-serif;
+}
+.navbar-brand {
+    margin-left: 0;
+    padding: 0;
+    display: flex;
+    align-items: center;
+}
+.logo-solo {
+    display: block;
+    margin-left: 0;
+    margin-right: 0;
+    background: #fff;
+    border-radius: 50%;
+    box-shadow: 0 2px 8px rgba(0,0,0,0.08);
+}
+/* Hamburger sempre visibile */
+.navbar-toggler:focus {
+    outline: none;
+    box-shadow: 0 0 0 2px #19875433;
+}
+.navbar-collapse {
+    justify-content: flex-end;
+}
+@media (max-width: 991px) {
+    .navbar {
+        min-height: 64px;
+    }
+    .logo-solo {
+        width: 44px !important;
+        height: 44px !important;
     }
 }
