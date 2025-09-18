@@ -65,7 +65,18 @@
 	font-size: 1.1rem;
 }
 .contact-btn:hover, .contact-btn:focus {
-	background: linear-gradient(90deg, #198754 0%, #43e97b 100%);
+  background-image: linear-gradient(
+    120deg,
+    hsl(136deg 63% 82%) 0%,
+    hsl(132deg 72% 81%) 2%,
+    hsl(130deg 81% 80%) 7%,
+    hsl(128deg 89% 79%) 15%,
+    hsl(127deg 76% 74%) 29%,
+    hsl(126deg 54% 64%) 55%,
+    hsl(126deg 42% 52%) 88%,
+    hsl(128deg 84% 31%) 100%
+  );
+
 	box-shadow: 0 4px 24px rgba(67,233,123,0.15);
 	transform: scale(1.05);
 }
@@ -98,6 +109,7 @@
 	gap: 1.2rem;
 	justify-content: center;
 	margin-top: 0.5rem;
+    text-align: center;
 }
 .contact-social-icon {
 	color: #198754;
