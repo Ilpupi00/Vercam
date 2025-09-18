@@ -1,0 +1,184 @@
+.doc-list-item {
+	display: flex;
+	align-items: center;
+	justify-content: space-between;
+	gap: 1.2rem;
+	padding: 0.2rem 0.1rem;
+}
+.doc-link-wrap {
+	flex: 1 1 auto;
+	min-width: 0;
+}
+.doc-link {
+	color: #198754;
+	text-decoration: underline;
+	transition: color 0.2s;
+	font-weight: 500;
+}
+
+.doc-link:hover {
+	color: #43e97b;
+}
+
+.doc-download {
+	display: inline-flex;
+	align-items: center;
+	justify-content: center;
+	margin-left: 0.7rem;
+	font-size: 1.15rem;
+	color: #198754;
+	background: #eafff2;
+	border-radius: 50%;
+	padding: 0.35rem 0.45rem;
+	box-shadow: 0 1px 6px rgba(67,233,123,0.08);
+	transition: background 0.2s, color 0.2s, transform 0.2s, box-shadow 0.2s;
+	border: none;
+	outline: none;
+	cursor: pointer;
+	text-decoration: none;
+}
+.doc-download:hover, .doc-download:focus {
+	background: #43e97b22;
+	color: #198754;
+	transform: scale(1.12);
+	box-shadow: 0 2px 12px rgba(67,233,123,0.13);
+}
+.doc-search-box {
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	margin-bottom: 2.2rem;
+}
+.doc-search-wrapper {
+	display: flex;
+	align-items: center;
+	background: #fff;
+	border-radius: 2rem;
+	box-shadow: 0 2px 16px rgba(67,233,123,0.10);
+	padding: 0.2rem 0.7rem 0.2rem 1.2rem;
+	transition: box-shadow 0.25s;
+}
+.doc-search-input {
+	border: none;
+	outline: none;
+	background: transparent;
+	font-size: 1.15rem;
+	padding: 0.7rem 0.5rem;
+	width: 220px;
+	font-family: 'Roboto', Arial, sans-serif;
+	color: #198754;
+	transition: width 0.3s cubic-bezier(.4,0,.2,1);
+}
+.doc-search-input:focus {
+	width: 300px;
+}
+.doc-search-btn {
+	border: none;
+	background: none;
+	color: #198754;
+	font-size: 1.35rem;
+	padding: 0.5rem 0.7rem;
+	border-radius: 50%;
+	transition: background 0.2s, color 0.2s, box-shadow 0.2s;
+	cursor: pointer;
+}
+.doc-search-btn:hover, .doc-search-btn:focus {
+	background: #eafff2;
+	color: #43e97b;
+	box-shadow: 0 2px 8px rgba(67,233,123,0.10);
+}
+.modern-accordion {
+	--bs-accordion-bg: transparent;
+}
+.modern-accordion-item {
+	border: none;
+	background: none;
+	margin-bottom: 1.2rem;
+	border-radius: 1.1rem;
+	box-shadow: 0 2px 16px rgba(67,233,123,0.08);
+	transition: box-shadow 0.25s;
+}
+.modern-accordion-item:hover {
+	box-shadow: 0 4px 24px rgba(67,233,123,0.15);
+}
+.modern-accordion-btn {
+	background: linear-gradient(90deg, #f8f9fa 60%, #eafff2 100%);
+	color: #198754;
+	font-weight: 700;
+	font-size: 1.15rem;
+	border-radius: 1.1rem !important;
+	box-shadow: none;
+	transition: background 0.25s, color 0.25s;
+	padding: 1rem 1.5rem;
+}
+/* Sfondo attivo e hover più soft */
+.modern-accordion-btn:not(.collapsed) {
+	background: rgba(67,233,123,0.12);
+	color: #198754;
+	box-shadow: 0 2px 12px rgba(67,233,123,0.10);
+}
+.modern-accordion-btn:hover {
+	background: rgba(67,233,123,0.08);
+	color: #198754;
+}
+.modern-accordion-collapse {
+	transition: max-height 0.4s cubic-bezier(.4,0,.2,1);
+}
+.modern-accordion-body {
+	background: #fff;
+	border-radius: 0.9rem;
+	box-shadow: 0 1px 8px rgba(67,233,123,0.07);
+	padding: 1.2rem 1.5rem;
+	animation: fadeInAccordion 0.5s;
+}
+@keyframes fadeInAccordion {
+	from { opacity: 0; transform: translateY(10px); }
+	to { opacity: 1; transform: translateY(0); }
+}
+.modern-accordion-list {
+	margin: 0;
+	padding-left: 1.2rem;
+}
+.modern-accordion-list li {
+	margin-bottom: 0.5rem;
+	font-size: 1.07rem;
+}
+.modern-accordion-list a {
+	color: #198754;
+	text-decoration: underline;
+	transition: color 0.2s;
+}
+.modern-accordion-list a:hover {
+	color: #43e97b;
+}
+.intro-doc-box {
+	max-width: 300vh;
+	background: #f8f9fa;
+	border-radius: 1.2rem;
+	box-shadow: 0 4px 24px rgba(67,233,123,0.10);
+	margin-left: auto;
+	margin-right: auto;
+	margin-bottom: 3rem;
+	padding: 2rem 1.5rem;
+}
+.intro-doc-title {
+	font-size: 2rem;
+	font-weight: 700;
+	color: #198754;
+	margin-bottom: 0.7rem;
+	letter-spacing: 0.5px;
+}
+.intro-doc-sub {
+	font-size: 1.25rem;
+	color: #222;
+	margin-bottom: 0;
+}
+.intro-doc-link {
+	color: #198754;
+	font-weight: 700;
+	text-decoration: underline;
+	transition: color 0.2s;
+}
+.intro-doc-link:hover {
+	color: #43e97b;
+}

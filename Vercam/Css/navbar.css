@@ -1,24 +1,24 @@
-.navbar-toggler {
-    display: none;
-}
-@media (max-width: 991px) {
-    .navbar-toggler {
-        display: block !important;
-    }
-}
-/* Navbar stile minimal, logo a sinistra, hamburger a destra */
+
+/* Navbar moderna e animata */
 .navbar {
     background: #fff;
     border-bottom: 1px solid #eee;
     min-height: 80px;
     box-shadow: 0 2px 12px rgba(67,233,123,0.07);
     font-family: 'Roboto', Arial, sans-serif;
+    position: relative;
+    z-index: 10;
 }
 .navbar-brand {
     margin-left: 0;
     padding: 0;
     display: flex;
     align-items: center;
+    font-weight: 700;
+    font-size: 1.7rem;
+    color: #198754 !important;
+    letter-spacing: 0.5px;
+    transition: color 0.2s;
 }
 .logo-solo {
     display: block;
@@ -27,8 +27,53 @@
     background: #fff;
     border-radius: 50%;
     box-shadow: 0 2px 8px rgba(0,0,0,0.08);
+    transition: transform 0.2s;
 }
-/* Hamburger sempre visibile */
+.logo-solo:hover {
+    transform: scale(1.08) rotate(-8deg);
+}
+.navbar-nav {
+    gap: 1rem;
+}
+.navbar-nav .nav-link {
+    position: relative;
+    font-size: 1.08rem;
+    font-weight: 500;
+    color: #222;
+    padding: 0.5rem 1.1rem;
+    border-radius: 0.5rem;
+    background: none;
+    transition: color 0.25s, box-shadow 0.25s;
+    overflow: hidden;
+}
+.navbar-nav .nav-link::after {
+    content: "";
+    display: block;
+    position: absolute;
+    left: 50%;
+    bottom: 0.2rem;
+    width: 0;
+    height: 3px;
+    background: linear-gradient(90deg, #198754 60%, #43e97b 100%);
+    border-radius: 2px;
+    transition: width 0.3s cubic-bezier(.4,0,.2,1), left 0.3s cubic-bezier(.4,0,.2,1);
+}
+.navbar-nav .nav-link:hover {
+    color: #198754;
+    box-shadow: 0 2px 12px rgba(67,233,123,0.12);
+}
+.navbar-nav .nav-link:hover::after,
+.navbar-nav .nav-link.active::after {
+    width: 80%;
+    left: 10%;
+}
+.navbar-nav .nav-link.active {
+    color: #198754;
+    font-weight: 700;
+}
+.navbar-toggler {
+    display: none;
+}
 .navbar-toggler:focus {
     outline: none;
     box-shadow: 0 0 0 2px #19875433;
@@ -43,5 +88,15 @@
     .logo-solo {
         width: 44px !important;
         height: 44px !important;
+    }
+    .navbar-toggler {
+        display: block !important;
+    }
+    .navbar-nav {
+        text-align: center;
+        gap: 0.5rem;
+    }
+    .navbar-nav .nav-link {
+        margin-bottom: 0.5rem;
     }
 }

@@ -10,28 +10,26 @@
 </head>
 <body>
 <header>
-  <nav class="navbar navbar-expand-lg sticky-top shadow-sm" style="background: #fff; border-bottom: 1px solid #eee;">
-    <div class="container">
-      <a class="navbar-brand d-flex align-items-center gap-2" href="index.html" style="color:#198754; font-weight:700; font-size:1.7rem;">
-        <img src="https://cdn-icons-png.flaticon.com/512/616/616494.png" alt="EcoSanitari Logo" width="36" height="36" class="d-inline-block align-text-top" style="background:#fff; border-radius:50%; margin-right:8px;">
-        EcoSanitari
+  <nav class="navbar navbar-expand-lg sticky-top shadow-sm">
+    <div class="container-fluid px-4 d-flex justify-content-between align-items-start">
+      <a class="navbar-brand mx-0" href="index.html">
+        <img src="https://cdn-icons-png.flaticon.com/512/616/616494.png" alt="EcoSanitari Logo" width="60" height="60" class="logo-solo">
       </a>
-      <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
-        <span class="navbar-toggler-icon"></span>
-      </button>
-      <div class="collapse navbar-collapse justify-content-center" id="navbarNav">
-        <ul class="navbar-nav gap-2">
-          <li class="nav-item">
-            <a class="nav-link active" href="chi-siamo.html" style="font-weight:500; color:#222;">Chi Siamo</a>
-          </li>
-          <li class="nav-item">
-            <a class="nav-link" aria-current="page" href="servizi.html" style="font-weight:500; color:#222;">Servizi</a>
-          </li>
-          <li class="nav-item">
-            <a class="nav-link" href="documenti.html" style="font-weight:500; color:#222;">Documenti</a>
-          </li>
-        </ul>
-      </div>
+    <!-- Hamburger button SEMPRE visibile e allineato a destra -->
+    <button class="navbar-toggler ms-auto" type="button" data-bs-toggle="collapse" data-bs-target="#navbarMenu"
+      aria-controls="navbarMenu" aria-expanded="false" aria-label="Toggle navigation">
+      <span class="navbar-toggler-icon"></span>
+    </button>
+    <div class="collapse navbar-collapse justify-content-center" id="navbarMenu">
+      <ul class="navbar-nav mb-2 mb-lg-0 d-flex justify-content-center align-items-center w-100" style="gap:1rem;">
+        <li class="nav-item"><a class="nav-link" href="index.html">Home</a></li>
+        <li class="nav-item"><a class="nav-link active" href="chi-siamo.html">Chi siamo</a></li>
+        <li class="nav-item"><a class="nav-link" href="servizi.html">Servizi</a></li>
+        <li class="nav-item"><a class="nav-link" href="documenti.html">Documenti</a></li>
+        <li class="nav-item"><a class="nav-link" href="contatti.html">Contatti</a></li>
+      </ul>
+    </div>
+
     </div>
   </nav>
 </header>
@@ -83,7 +81,6 @@
             <div class="text-center mb-4">
               <a href="#" class="text-white mx-2"><i class="bi bi-facebook fs-4"></i></a>
               <a href="#" class="text-white mx-2"><i class="bi bi-instagram fs-4"></i></a>
-              <a href="#" class="text-white mx-2"><i class="bi bi-twitter-x fs-4"></i></a>
             </div>
           </div>
         </div>
