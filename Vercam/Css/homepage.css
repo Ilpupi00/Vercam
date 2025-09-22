@@ -1,13 +1,33 @@
 /* Card servizi principali */
+/* Card servizi principali - Web 3.0 Mobile */
 .card {
     border-radius: 2rem;
-    box-shadow: 0 8px 32px rgba(67,233,123,0.13);
+    box-shadow: 0 8px 32px rgba(67,233,123,0.18), 0 2px 12px rgba(67,233,123,0.09);
+    background: rgba(255,255,255,0.85);
+    backdrop-filter: blur(8px) saturate(1.2);
     transition: box-shadow 0.3s, transform 0.2s;
-    background: rgba(255,255,255,0.96);
+    padding: 2rem 1.2rem;
+    margin-bottom: 1.5rem;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
 }
 .card:hover {
     box-shadow: 0 16px 64px rgba(67,233,123,0.22);
     transform: scale(1.04);
+}
+.card i, .card svg {
+    font-size: 2.7rem !important;
+    margin-bottom: 1.2rem;
+}
+.card h3, .card h4 {
+    font-size: 1.25rem;
+    margin-bottom: 0.7rem;
+}
+.card p {
+    font-size: 1.05rem;
+    margin-bottom: 0.5rem;
 }
 .badge-web3 {
     display: inline-block;
@@ -30,4 +50,47 @@
 @keyframes fadeInBadge {
     from { opacity: 0; transform: scale(0.8); }
     to { opacity: 1; transform: scale(1); }
+}
+
+.section-vantaggi {
+    min-height: 420px;
+    width: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background: rgba(255,255,255,0.92);
+    backdrop-filter: blur(4px);
+    box-shadow: 0 4px 24px rgba(67,233,123,0.09);
+}
+/* Mobile view ottimizzata */
+@media (max-width: 768px) {
+    .section-servizi .container,
+    .section-vantaggi .container {
+        padding: 0 0.5rem;
+        min-height: 340px;
+    }
+    .section-servizi .row,
+    .section-vantaggi .row {
+        flex-direction: column !important;
+        gap: 1.2rem;
+    }
+    .card {
+        padding: 1.5rem 0.7rem;
+        margin-bottom: 1.2rem;
+        font-size: 1rem;
+    }
+    .card i, .card svg {
+        font-size: 2.1rem !important;
+        margin-bottom: 0.7rem;
+    }
+    .card h3, .card h4 {
+        font-size: 1.1rem;
+    }
+    .card p {
+        font-size: 0.98rem;
+    }
+    .section-vantaggi {
+        min-height: 320px;
+        box-shadow: none;
+    }
 }

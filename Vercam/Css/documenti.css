@@ -1,3 +1,112 @@
+/* Mobile view moderna e Web 3.0 */
+@media (max-width: 768px) {
+	.hero-section-doc {
+		min-height: 320px;
+		padding-top: 3.5rem;
+		padding-bottom: 3.5rem;
+		font-size: 1.05rem;
+	}
+	.container {
+		padding-left: 0.5rem;
+		padding-right: 0.5rem;
+	}
+	.doc-title-modern {
+		font-size: 2rem;
+		margin-bottom: 1.2rem;
+	}
+	.doc-search-box {
+		margin-bottom: 1.2rem;
+	}
+	.doc-search-input {
+		font-size: 1rem;
+		width: 160px;
+		padding: 0.5rem 0.3rem;
+	}
+	.doc-search-input:focus {
+		width: 220px;
+	}
+	.doc-search-btn {
+		font-size: 1.15rem;
+		padding: 0.4rem 0.5rem;
+	}
+	.modern-accordion {
+		animation: none;
+	}
+	.modern-accordion-item {
+		margin-bottom: 0.7rem;
+		box-shadow: 0 1px 8px rgba(67,233,123,0.10);
+		border-radius: 0.8rem;
+	}
+	.modern-accordion-btn {
+		font-size: 1rem;
+		padding: 0.7rem 1rem;
+		border-radius: 0.8rem !important;
+	}
+	.modern-accordion-body {
+		padding: 0.7rem 1rem;
+		font-size: 0.98rem;
+	}
+	.modern-accordion-list {
+		padding-left: 0.5rem;
+	}
+	.doc-list-item {
+		gap: 0.7rem;
+		font-size: 0.98rem;
+		padding: 0.1rem 0;
+	}
+	.doc-download {
+		font-size: 1.25rem;
+		padding: 0.3rem 0.4rem;
+	}
+	.intro-doc-box {
+		padding: 1.2rem 0.7rem;
+		margin-bottom: 1.5rem;
+		box-shadow: 0 2px 8px rgba(67,233,123,0.08);
+		border-radius: 0.8rem;
+	}
+	.intro-doc-title {
+		font-size: 1.2rem;
+		margin-bottom: 0.4rem;
+	}
+	.intro-doc-sub {
+		font-size: 1rem;
+	}
+}
+.hero-section-doc {
+	position: relative;
+	background: linear-gradient(120deg,#43e97b 0%,#198754 100%);
+	overflow: hidden;
+	min-height: 420px;
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	padding-top: 6rem;
+	padding-bottom: 6rem;
+}
+.particles-bg {
+	position: absolute;
+	top: 0; left: 0; width: 100%; height: 100%;
+	pointer-events: none;
+	z-index: 1;
+}
+.particle {
+	position: absolute;
+	border-radius: 50%;
+	background: linear-gradient(120deg, #43e97b 0%, #eafff2 100%);
+	opacity: 0.18;
+	animation: floatParticle 8s infinite ease-in-out;
+}
+@keyframes floatParticle {
+	0% { transform: translateY(0) scale(1); }
+	50% { transform: translateY(-40px) scale(1.2); }
+	100% { transform: translateY(0) scale(1); }
+}
+.hero-overlay {
+	position: absolute;
+	top: 0; left: 0; width: 100%; height: 100%;
+	background: rgba(25,135,84,0.15);
+	z-index: 2;
+}
 .fade-in {
 	animation: fadeInBase 0.7s cubic-bezier(.4,0,.2,1);
 }

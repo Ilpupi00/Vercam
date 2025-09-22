@@ -17,7 +17,7 @@
   <nav class="navbar navbar-expand-lg sticky-top shadow-sm">
     <div class="container-fluid px-4 d-flex justify-content-between align-items-start">
       <a class="navbar-brand mx-0" href="index.html">
-        <img src="https://cdn-icons-png.flaticon.com/512/616/616494.png" alt="Vercam Logo" width="60" height="60" class="logo-solo">
+        <img src="https://cdn-icons-png.flaticon.com/512/616/616494.png" alt="EcoSanitari Logo" width="60" height="60" class="logo-solo">
       </a>
     <!-- Hamburger button SEMPRE visibile e allineato a destra -->
     <button class="navbar-toggler ms-auto" type="button" data-bs-toggle="collapse" data-bs-target="#navbarMenu"
@@ -38,40 +38,48 @@
   </nav>
 </header>
 
-  <main class="bg-light py-2 text-center">
+  <main class="web3-bg py-5 text-center position-relative">
+    <div class="web3-particles-bg">
+      <div class="web3-particle web3-p1"></div>
+      <div class="web3-particle web3-p2"></div>
+      <div class="web3-particle web3-p3"></div>
+      <div class="web3-particle web3-p4"></div>
+      <div class="web3-particle web3-p5"></div>
+    </div>
     <div class="container fade-in">
-      <div class="contact-box mx-auto p-4">
+  <div class="contact-box web3-card mx-auto p-4 shadow-lg contact-box-mobile">
+  <span class="badge-web3 mb-2 badge-web3-mobile">Web 3.0 Experience</span>
         <h1 class="contact-title mb-3">Contattaci</h1>
         <p class="contact-sub mb-4">Siamo a tua disposizione per qualsiasi informazione o richiesta.<br>Compila il modulo e ti risponderemo al più presto!</p>
-        <form id="emailForm" action="" method="POST" class="contact-form">
+  <form id="emailForm" action="" method="POST" class="contact-form contact-form-mobile">
           <div class="row g-3 mb-3">
             <div class="col-sm-6">
-              <input type="text" class="form-control contact-input" placeholder="Nome e Cognome" name="name" required>
+              <input type="text" class="form-control contact-input contact-input-mobile" placeholder="Nome e Cognome" name="name" required>
             </div>
             <div class="col-sm-6">
-              <input type="email" class="form-control contact-input" placeholder="Email" name="email" required>
+              <input type="email" class="form-control contact-input contact-input-mobile" placeholder="Email" name="email" required>
             </div>
           </div>
           <div class="mb-3">
-            <input type="text" class="form-control contact-input" placeholder="Oggetto" name="subject" required>
+            <input type="text" class="form-control contact-input contact-input-mobile" placeholder="Oggetto" name="subject" required>
           </div>
           <div class="mb-4">
-            <textarea class="form-control contact-input" placeholder="Messaggio" name="message" rows="4" required></textarea>
+            <textarea class="form-control contact-input contact-input-mobile" placeholder="Messaggio" name="message" rows="4" required></textarea>
           </div>
           <div class="text-center">
-            <button type="submit" class="btn contact-btn px-4 py-2">Invia Messaggio</button>
+            <button type="submit" class="btn contact-btn px-4 py-2 contact-btn-mobile">Invia Messaggio</button>
           </div>
         </form>
-        <div class="contact-info mt-5">
+  <div class="contact-info mt-5 contact-info-mobile">
           <h5 class="mb-3">I nostri recapiti</h5>
           <ul class="list-unstyled">
             <li class="mb-2"><i class="bi bi-geo-alt-fill me-2"></i> Via dello Sport 123, Borgo Vercelli (VC)</li>
             <li class="mb-2"><i class="bi bi-telephone-fill me-2"></i> +39 0123 456789</li>
             <li class="mb-2"><i class="bi bi-envelope-fill me-2"></i> info@asdborgovercelli.it</li>
           </ul>
-          <div class="contact-social mt-3">
-            <a href="#" class="contact-social-icon"><i class="bi bi-facebook"></i></a>
-            <a href="#" class="contact-social-icon"><i class="bi bi-instagram"></i></a>
+          <div class="contact-social mt-3 contact-social-mobile">
+            <a href="#" class="contact-social-icon contact-social-icon-mobile"><i class="bi bi-facebook"></i></a>
+            <a href="#" class="contact-social-icon contact-social-icon-mobile"><i class="bi bi-instagram"></i></a>
           </div>
         </div>
       </div>

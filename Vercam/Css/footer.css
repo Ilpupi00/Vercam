@@ -73,4 +73,13 @@
 .particle-f5 {
     width: 18px; height: 18px; top: 25%; left: 90%; animation-delay: 1.5s;
 }
+.bi-facebook:hover {
+  color: #4267B2;
+  transform: scale(1.2) rotate(5deg);
+}
+
+.bi-instagram:hover {
+  color: #E1306C;
+  transform: scale(1.2) rotate(-5deg);
+}
 
