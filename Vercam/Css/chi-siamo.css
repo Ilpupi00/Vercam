@@ -1,0 +1,75 @@
+/* Hero Section */
+.hero-section {
+	background-size: cover;
+	background-position: center;
+	position: relative;
+	overflow: hidden;
+}
+.hero-section .container {
+	position: relative;
+	z-index: 2;
+}
+.hero-section .hero-overlay {
+	z-index: 1;
+}
+
+/* Animazioni fade-in custom */
+.fade-in {
+	opacity: 0;
+	transform: translateY(30px);
+	animation: fadeInUp 1s forwards;
+}
+@keyframes fadeInUp {
+	to {
+		opacity: 1;
+		transform: none;
+	}
+}
+
+/* Card Valori */
+.card-valori {
+	transition: transform 0.3s, box-shadow 0.3s;
+	box-shadow: 0 2px 16px rgba(25,135,84,0.08);
+}
+.card-valori:hover {
+	transform: translateY(-8px) scale(1.03);
+	box-shadow: 0 8px 32px rgba(25,135,84,0.18);
+}
+
+/* Team Section */
+#team img {
+	transition: box-shadow 0.3s, transform 0.3s;
+	box-shadow: 0 2px 12px rgba(0,0,0,0.10);
+}
+#team img:hover {
+	transform: scale(1.08) rotate(-2deg);
+	box-shadow: 0 8px 32px rgba(25,135,84,0.18);
+}
+
+/* Responsive tweaks */
+@media (max-width: 768px) {
+	.hero-section h1 {
+		font-size: 2.2rem;
+	}
+	#team .col-md-4 {
+		margin-bottom: 2rem;
+	}
+}
+
+/* Modern button style */
+.btn-light {
+	border-radius: 2rem;
+	font-weight: 600;
+	transition: background 0.2s, color 0.2s, box-shadow 0.2s;
+	box-shadow: 0 2px 8px rgba(25,135,84,0.10);
+}
+.btn-light:hover {
+	background: #198754;
+	color: #fff;
+	box-shadow: 0 4px 16px rgba(25,135,84,0.18);
+}
+
+/* Sezione valori animata */
+.animate__fadeInUp {
+	animation-duration: 1.2s;
+}
