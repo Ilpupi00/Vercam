@@ -2,20 +2,22 @@
 <html lang="it">
 <head>
   <meta charset="UTF-8">
-  <title>Chi Siamo - EcoSanitari</title>
+  <title>Chi Siamo - Vercam</title>
   <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet">
   <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.10.5/font/bootstrap-icons.css" rel="stylesheet">
   <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap" rel="stylesheet">
   <link href="./Css/navbar.css" rel="stylesheet">
   <link href="./Css/footer.css" rel="stylesheet">
   <link href="./Css/chi-siamo.css" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css"/>
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js" defer></script>
 </head>
 <body>
 <header>
   <nav class="navbar navbar-expand-lg sticky-top shadow-sm">
     <div class="container-fluid px-4 d-flex justify-content-between align-items-start">
       <a class="navbar-brand mx-0" href="index.html">
-        <img src="https://cdn-icons-png.flaticon.com/512/616/616494.png" alt="EcoSanitari Logo" width="60" height="60" class="logo-solo">
+        <img src="https://cdn-icons-png.flaticon.com/512/616/616494.png" alt="Vercam Logo" width="60" height="60" class="logo-solo">
       </a>
     <!-- Hamburger button SEMPRE visibile e allineato a destra -->
     <button class="navbar-toggler ms-auto" type="button" data-bs-toggle="collapse" data-bs-target="#navbarMenu"
@@ -37,12 +39,20 @@
 </header>
 
   <!-- Hero Section -->
-  <section class="hero-section position-relative text-white d-flex align-items-center justify-content-center" style="min-height: 60vh; background: linear-gradient(120deg, #198754 60%, #fff 100%);">
-    <div class="container text-center py-5">
-      <img src="https://images.unsplash.com/photo-1506744038136-46273834b3fb?auto=format&fit=crop&w=800&q=80" alt="Team EcoSanitari" class="rounded-circle shadow-lg mb-4" style="width:120px; height:120px; object-fit:cover; border:5px solid #fff;">
-      <h1 class="display-4 fw-bold mb-3 animate__animated animate__fadeInDown">EcoSanitari</h1>
+  <section class="hero-section hero-extra-padding position-relative text-center text-white">
+    <div class="container position-relative z-2 text-center py-5">
+      <img src="https://images.unsplash.com/photo-1506744038136-46273834b3fb?auto=format&fit=crop&w=800&q=80" alt="Team Vercam" class="rounded-circle shadow-lg mb-4" style="width:120px; height:120px; object-fit:cover; border:5px solid #fff;">
+      <h1 class="display-4 fw-bold mb-3 animate__animated animate__fadeInDown">Vercam</h1>
       <p class="lead mb-4 animate__animated animate__fadeInUp">Innovazione, sostenibilità e sicurezza per il futuro della sanità.</p>
       <a href="#team" class="btn btn-light btn-lg shadow animate__animated animate__fadeInUp">Scopri il nostro team</a>
+    </div>
+    <!-- Particelle decorative -->
+    <div class="particles-bg">
+      <div class="particle" style="width:48px;height:48px;top:12%;left:8%;animation-delay:0s;"></div>
+      <div class="particle" style="width:32px;height:32px;top:70%;left:80%;animation-delay:2s;"></div>
+      <div class="particle" style="width:24px;height:24px;top:40%;left:60%;animation-delay:1s;"></div>
+      <div class="particle" style="width:36px;height:36px;top:80%;left:20%;animation-delay:3s;"></div>
+      <div class="particle" style="width:20px;height:20px;top:25%;left:90%;animation-delay:1.5s;"></div>
     </div>
     <div class="hero-overlay position-absolute top-0 start-0 w-100 h-100" style="background:rgba(25,135,84,0.15);"></div>
   </section>
@@ -55,7 +65,7 @@
       </div>
       <div class="col-lg-6">
         <h2 class="fw-bold mb-3">Chi Siamo</h2>
-        <p class="fs-5">Fondata nel 2002, EcoSanitari è leader in Italia per lo smaltimento sostenibile dei rifiuti sanitari. Collaboriamo con ospedali, cliniche e laboratori, offrendo soluzioni innovative e sicure per la tutela dell’ambiente e della salute pubblica.</p>
+        <p class="fs-5">Fondata nel 2002, Vercam è leader in Italia per lo smaltimento sostenibile dei rifiuti sanitari. Collaboriamo con ospedali, cliniche e laboratori, offrendo soluzioni innovative e sicure per la tutela dell’ambiente e della salute pubblica.</p>
         <ul class="list-unstyled mt-4">
           <li class="mb-2"><i class="bi bi-check-circle-fill text-success me-2"></i> Oltre 500 strutture servite</li>
           <li class="mb-2"><i class="bi bi-check-circle-fill text-success me-2"></i> Certificazioni ambientali</li>
@@ -115,61 +125,72 @@
     </div>
   </section>
 
-    <footer class="bg-success text-white py-5">
-      <div class="container">
+   <footer class="footer-web3 position-relative py-5 text-white">
+      <div class="footer-bg-gradient position-absolute top-0 start-0 w-100 h-100 z-0"></div>
+      <div class="particles-bg">
+        <div class="particle particle-f1"></div>
+        <div class="particle particle-f2"></div>
+        <div class="particle particle-f3"></div>
+        <div class="particle particle-f4"></div>
+        <div class="particle particle-f5"></div>
+      </div>
+      <div class="container position-relative z-2">
         <div class="row gy-4">
           <!-- Contact Form Column -->
           <div class="col-lg-6 mb-4 mb-lg-0">
-            <h5 class="mb-4 text-center overflow-hidden">Contattaci</h5>
-            <form id="emailForm" action="" method="POST">
-              <div class="row g-3 mb-3">
-                <div class="col-sm-6">
-                  <input type="text" class="form-control" placeholder="Nome e Cognome" name="name" required>
+            <div class="footer-card p-4 shadow-lg">
+              <h5 class="mb-4 text-center overflow-hidden">Contattaci</h5>
+              <form id="emailForm" action="" method="POST">
+                <div class="row g-3 mb-3">
+                  <div class="col-sm-6">
+                    <input type="text" class="form-control" placeholder="Nome e Cognome" name="name" required>
+                  </div>
+                  <div class="col-sm-6">
+                    <input type="email" class="form-control" placeholder="Email" name="email" required>
+                  </div>
                 </div>
-                <div class="col-sm-6">
-                  <input type="email" class="form-control" placeholder="Email" name="email" required>
+                <div class="mb-3">
+                  <input type="text" class="form-control" placeholder="Oggetto" name="subject" required>
                 </div>
-              </div>
-              <div class="mb-3">
-                <input type="text" class="form-control" placeholder="Oggetto" name="subject" required>
-              </div>
-              <div class="mb-4">
-                <textarea class="form-control" placeholder="Messaggio" name="message" rows="4" required></textarea>
-              </div>
-              <div class="text-center">
-                <button type="submit" class="btn btn-light px-4 py-2 bnt-">Invia Messaggio</button>
-              </div>
-            </form>
+                <div class="mb-4">
+                  <textarea class="form-control" placeholder="Messaggio" name="message" rows="4" required></textarea>
+                </div>
+                <div class="text-center">
+                  <button type="submit" class="btn btn-light px-4 py-2 bnt-">Invia Messaggio</button>
+                </div>
+              </form>
+            </div>
           </div>
-          
           <!-- Info Column -->
           <div class="col-lg-6 text-center m-auto">
-            <h5 class="mb-4 text-center overflow-hidden">Vercam</h5>
-            <div class="d-flex flex-column align-items-center mb-4">
-              <p class="mb-3"><i class="bi bi-geo-alt-fill me-2"></i> Via dello Sport 123, Borgo Vercelli (VC)</p>
-              <p class="mb-3"><i class="bi bi-telephone-fill me-2"></i> +39 0123 456789</p>
-              <p class="mb-3"><i class="bi bi-envelope-fill me-2"></i> info@asdborgovercelli.it</p>
-            </div>
-            
-            <!-- Social Media Icons -->
-            <div class="text-center mb-4">
-              <a href="#" class="text-white mx-2"><i class="bi bi-facebook fs-4"></i></a>
-              <a href="#" class="text-white mx-2"><i class="bi bi-instagram fs-4"></i></a>
+            <div class="footer-card p-4 shadow-lg">
+              <h5 class="mb-4 text-center overflow-hidden">Vercam</h5>
+              <div class="d-flex flex-column align-items-center mb-4">
+                <p class="mb-3"><i class="bi bi-geo-alt-fill me-2"></i> Via dello Sport 123, Borgo Vercelli (VC)</p>
+                <p class="mb-3"><i class="bi bi-telephone-fill me-2"></i> +39 0123 456789</p>
+                <p class="mb-3"><i class="bi bi-envelope-fill me-2"></i> info@asdborgovercelli.it</p>
+              </div>
+              <!-- Social Media Icons -->
+              <div class="text-center mb-4">
+                <a href="#" class="text-white mx-2"><i class="bi bi-facebook fs-4"></i></a>
+                <a href="#" class="text-white mx-2"><i class="bi bi-instagram fs-4"></i></a>
+                <a href="#" class="text-white mx-2"><i class="bi bi-twitter-x fs-4"></i></a>
+              </div>
             </div>
           </div>
         </div>
-        
         <!-- Copyright -->
         <div class="row mt-5">
           <div class="col-12 text-center">
-            <hr class="my-4 bg-light opacity-25">
+            <hr class="my-4 bg-light opacity-50">
             <p class="mb-0">&copy; Vercam. Tutti i diritti riservati.</p>
           </div>
         </div>
       </div>
     </footer>
+    
 </body>
 <!-- Animate.css CDN -->
-<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css"/>
-<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
+
+
 </html>

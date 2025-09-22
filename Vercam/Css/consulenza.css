@@ -1,0 +1,46 @@
+/* Sezione consulenza Web 3.0 */
+.bg-section-consulenza {
+    background: linear-gradient(120deg,#43e97b 0%,#198754 100%);
+    position: relative;
+    overflow: hidden;
+}
+.consulenza-card {
+    backdrop-filter: blur(16px) saturate(1.2);
+    background: rgba(255,255,255,0.13);
+    border-radius: 2.5rem;
+    box-shadow: 0 16px 64px rgba(67,233,123,0.22), 0 2px 12px rgba(67,233,123,0.09);
+    border: 1.5px solid rgba(67,233,123,0.13);
+}
+.particles-bg {
+    position: absolute;
+    top: 0; left: 0; width: 100%; height: 100%;
+    pointer-events: none;
+    z-index: 1;
+}
+.particle {
+    position: absolute;
+    border-radius: 50%;
+    background: linear-gradient(120deg, #43e97b 0%, #eafff2 100%);
+    opacity: 0.18;
+    animation: floatParticle 8s infinite ease-in-out;
+}
+@keyframes floatParticle {
+    0% { transform: translateY(0) scale(1); }
+    50% { transform: translateY(-40px) scale(1.2); }
+    100% { transform: translateY(0) scale(1); }
+}
+/* Classi aggiuntive per la sezione consulenza */
+.consulenza-title {
+     font-size: 2.3rem;
+}
+.consulenza-desc {
+     font-size: 1.15rem;
+}
+.consulenza-btn {
+     border-radius: 2rem;
+}
+.particle-1 { width:32px; height:32px; top:10%; left:12%; animation-delay:0s; }
+.particle-2 { width:24px; height:24px; top:80%; left:80%; animation-delay:2s; }
+.particle-3 { width:20px; height:20px; top:50%; left:60%; animation-delay:1s; }
+.particle-4 { width:36px; height:36px; top:70%; left:20%; animation-delay:3s; }
+.particle-5 { width:18px; height:18px; top:25%; left:90%; animation-delay:1.5s; }

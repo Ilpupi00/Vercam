@@ -1,14 +1,16 @@
 
+.fade-in {
+   
+
+}
+
 /* Animazioni fade-in */
 .fade-in {
-    opacity: 0;
-    transform: translateY(32px) scale(0.98);
+    opacity: 1;
+    transform: none;
     animation: fadeInCard 1.2s cubic-bezier(.4,0,.2,1) forwards;
 }
 .servizi-title {
-    opacity: 0;
-    transform: translateY(-24px) scale(0.98);
-    animation: fadeInTitle 1s cubic-bezier(.4,0,.2,1) forwards;
     font-size: 2.7rem;
     font-weight: 900;
     color: #198754;
@@ -18,9 +20,6 @@
     margin-bottom: 2.5rem;
 }
 .servizio-title {
-    opacity: 0;
-    transform: translateY(18px) scale(0.98);
-    animation: fadeInCardText 1.3s cubic-bezier(.4,0,.2,1) forwards;
     font-size: 1.35rem;
     font-weight: 700;
     color: #198754;
@@ -29,17 +28,11 @@
     letter-spacing: 0.5px;
 }
 .servizio-text {
-    opacity: 0;
-    transform: translateY(18px) scale(0.98);
-    animation: fadeInCardText 1.4s cubic-bezier(.4,0,.2,1) forwards;
     font-size: 1rem;
     color: #222;
     margin-bottom: 0.7rem;
 }
 .servizio-btn {
-    opacity: 0;
-    transform: translateY(18px) scale(0.98);
-    animation: fadeInBtn 1.5s cubic-bezier(.4,0,.2,1) forwards;
     display: inline-flex;
     align-items: center;
     gap: 0.7rem;
@@ -57,18 +50,7 @@
     position: relative;
     overflow: hidden;
 }
-.servizio-btn::after {
-    content: "";
-    position: absolute;
-    left: 0; top: 0; width: 100%; height: 100%;
-    border-radius: 2.5rem;
-    box-shadow: 0 0 32px 8px #43e97b44;
-    opacity: 0;
-    transition: opacity 0.3s;
-    pointer-events: none;
-}
 .servizio-btn:hover, .servizio-btn:focus {
-    box-shadow: 0 0 32px 8px #43e97b44, 0 16px 64px rgba(67,233,123,0.22);
     background: linear-gradient(90deg,#198754 0%,#43e97b 100%);
     transform: scale(1.08);
     color: #fff;
@@ -151,15 +133,7 @@
 .servizio-img {
     width: 100%;
     max-width: 370px;
-    height: auto;
-    object-fit: cover;
-    border-radius: 2.2rem;
-    box-shadow: 0 12px 48px rgba(67,233,123,0.22), 0 2px 12px rgba(67,233,123,0.09);
-    margin-bottom: 2.5rem;
-    transition: box-shadow 0.25s, transform 0.25s;
-    background: linear-gradient(120deg, #eafff2 0%, #43e97b 100%);
-}
-.servizio-full:hover .servizio-img {
+
     box-shadow: 0 32px 96px rgba(67,233,123,0.32), 0 2px 12px rgba(67,233,123,0.09);
     transform: scale(1.09) translateY(-16px);
 }

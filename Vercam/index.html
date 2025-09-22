@@ -2,108 +2,227 @@
 <html lang="it">
 <head>
   <meta charset="UTF-8">
-  <title>EcoSanitari - Smaltimento Sanitario</title>
+  <title>Vercam - Smaltimento Sanitario</title>
   <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet">
   <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.10.5/font/bootstrap-icons.css" rel="stylesheet">
   <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap" rel="stylesheet">
   <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap" rel="stylesheet">
   <link href="./Css/navbar.css" rel="stylesheet">
-  <link href="./Css/footer.css" rel="stylesheet"> 
+  <link href="./Css/footer.css" rel="stylesheet">
+  <link href="./Css/footer.css" rel="stylesheet">
+  <link href="./Css/consulenza.css" rel="stylesheet">
+  <link href="./Css/hero.css" rel="stylesheet">
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js" defer></script> 
 </head>
 <body>
+
 <header>
   <nav class="navbar navbar-expand-lg sticky-top shadow-sm">
     <div class="container-fluid px-4 d-flex justify-content-between align-items-start">
       <a class="navbar-brand mx-0" href="index.html">
-        <img src="https://cdn-icons-png.flaticon.com/512/616/616494.png" alt="EcoSanitari Logo" width="60" height="60" class="logo-solo">
+        <img src="https://cdn-icons-png.flaticon.com/512/616/616494.png" alt="Vercam Logo" width="60" height="60" class="logo-solo">
       </a>
-    <!-- Hamburger button SEMPRE visibile e allineato a destra -->
-    <button class="navbar-toggler ms-auto" type="button" data-bs-toggle="collapse" data-bs-target="#navbarMenu"
-      aria-controls="navbarMenu" aria-expanded="false" aria-label="Toggle navigation">
-      <span class="navbar-toggler-icon"></span>
-    </button>
-    <div class="collapse navbar-collapse justify-content-center" id="navbarMenu">
-      <ul class="navbar-nav mb-2 mb-lg-0 d-flex justify-content-center align-items-center w-100" style="gap:1rem;">
-        <li class="nav-item"><a class="nav-link active" href="index.html">Home</a></li>
-        <li class="nav-item"><a class="nav-link" href="chi-siamo.html">Chi siamo</a></li>
-        <li class="nav-item"><a class="nav-link" href="servizi.html">Servizi</a></li>
-        <li class="nav-item"><a class="nav-link" href="documenti.html">Documenti</a></li>
-        <li class="nav-item"><a class="nav-link" href="contatti.html">Contatti</a></li>
-      </ul>
-    </div>
-
+      <button class="navbar-toggler ms-auto" type="button" data-bs-toggle="collapse" data-bs-target="#navbarMenu"
+        aria-controls="navbarMenu" aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+      </button>
+      <div class="collapse navbar-collapse justify-content-center" id="navbarMenu">
+        <ul class="navbar-nav mb-2 mb-lg-0 d-flex justify-content-center align-items-center w-100" style="gap:1rem;">
+          <li class="nav-item"><a class="nav-link active" href="index.html">Home</a></li>
+          <li class="nav-item"><a class="nav-link" href="chi-siamo.html">Chi siamo</a></li>
+          <li class="nav-item"><a class="nav-link" href="servizi.html">Servizi</a></li>
+          <li class="nav-item"><a class="nav-link" href="documenti.html">Documenti</a></li>
+          <li class="nav-item"><a class="nav-link" href="contatti.html">Contatti</a></li>
+        </ul>
+      </div>
     </div>
   </nav>
 </header>
 
-  <header class="bg-light py-5 text-center">
-    <div class="container">
-      <h1 class="display-4">Smaltimento Sanitario Sicuro ed Efficiente</h1>
-      <p class="lead">Specializzati nello smaltimento di rifiuti sanitari con attenzione all'ambiente e alla normativa vigente.</p>
-    </div>
-  </header>
+<!-- Hero Web 3.0 -->
+<section class="hero-section hero-extra-padding position-relative text-center text-white">
+  <div class="container position-relative z-2">
+    <h1 class="display-3 fw-bold mb-3" style="text-shadow:0 4px 24px rgba(67,233,123,0.13);">Vercam</h1>
+    <p class="lead mb-4">Smaltimento sanitario, trasporto rifiuti pericolosi, consulenza ambientale e gestione documentale digitale.<br>Soluzioni Web 3.0 per la sostenibilità e la sicurezza ambientale.</p>
+    <a href="servizi.html" class="btn btn-light btn-lg px-5 py-3 fw-bold shadow-lg" style="border-radius:2rem;">Scopri i nostri servizi</a>
+  </div>
+  <!-- Particelle decorative -->
+  <div class="particles-bg">
+    <div class="particle" style="width:48px;height:48px;top:12%;left:8%;animation-delay:0s;"></div>
+    <div class="particle" style="width:32px;height:32px;top:70%;left:80%;animation-delay:2s;"></div>
+    <div class="particle" style="width:24px;height:24px;top:40%;left:60%;animation-delay:1s;"></div>
+    <div class="particle" style="width:36px;height:36px;top:80%;left:20%;animation-delay:3s;"></div>
+    <div class="particle" style="width:20px;height:20px;top:25%;left:90%;animation-delay:1.5s;"></div>
+  </div>
+</section>
 
-  <section class="py-5">
-    <div class="container">
-      <h2>Benvenuti su EcoSanitari</h2>
-      <p>EcoSanitari è un'azienda leader nel settore dello smaltimento sanitario. Con anni di esperienza e un team altamente qualificato, garantiamo soluzioni sicure, conformi e sostenibili per ogni esigenza di smaltimento di rifiuti sanitari.</p>
+<!-- Servizi principali -->
+<section class="section-servizi py-5 bg-white">
+  <div class="container">
+    <h2 class="text-success fw-bold text-center mb-5">Cosa facciamo</h2>
+    <div class="row g-4 justify-content-center">
+      <div class="col-12 col-md-6 col-lg-3 d-flex">
+        <div class="card shadow-lg border-0 w-100 text-center p-4" style="border-radius:2rem;">
+          
+          <i class="bi bi-recycle display-5 text-success mb-3"></i>
+          <h3 class="fw-bold mb-2">Smaltimento rifiuti sanitari</h3>
+          <p class="mb-3">Gestione e smaltimento certificato con tracciabilità blockchain e assistenza dedicata.</p>
+        </div>
+      </div>
+      <div class="col-12 col-md-6 col-lg-3 d-flex">
+        <div class="card shadow-lg border-0 w-100 text-center p-4" style="border-radius:2rem;">
+          
+          <i class="bi bi-truck display-5 text-success mb-3"></i>
+          <h3 class="fw-bold mb-2">Trasporto rifiuti pericolosi</h3>
+          <p class="mb-3">Trasporto sicuro e conforme, con mezzi autorizzati e monitoraggio digitale in tempo reale.</p>
+        </div>
+      </div>
+      <div class="col-12 col-md-6 col-lg-3 d-flex">
+        <div class="card shadow-lg border-0 w-100 text-center p-4" style="border-radius:2rem;">
+          
+          <i class="bi bi-bar-chart-line-fill display-5 text-success mb-3"></i>
+          <h3 class="fw-bold mb-2">Consulenza ambientale</h3>
+          <p class="mb-3">Supporto tecnico e normativo, report digitali e dashboard interattive per la gestione ambientale.</p>
+        </div>
+      </div>
+      <div class="col-12 col-md-6 col-lg-3 d-flex">
+        <div class="card shadow-lg border-0 w-100 text-center p-4" style="border-radius:2rem;">
+          
+          <i class="bi bi-file-earmark-check-fill display-5 text-success mb-3"></i>
+          <h3 class="fw-bold mb-2">Gestione documentale</h3>
+          <p class="mb-3">Archiviazione digitale, firma elettronica e aggiornamento automatico di certificazioni ambientali.</p>
+        </div>
+      </div>
     </div>
-  </section>
+  </div>
+</section>
+
+<!-- Vantaggi -->
+<section class="py-5 bg-light" style="padding-top:5rem; padding-bottom:5rem;">
+  <div class="container">
+    <h2 class="text-success fw-bold text-center mb-5">Perché scegliere Vercam?</h2>
+    <div class="row g-4 justify-content-center">
+      <div class="col-12 col-md-6 col-lg-3">
+        <div class="text-center p-4">
+          <i class="bi bi-shield-check display-5 text-success mb-3"></i>
+          <h4 class="fw-bold mb-2">Sicurezza</h4>
+          <p>Processi certificati e conformi alle normative, per la massima sicurezza ambientale.</p>
+        </div>
+      </div>
+      <div class="col-12 col-md-6 col-lg-3">
+        <div class="text-center p-4">
+          <i class="bi bi-globe2 display-5 text-success mb-3"></i>
+          <h4 class="fw-bold mb-2">Innovazione</h4>
+          <p>Soluzioni digitali e Web 3.0, con blockchain e dashboard interattive.</p>
+        </div>
+      </div>
+      <div class="col-12 col-md-6 col-lg-3">
+        <div class="text-center p-4">
+          <i class="bi bi-people-fill display-5 text-success mb-3"></i>
+          <h4 class="fw-bold mb-2">Assistenza</h4>
+          <p>Supporto dedicato e consulenza personalizzata per ogni cliente.</p>
+        </div>
+      </div>
+      <div class="col-12 col-md-6 col-lg-3 d-flex">
+        <div class="text-center p-4">
+          <svg xmlns="http://www.w3.org/2000/svg" width="48" height="48" fill="currentColor" class="bi bi-leaf-fill display-5 text-success mb-3" viewBox="0 0 16 16">
+            <path d="M1.4 1.7c.217.289.65.84 1.725 1.274 1.093.44 2.885.774 5.834.528 2.02-.168 3.431.51 4.326 1.556C14.161 6.082 14.5 7.41 14.5 8.5q0 .344-.027.734C13.387 8.252 11.877 7.76 10.39 7.5c-2.016-.288-4.188-.445-5.59-2.045-.142-.162-.402-.102-.379.112.108.985 1.104 1.82 1.844 2.308 2.37 1.566 5.772-.118 7.6 3.071.505.8 1.374 2.7 1.75 4.292.07.298-.066.611-.354.715a.7.7 0 0 1-.161.042 1 1 0 0 1-1.08-.794c-.13-.97-.396-1.913-.868-2.77C12.173 13.386 10.565 14 8 14c-1.854 0-3.32-.544-4.45-1.435-1.124-.887-1.889-2.095-2.39-3.383-1-2.562-1-5.536-.65-7.28L.73.806z"/>
+          </svg>
+          <h4 class="fw-bold mb-2">Sostenibilità</h4>
+          <p class="mb-3">Impegno concreto per la tutela dell'ambiente e la riduzione dell'impatto ecologico.</p>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- Call to Action -->
+<section class="text-dark text-center">
+  <div class="bg-section-consulenza position-relative py-5" style="background-color: #198754; padding-top:5rem; padding-bottom:5rem;">
+    <div class="particles-bg">
+      <div class="particle particle-1"></div>
+      <div class="particle particle-2"></div>
+      <div class="particle particle-3"></div>
+      <div class="particle particle-4"></div>
+      <div class="particle particle-5"></div>
+    </div>
+    <div class="container position-relative z-2">
+      <div class="consulenza-card mx-auto p-5 text-center text-white shadow-lg">
+        <h2 class="fw-bold mb-4 consulenza-title">Richiedi una consulenza gratuita</h2>
+        <p class="mb-4 consulenza-desc">Contattaci per scoprire come Vercam può aiutare la tua azienda a gestire i rifiuti sanitari in modo sicuro, innovativo e sostenibile.</p>
+        <a href="contatti.html" class="btn btn-light btn-lg px-5 py-3 fw-bold shadow-lg consulenza-btn">Contattaci ora</a>
+      </div>
+    </div>
+  </div>
+</section>
 
     
-    <footer class="bg-success text-white py-5 mt-4">
-      <div class="container">
+
+
+
+    <footer class="footer-web3 position-relative py-5 text-white">
+      <div class="footer-bg-gradient position-absolute top-0 start-0 w-100 h-100 z-0"></div>
+      <div class="particles-bg">
+        <div class="particle particle-f1"></div>
+        <div class="particle particle-f2"></div>
+        <div class="particle particle-f3"></div>
+        <div class="particle particle-f4"></div>
+        <div class="particle particle-f5"></div>
+      </div>
+      <div class="container position-relative z-2">
         <div class="row gy-4">
           <!-- Contact Form Column -->
           <div class="col-lg-6 mb-4 mb-lg-0">
-            <h5 class="mb-4 text-center overflow-hidden">Contattaci</h5>
-            <form id="emailForm" action="" method="POST">
-              <div class="row g-3 mb-3">
-                <div class="col-sm-6">
-                  <input type="text" class="form-control" placeholder="Nome e Cognome" name="name" required>
+            <div class="footer-card p-4 shadow-lg">
+              <h5 class="mb-4 text-center overflow-hidden">Contattaci</h5>
+              <form id="emailForm" action="" method="POST">
+                <div class="row g-3 mb-3">
+                  <div class="col-sm-6">
+                    <input type="text" class="form-control" placeholder="Nome e Cognome" name="name" required>
+                  </div>
+                  <div class="col-sm-6">
+                    <input type="email" class="form-control" placeholder="Email" name="email" required>
+                  </div>
                 </div>
-                <div class="col-sm-6">
-                  <input type="email" class="form-control" placeholder="Email" name="email" required>
+                <div class="mb-3">
+                  <input type="text" class="form-control" placeholder="Oggetto" name="subject" required>
                 </div>
-              </div>
-              <div class="mb-3">
-                <input type="text" class="form-control" placeholder="Oggetto" name="subject" required>
-              </div>
-              <div class="mb-4">
-                <textarea class="form-control" placeholder="Messaggio" name="message" rows="4" required></textarea>
-              </div>
-              <div class="text-center">
-                <button type="submit" class="btn btn-light px-4 py-2 bnt-">Invia Messaggio</button>
-              </div>
-            </form>
+                <div class="mb-4">
+                  <textarea class="form-control" placeholder="Messaggio" name="message" rows="4" required></textarea>
+                </div>
+                <div class="text-center">
+                  <button type="submit" class="btn btn-light px-4 py-2 bnt-">Invia Messaggio</button>
+                </div>
+              </form>
+            </div>
           </div>
-          
           <!-- Info Column -->
           <div class="col-lg-6 text-center m-auto">
-            <h5 class="mb-4 text-center overflow-hidden">Vercam</h5>
-            <div class="d-flex flex-column align-items-center mb-4">
-              <p class="mb-3"><i class="bi bi-geo-alt-fill me-2"></i> Via dello Sport 123, Borgo Vercelli (VC)</p>
-              <p class="mb-3"><i class="bi bi-telephone-fill me-2"></i> +39 0123 456789</p>
-              <p class="mb-3"><i class="bi bi-envelope-fill me-2"></i> info@asdborgovercelli.it</p>
-            </div>
-            
-            <!-- Social Media Icons -->
-            <div class="text-center mb-4">
-              <a href="#" class="text-white mx-2"><i class="bi bi-facebook fs-4"></i></a>
-              <a href="#" class="text-white mx-2"><i class="bi bi-instagram fs-4"></i></a>
+            <div class="footer-card p-4 shadow-lg">
+              <h5 class="mb-4 text-center overflow-hidden">Vercam</h5>
+              <div class="d-flex flex-column align-items-center mb-4">
+                <p class="mb-3"><i class="bi bi-geo-alt-fill me-2"></i> Via dello Sport 123, Borgo Vercelli (VC)</p>
+                <p class="mb-3"><i class="bi bi-telephone-fill me-2"></i> +39 0123 456789</p>
+                <p class="mb-3"><i class="bi bi-envelope-fill me-2"></i> info@asdborgovercelli.it</p>
+              </div>
+              <!-- Social Media Icons -->
+              <div class="text-center mb-4">
+                <a href="#" class="text-white mx-2"><i class="bi bi-facebook fs-4"></i></a>
+                <a href="#" class="text-white mx-2"><i class="bi bi-instagram fs-4"></i></a>
+                <a href="#" class="text-white mx-2"><i class="bi bi-twitter-x fs-4"></i></a>
+              </div>
             </div>
           </div>
         </div>
-        
         <!-- Copyright -->
         <div class="row mt-5">
           <div class="col-12 text-center">
-            <hr class="my-4 bg-light opacity-25">
+            <hr class="my-4 bg-light opacity-50">
             <p class="mb-0">&copy; Vercam. Tutti i diritti riservati.</p>
           </div>
         </div>
       </div>
     </footer>
 </body>
-<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
+
 </html>
