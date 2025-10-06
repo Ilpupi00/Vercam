@@ -17,32 +17,56 @@
   <!-- Hero Web 3.0 Documenti -->
 
 <header>
-  <nav class="navbar navbar-expand-lg sticky-top shadow-sm navbar-mobile-web3">
-  <div class="container-fluid px-4 d-flex justify-content-between align-items-center navbar-mobile-container">
-      <a class="navbar-brand mx-0" href="index.html">
-        <img src="https://cdn-icons-png.flaticon.com/512/616/616494.png" alt="Vercam Logo" width="60" height="60" class="logo-solo">
+  <nav class="navbar navbar-expand-lg navbar-dark bg-success shadow-sm sticky-top">
+    <div class="container-fluid px-3">
+      <!-- Logo -->
+      <a class="navbar-brand d-flex align-items-center" href="index.html">
+        <img src="https://cdn-icons-png.flaticon.com/512/616/616494.png" alt="Vercam Logo" width="40" height="40" class="me-2">
+        <span class="fw-bold">Vercam</span>
       </a>
-      <button class="navbar-toggler ms-auto" type="button" data-bs-toggle="collapse" data-bs-target="#navbarMenu"
-        aria-controls="navbarMenu" aria-expanded="false" aria-label="Toggle navigation">
+
+      <!-- Mobile Toggle Button -->
+      <button class="navbar-toggler border-0" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
         <span class="navbar-toggler-icon"></span>
       </button>
-      <div class="collapse navbar-collapse justify-content-center" id="navbarMenu">
-        <ul class="navbar-nav mb-2 mb-lg-0 d-flex justify-content-center align-items-center w-100" style="gap:16px;">
-          <li class="nav-item"><a class="nav-link" href="index.html">Home</a></li>
-          <li class="nav-item"><a class="nav-link" href="chi-siamo.html">Chi siamo</a></li>
-          <li class="nav-item"><a class="nav-link" href="servizi.html">Servizi</a></li>
-          <li class="nav-item"><a class="nav-link active" href="documenti.html">Documenti</a></li>
-          <li class="nav-item"><a class="nav-link" href="contatti.html">Contatti</a></li>
-          <li class="nav-item d-lg-none">
-            <a href="area-venditore.html" class="btn-area-venditore-mobile">
-              <i class="bi bi-person-badge me-2"></i>Area Venditore
+
+      <!-- Navigation Menu -->
+      <div class="collapse navbar-collapse" id="navbarNav">
+        <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+          <li class="nav-item">
+            <a class="nav-link px-3 py-2" href="index.html">
+              <i class="bi bi-house-door me-1"></i>Home
+            </a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link px-3 py-2" href="chi-siamo.html">
+              <i class="bi bi-info-circle me-1"></i>Chi siamo
+            </a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link px-3 py-2" href="servizi.html">
+              <i class="bi bi-gear me-1"></i>Servizi
+            </a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link active px-3 py-2" href="documenti.html">
+              <i class="bi bi-file-earmark-text me-1"></i>Documenti
+            </a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link px-3 py-2" href="contatti.html">
+              <i class="bi bi-envelope me-1"></i>Contatti
             </a>
           </li>
         </ul>
+
+        <!-- Area Venditore Button -->
+        <div class="d-grid d-lg-flex justify-content-lg-end mt-3 mt-lg-0">
+          <a href="area-venditore.html" class="btn btn-outline-light btn-sm px-3 py-2">
+            <i class="bi bi-person-badge me-1"></i>Area Venditore
+          </a>
+        </div>
       </div>
-      <a href="area-venditore.html" class="btn-area-venditore ms-3 d-none d-lg-block">
-        <i class="bi bi-person-badge me-2"></i>Area Venditore
-      </a>
     </div>
   </nav>
 </header>
