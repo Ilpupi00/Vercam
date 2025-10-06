@@ -119,3 +119,55 @@
 .animate__fadeInUp {
 	animation-duration: 1.2s;
 }
+
+/* Mobile responsive adjustments */
+@media (max-width: 768px) {
+  .hero-section {
+    min-height: 500px;
+    padding-top: 6rem;
+    padding-bottom: 4rem;
+  }
+  
+  .hero-extra-padding {
+    padding-top: 5rem;
+    padding-bottom: 3rem;
+  }
+  
+  /* Team section improvements */
+  .rounded-circle {
+    width: 80px !important;
+    height: 80px !important;
+  }
+  
+  /* Valori cards improvements */
+  .card-valori {
+    margin-bottom: 1.5rem;
+  }
+  
+  /* Typography adjustments */
+  h2 {
+    font-size: 1.75rem;
+    margin-bottom: 2rem;
+  }
+  
+  h5 {
+    font-size: 1.1rem;
+  }
+  
+  .fs-5 {
+    font-size: 1.1rem !important;
+  }
+  
+  /* Button improvements */
+  .btn-light {
+    font-size: 0.9rem;
+    padding: 0.75rem 1.5rem;
+  }
+}
+
+/* Tablet responsive adjustments */
+@media (min-width: 769px) and (max-width: 991px) {
+  .hero-section {
+    min-height: 550px;
+  }
+}

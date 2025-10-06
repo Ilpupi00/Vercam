@@ -637,3 +637,170 @@
     flex-wrap: wrap;
   }
 }
+
+/* ===========================================
+   CATEGORY COLLAPSIBLE SECTIONS
+   =========================================== */
+
+.category-header {
+  transition: all 0.3s ease;
+  border: 1px solid rgba(67, 233, 123, 0.2);
+}
+
+.category-header:hover {
+  background-color: rgba(67, 233, 123, 0.1) !important;
+  transform: translateY(-2px);
+  box-shadow: 0 4px 12px rgba(67, 233, 123, 0.15);
+}
+
+.category-chevron {
+  transition: transform 0.3s ease;
+  color: var(--vercam-secondary);
+  font-size: 1.2rem;
+}
+
+.category-section .collapse {
+  transition: all 0.3s ease;
+}
+
+/* Animation for category content */
+.category-section .collapsing {
+  transition: height 0.3s ease;
+}
+
+/* Enhanced card hover effects for collapsible sections */
+.category-section .card {
+  transition: all 0.3s ease;
+}
+
+.category-section .card:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 8px 25px rgba(67, 233, 123, 0.2);
+}
+
+/* ===========================================
+   NEW DOCUMENTS HIGHLIGHTING
+   =========================================== */
+
+.card.border-danger {
+  position: relative;
+}
+
+.card.border-danger::before {
+  content: '';
+  position: absolute;
+  top: -2px;
+  left: -2px;
+  right: -2px;
+  bottom: -2px;
+  background: linear-gradient(45deg, #dc3545, #fd7e14, #ffc107);
+  border-radius: 0.375rem;
+  z-index: -1;
+  opacity: 0.3;
+  animation: pulse 2s infinite;
+}
+
+.badge.bg-danger {
+  animation: bounceIn 0.6s ease-out;
+  font-weight: 600;
+  text-transform: uppercase;
+  font-size: 0.7rem;
+  letter-spacing: 0.5px;
+}
+
+@keyframes pulse {
+  0%, 100% {
+    opacity: 0.3;
+  }
+  50% {
+    opacity: 0.6;
+  }
+}
+
+@keyframes bounceIn {
+  0% {
+    opacity: 0;
+    transform: scale(0.3);
+  }
+  50% {
+    opacity: 1;
+    transform: scale(1.05);
+  }
+  70% {
+    transform: scale(0.9);
+  }
+  100% {
+    opacity: 1;
+    transform: scale(1);
+  }
+}
+
+/* Mobile responsive adjustments */
+@media (max-width: 768px) {
+  .category-header {
+    padding: 1rem;
+  }
+  
+  .category-header h3 {
+    font-size: 1.25rem;
+  }
+  
+  .category-chevron {
+    font-size: 1rem;
+  }
+  
+  /* Search box mobile improvements */
+  .doc-search-box {
+    margin-bottom: 1.5rem;
+  }
+  
+  .doc-search-wrapper {
+    position: relative;
+  }
+  
+  .doc-search-input {
+    padding-right: 3rem;
+    border-radius: 0.5rem;
+    font-size: 1rem;
+  }
+  
+  .doc-search-btn {
+    position: absolute;
+    right: 0.5rem;
+    top: 50%;
+    transform: translateY(-50%);
+    border: none;
+    background: transparent;
+    color: var(--vercam-secondary);
+    padding: 0.5rem;
+  }
+  
+  /* Card improvements for mobile */
+  .card-title {
+    font-size: 1rem;
+    line-height: 1.3;
+  }
+  
+  .card-text {
+    font-size: 0.875rem;
+  }
+  
+  /* Badge spacing on mobile */
+  .badge {
+    font-size: 0.75rem;
+    margin-bottom: 0.25rem;
+  }
+  
+  /* Button improvements */
+  .btn-success {
+    font-size: 0.875rem;
+    padding: 0.5rem 1rem;
+  }
+}
+
+/* Tablet responsive adjustments */
+@media (min-width: 769px) and (max-width: 991px) {
+  .category-header h3 {
+    font-size: 1.5rem;
+  }
+}

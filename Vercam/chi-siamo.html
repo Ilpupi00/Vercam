@@ -2,10 +2,11 @@
 <html lang="it">
 <head>
   <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Chi Siamo - Vercam</title>
   <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet">
   <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.10.5/font/bootstrap-icons.css" rel="stylesheet">
-  <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;500;700&display=swap" rel="stylesheet">
   <link href="./Css/navbar.css" rel="stylesheet">
   <link href="./Css/footer.css" rel="stylesheet">
   <link href="./Css/chi-siamo.css" rel="stylesheet">
@@ -69,26 +70,38 @@
 </header>
 
   <!-- Hero Section -->
-  <section class="hero-section hero-extra-padding position-relative text-center text-white">
-    <div class="container position-relative z-2 text-center py-5">
-      <img src="https://images.unsplash.com/photo-1506744038136-46273834b3fb?auto=format&fit=crop&w=800&q=80" alt="Team Vercam" class="rounded-circle shadow-lg mb-4" style="width:120px; height:120px; object-fit:cover; border:5px solid #fff;">
-      <h1 class="display-4 fw-bold mb-3 animate__animated animate__fadeInDown">Vercam</h1>
-      <p class="lead mb-4 animate__animated animate__fadeInUp">Innovazione, sostenibilità e sicurezza per il futuro della sanità.</p>
-      <a href="#team" class="btn btn-light btn-lg shadow animate__animated animate__fadeInUp">Scopri il nostro team</a>
+  <section class="hero-section bg-success text-white py-5">
+    <div class="container">
+      <div class="row align-items-center min-vh-75">
+        <div class="col-12 text-center">
+          <!-- Mobile-First Content -->
+          <h1 class="display-4 fw-bold mb-3 text-shadow">
+            Chi Siamo
+          </h1>
+          <p class="lead mb-4 fs-6 fs-md-5 px-3">
+            La nostra storia, i nostri valori e il team che lavora ogni giorno per un futuro più sostenibile.
+          </p>
+          <div class="d-grid gap-2 d-md-flex justify-content-md-center">
+            <a href="#team" class="btn btn-light btn-lg px-4 py-3 fw-bold shadow">
+              <i class="bi bi-people me-2"></i>Scopri il nostro team
+            </a>
+          </div>
+        </div>
+      </div>
     </div>
-    <!-- Particelle decorative -->
+
+    <!-- Background Particles -->
     <div class="particles-bg">
-      <div class="particle" style="width:48px;height:48px;top:12%;left:8%;animation-delay:0s;"></div>
-      <div class="particle" style="width:32px;height:32px;top:70%;left:80%;animation-delay:2s;"></div>
-      <div class="particle" style="width:24px;height:24px;top:40%;left:60%;animation-delay:1s;"></div>
-      <div class="particle" style="width:36px;height:36px;top:80%;left:20%;animation-delay:3s;"></div>
-      <div class="particle" style="width:20px;height:20px;top:25%;left:90%;animation-delay:1.5s;"></div>
+      <div class="particle" style="width: 35px; height: 35px; top: 15%; left: 15%; animation-delay: 0s;"></div>
+      <div class="particle" style="width: 25px; height: 25px; top: 65%; left: 75%; animation-delay: 1.2s;"></div>
+      <div class="particle" style="width: 20px; height: 20px; top: 35%; left: 65%; animation-delay: 2.4s;"></div>
+      <div class="particle" style="width: 18px; height: 18px; top: 75%; left: 25%; animation-delay: 0.8s;"></div>
+      <div class="particle" style="width: 12px; height: 12px; top: 50%; left: 85%; animation-delay: 1.6s;"></div>
     </div>
-    <div class="hero-overlay position-absolute top-0 start-0 w-100 h-100" style="background:rgba(25,135,84,0.15);"></div>
   </section>
 
   <!-- Chi Siamo Section -->
-  <section class="container py-5" id="chi-siamo">
+  <section class="container-fluid px-3 px-md-4 py-5" id="chi-siamo">
     <div class="row align-items-center">
       <div class="col-lg-6 mb-4 mb-lg-0">
         <img src="https://images.unsplash.com/photo-1465101046530-73398c7f28ca?auto=format&fit=crop&w=800&q=80" alt="Azienda" class="img-fluid rounded-4 shadow-lg animate__animated animate__fadeInLeft">
@@ -106,20 +119,20 @@
   </section>
 
   <!-- Team Section -->
-  <section class="container py-5" id="team">
+  <section class="container-fluid px-3 px-md-4 py-5" id="team">
     <h2 class="fw-bold text-center mb-5">Il Nostro Team</h2>
     <div class="row justify-content-center">
-      <div class="col-md-4 text-center mb-4">
+      <div class="col-12 col-md-6 col-lg-4 text-center mb-4">
         <img src="https://randomuser.me/api/portraits/men/32.jpg" alt="CEO" class="rounded-circle shadow mb-3" style="width:100px; height:100px; object-fit:cover;">
         <h5 class="mb-1">Marco Rossi</h5>
         <p class="text-muted mb-0">CEO & Founder</p>
       </div>
-      <div class="col-md-4 text-center mb-4">
+      <div class="col-12 col-md-6 col-lg-4 text-center mb-4">
         <img src="https://randomuser.me/api/portraits/women/44.jpg" alt="Responsabile Ambiente" class="rounded-circle shadow mb-3" style="width:100px; height:100px; object-fit:cover;">
         <h5 class="mb-1">Giulia Bianchi</h5>
         <p class="text-muted mb-0">Responsabile Ambiente</p>
       </div>
-      <div class="col-md-4 text-center mb-4">
+      <div class="col-12 col-md-6 col-lg-4 text-center mb-4">
         <img src="https://randomuser.me/api/portraits/men/65.jpg" alt="Tecnico" class="rounded-circle shadow mb-3" style="width:100px; height:100px; object-fit:cover;">
         <h5 class="mb-1">Luca Verdi</h5>
         <p class="text-muted mb-0">Tecnico Specializzato</p>
@@ -128,25 +141,25 @@
   </section>
 
   <!-- Valori e Visione Section -->
-  <section class="container py-5">
+  <section class="container-fluid px-3 px-md-4 py-5">
     <h2 class="fw-bold text-center mb-5">Valori e Visione</h2>
     <div class="row text-center">
-      <div class="col-md-4 mb-4">
-        <div class="p-4 rounded-4 shadow-sm bg-light animate__animated animate__fadeInUp">
+      <div class="col-12 col-md-6 col-lg-4 mb-4">
+        <div class="p-4 rounded-4 shadow-sm bg-light animate__animated animate__fadeInUp h-100">
           <i class="bi bi-globe2 fs-1 text-success mb-3"></i>
           <h5>Sostenibilità</h5>
           <p class="text-muted">Impegno costante per la tutela dell’ambiente e la riduzione dell’impatto ecologico.</p>
         </div>
       </div>
-      <div class="col-md-4 mb-4">
-        <div class="p-4 rounded-4 shadow-sm bg-light animate__animated animate__fadeInUp">
+      <div class="col-12 col-md-6 col-lg-4 mb-4">
+        <div class="p-4 rounded-4 shadow-sm bg-light animate__animated animate__fadeInUp h-100">
           <i class="bi bi-shield-check fs-1 text-success mb-3"></i>
           <h5>Sicurezza</h5>
           <p class="text-muted">Procedure certificate e conformi alle normative per garantire la massima sicurezza.</p>
         </div>
       </div>
-      <div class="col-md-4 mb-4">
-        <div class="p-4 rounded-4 shadow-sm bg-light animate__animated animate__fadeInUp">
+      <div class="col-12 col-md-6 col-lg-4 mb-4">
+        <div class="p-4 rounded-4 shadow-sm bg-light animate__animated animate__fadeInUp h-100">
           <i class="bi bi-lightbulb fs-1 text-success mb-3"></i>
           <h5>Innovazione</h5>
           <p class="text-muted">Soluzioni all’avanguardia per rispondere alle sfide della sanità moderna.</p>
