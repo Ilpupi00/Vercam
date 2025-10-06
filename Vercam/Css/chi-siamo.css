@@ -66,9 +66,38 @@
 /* Responsive tweaks */
 @media (max-width: 768px) {
 	.hero-section h1 {
-		font-size: 2.2rem;
+		font-size: 2.8rem;
+		margin-bottom: 1.5rem;
+	}
+	.hero-section p.lead {
+		font-size: 1.2rem;
+		line-height: 1.6;
 	}
 	#team .col-md-4 {
+		margin-bottom: 3rem;
+		padding: 0 1rem;
+	}
+	.team-member {
+		padding: 2rem 1.5rem;
+		border-radius: 20px;
+		box-shadow: 0 8px 25px rgba(67,233,123,0.15);
+	}
+	.team-member img {
+		width: 120px;
+		height: 120px;
+		border-radius: 50%;
+		margin-bottom: 1.5rem;
+	}
+	.team-member h4 {
+		font-size: 1.4rem;
+		margin-bottom: 0.5rem;
+	}
+	.team-member p {
+		font-size: 1.1rem;
+		line-height: 1.5;
+	}
+	.section-title {
+		font-size: 2.2rem;
 		margin-bottom: 2rem;
 	}
 }

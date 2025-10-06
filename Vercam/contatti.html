@@ -2,152 +2,405 @@
 <html lang="it">
 <head>
   <meta charset="UTF-8">
-  <title>Smaltimento Sanitario - Vercam</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Contatti - Vercam</title>
   <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet">
   <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.10.5/font/bootstrap-icons.css" rel="stylesheet">
-  <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap" rel="stylesheet">
-  <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;500;700&display=swap" rel="stylesheet">
   <link href="./Css/navbar.css" rel="stylesheet">
-  <link href="./Css/footer.css" rel="stylesheet"> 
+  <link href="./Css/footer.css" rel="stylesheet">
   <link href="./Css/contatti.css" rel="stylesheet">
   <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js" defer></script>
 </head>
 <body>
+
+<!-- Navbar Mobile-First -->
 <header>
-  <nav class="navbar navbar-expand-lg sticky-top shadow-sm navbar-mobile-web3">
-  <div class="container-fluid px-4 d-flex justify-content-between align-items-center navbar-mobile-container">
-      <a class="navbar-brand mx-0" href="index.html">
-        <img src="https://cdn-icons-png.flaticon.com/512/616/616494.png" alt="Vercam Logo" width="60" height="60" class="logo-solo">
+  <nav class="navbar navbar-expand-lg navbar-dark bg-success shadow-sm sticky-top">
+    <div class="container-fluid px-3">
+      <!-- Logo -->
+      <a class="navbar-brand d-flex align-items-center" href="index.html">
+        <img src="https://cdn-icons-png.flaticon.com/512/616/616494.png" alt="Vercam Logo" width="40" height="40" class="me-2">
+        <span class="fw-bold">Vercam</span>
       </a>
-      <button class="navbar-toggler ms-auto" type="button" data-bs-toggle="collapse" data-bs-target="#navbarMenu"
-        aria-controls="navbarMenu" aria-expanded="false" aria-label="Toggle navigation">
+
+      <!-- Mobile Toggle Button -->
+      <button class="navbar-toggler border-0" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
         <span class="navbar-toggler-icon"></span>
       </button>
-      <div class="collapse navbar-collapse justify-content-center" id="navbarMenu">
-        <ul class="navbar-nav mb-2 mb-lg-0 d-flex justify-content-center align-items-center w-100" style="gap:1rem;">
-          <li class="nav-item"><a class="nav-link" href="index.html">Home</a></li>
-          <li class="nav-item"><a class="nav-link" href="chi-siamo.html">Chi siamo</a></li>
-          <li class="nav-item"><a class="nav-link" href="servizi.html">Servizi</a></li>
-          <li class="nav-item"><a class="nav-link" href="documenti.html">Documenti</a></li>
-          <li class="nav-item"><a class="nav-link active" href="contatti.html">Contatti</a></li>
+
+      <!-- Navigation Menu -->
+      <div class="collapse navbar-collapse" id="navbarNav">
+        <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+          <li class="nav-item">
+            <a class="nav-link px-3 py-2" href="index.html">
+              <i class="bi bi-house-door me-1"></i>Home
+            </a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link px-3 py-2" href="chi-siamo.html">
+              <i class="bi bi-info-circle me-1"></i>Chi siamo
+            </a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link px-3 py-2" href="servizi.html">
+              <i class="bi bi-gear me-1"></i>Servizi
+            </a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link px-3 py-2" href="documenti.html">
+              <i class="bi bi-file-earmark-text me-1"></i>Documenti
+            </a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link active px-3 py-2" href="contatti.html">
+              <i class="bi bi-envelope me-1"></i>Contatti
+            </a>
+          </li>
         </ul>
+
+        <!-- Area Venditore Button -->
+        <div class="d-grid d-lg-flex justify-content-lg-end mt-3 mt-lg-0">
+          <a href="area-venditore.html" class="btn btn-outline-light btn-sm px-3 py-2">
+            <i class="bi bi-person-badge me-1"></i>Area Venditore
+          </a>
+        </div>
       </div>
     </div>
   </nav>
 </header>
 
-  <main class="web3-bg py-5 text-center position-relative">
-    <div class="web3-particles-bg">
-      <div class="web3-particle web3-p1"></div>
-      <div class="web3-particle web3-p2"></div>
-      <div class="web3-particle web3-p3"></div>
-      <div class="web3-particle web3-p4"></div>
-      <div class="web3-particle web3-p5"></div>
-    </div>
-    <div class="container fade-in">
-  <div class="contact-box web3-card mx-auto p-4 shadow-lg contact-box-mobile">
-  <span class="badge-web3 mb-2 badge-web3-mobile">Web 3.0 Experience</span>
-        <h1 class="contact-title mb-3">Contattaci</h1>
-        <p class="contact-sub mb-4">Siamo a tua disposizione per qualsiasi informazione o richiesta.<br>Compila il modulo e ti risponderemo al più presto!</p>
-  <form id="emailForm" action="" method="POST" class="contact-form contact-form-mobile">
-          <div class="row g-3 mb-3">
-            <div class="col-sm-6">
-              <input type="text" class="form-control contact-input contact-input-mobile" placeholder="Nome e Cognome" name="name" required>
-            </div>
-            <div class="col-sm-6">
-              <input type="email" class="form-control contact-input contact-input-mobile" placeholder="Email" name="email" required>
-            </div>
-          </div>
-          <div class="mb-3">
-            <input type="text" class="form-control contact-input contact-input-mobile" placeholder="Oggetto" name="subject" required>
-          </div>
-          <div class="mb-4">
-            <textarea class="form-control contact-input contact-input-mobile" placeholder="Messaggio" name="message" rows="4" required></textarea>
-          </div>
-          <div class="text-center">
-            <button type="submit" class="btn contact-btn px-4 py-2 contact-btn-mobile">Invia Messaggio</button>
-          </div>
-        </form>
-  <div class="contact-info mt-5 contact-info-mobile">
-          <h5 class="mb-3">I nostri recapiti</h5>
-          <ul class="list-unstyled">
-            <li class="mb-2"><i class="bi bi-geo-alt-fill me-2"></i> Via dello Sport 123, Borgo Vercelli (VC)</li>
-            <li class="mb-2"><i class="bi bi-telephone-fill me-2"></i> +39 0123 456789</li>
-            <li class="mb-2"><i class="bi bi-envelope-fill me-2"></i> info@asdborgovercelli.it</li>
-          </ul>
-          <div class="contact-social mt-3 contact-social-mobile">
-            <a href="#" class="contact-social-icon contact-social-icon-mobile"><i class="bi bi-facebook"></i></a>
-            <a href="#" class="contact-social-icon contact-social-icon-mobile"><i class="bi bi-instagram"></i></a>
-          </div>
-        </div>
+<!-- Hero Section Mobile-First -->
+<section class="hero-section bg-success text-white py-5">
+  <div class="container">
+    <div class="row align-items-center min-vh-50">
+      <div class="col-12 text-center">
+        <h1 class="display-5 fw-bold mb-3 text-shadow">
+          Contattaci
+        </h1>
+        <p class="lead mb-4 fs-6 fs-md-5 px-3">
+          Siamo a tua disposizione per qualsiasi informazione o richiesta.
+          <span class="d-block mt-2 fw-bold text-warning">Compila il modulo e ti risponderemo al più presto!</span>
+        </p>
       </div>
     </div>
-  </main>
-    
-   <footer class="footer-web3 position-relative py-5 text-white">
-      <div class="footer-bg-gradient position-absolute top-0 start-0 w-100 h-100 z-0"></div>
-      <div class="particles-bg">
-        <div class="particle particle-f1"></div>
-        <div class="particle particle-f2"></div>
-        <div class="particle particle-f3"></div>
-        <div class="particle particle-f4"></div>
-        <div class="particle particle-f5"></div>
-      </div>
-      <div class="container position-relative z-2">
-        <div class="row gy-4">
-          <!-- Contact Form Column -->
-          <div class="col-lg-6 mb-4 mb-lg-0">
-            <div class="footer-card p-4 shadow-lg">
-              <h5 class="mb-4 text-center overflow-hidden">Contattaci</h5>
-              <form id="emailForm" action="" method="POST">
-                <div class="row g-3 mb-3">
-                  <div class="col-sm-6">
-                    <input type="text" class="form-control" placeholder="Nome e Cognome" name="name" required>
-                  </div>
-                  <div class="col-sm-6">
-                    <input type="email" class="form-control" placeholder="Email" name="email" required>
-                  </div>
-                </div>
-                <div class="mb-3">
-                  <input type="text" class="form-control" placeholder="Oggetto" name="subject" required>
-                </div>
-                <div class="mb-4">
-                  <textarea class="form-control" placeholder="Messaggio" name="message" rows="4" required></textarea>
-                </div>
-                <div class="text-center">
-                  <button type="submit" class="btn btn-light px-4 py-2 bnt-">Invia Messaggio</button>
-                </div>
-              </form>
-            </div>
-          </div>
-          <!-- Info Column -->
-          <div class="col-lg-6 text-center m-auto">
-            <div class="footer-card p-4 shadow-lg">
-              <h5 class="mb-4 text-center overflow-hidden">Vercam</h5>
-              <div class="d-flex flex-column align-items-center mb-4">
-                <p class="mb-3"><i class="bi bi-geo-alt-fill me-2"></i> Via dello Sport 123, Borgo Vercelli (VC)</p>
-                <p class="mb-3"><i class="bi bi-telephone-fill me-2"></i> +39 0123 456789</p>
-                <p class="mb-3"><i class="bi bi-envelope-fill me-2"></i> info@asdborgovercelli.it</p>
-              </div>
-              <!-- Social Media Icons -->
-              <div class="text-center mb-4">
-                <a href="#" class="text-white mx-2"><i class="bi bi-facebook fs-4"></i></a>
-                <a href="#" class="text-white mx-2"><i class="bi bi-instagram fs-4"></i></a>
-                <a href="#" class="text-white mx-2"><i class="bi bi-twitter-x fs-4"></i></a>
-              </div>
-            </div>
-          </div>
-        </div>
-        <!-- Copyright -->
-        <div class="row mt-5">
-          <div class="col-12 text-center">
-            <hr class="my-4 bg-light opacity-50">
-            <p class="mb-0">&copy; Vercam. Tutti i diritti riservati.</p>
-          </div>
-        </div>
-      </div>
-    </footer>
-    
-</body>
+  </div>
 
+  <!-- Background Particles -->
+  <div class="particles-bg">
+    <div class="particle" style="width: 30px; height: 30px; top: 20%; left: 10%; animation-delay: 0s;"></div>
+    <div class="particle" style="width: 20px; height: 20px; top: 60%; left: 80%; animation-delay: 1s;"></div>
+    <div class="particle" style="width: 25px; height: 25px; top: 40%; left: 70%; animation-delay: 2s;"></div>
+    <div class="particle" style="width: 15px; height: 15px; top: 80%; left: 20%; animation-delay: 0.5s;"></div>
+  </div>
+</section>
+
+<!-- Contact Section Mobile-First -->
+<section class="py-5 bg-light">
+  <div class="container">
+    <div class="row g-4">
+      <!-- Contact Form - Mobile First -->
+      <div class="col-12 col-lg-8">
+        <div class="card border-0 shadow-sm">
+          <div class="card-body p-4 p-md-5">
+            <div class="text-center mb-4">
+              <span class="badge bg-success text-white px-3 py-2 mb-3">
+                <i class="bi bi-send me-1"></i>Web 3.0 Experience
+              </span>
+              <h2 class="card-title fw-bold mb-3">Scrivici un messaggio</h2>
+              <p class="text-muted">Compila il form e ti risponderemo entro 24 ore</p>
+            </div>
+
+            <form id="contactForm" novalidate>
+              <div class="row g-3">
+                <div class="col-12 col-md-6">
+                  <div class="form-floating">
+                    <input type="text" class="form-control" id="name" placeholder="Nome e Cognome" required>
+                    <label for="name">
+                      <i class="bi bi-person me-1"></i>Nome e Cognome
+                    </label>
+                  </div>
+                </div>
+                <div class="col-12 col-md-6">
+                  <div class="form-floating">
+                    <input type="email" class="form-control" id="email" placeholder="Email" required>
+                    <label for="email">
+                      <i class="bi bi-envelope me-1"></i>Email
+                    </label>
+                  </div>
+                </div>
+              </div>
+
+              <div class="row g-3 mt-1">
+                <div class="col-12 col-md-6">
+                  <div class="form-floating">
+                    <input type="tel" class="form-control" id="phone" placeholder="Telefono">
+                    <label for="phone">
+                      <i class="bi bi-telephone me-1"></i>Telefono (opzionale)
+                    </label>
+                  </div>
+                </div>
+                <div class="col-12 col-md-6">
+                  <div class="form-floating">
+                    <select class="form-select" id="service" required>
+                      <option value="">Seleziona un servizio</option>
+                      <option value="smaltimento">Smaltimento rifiuti sanitari</option>
+                      <option value="trasporto">Trasporto rifiuti pericolosi</option>
+                      <option value="consulenza">Consulenza ambientale</option>
+                      <option value="documentale">Gestione documentale</option>
+                      <option value="altro">Altro</option>
+                    </select>
+                    <label for="service">
+                      <i class="bi bi-gear me-1"></i>Servizio di interesse
+                    </label>
+                  </div>
+                </div>
+              </div>
+
+              <div class="form-floating mt-3">
+                <input type="text" class="form-control" id="subject" placeholder="Oggetto" required>
+                <label for="subject">
+                  <i class="bi bi-chat-dots me-1"></i>Oggetto
+                </label>
+              </div>
+
+              <div class="form-floating mt-3">
+                <textarea class="form-control" id="message" placeholder="Messaggio" style="height: 120px" required></textarea>
+                <label for="message">
+                  <i class="bi bi-pencil me-1"></i>Messaggio
+                </label>
+              </div>
+
+              <div class="form-check mt-3">
+                <input class="form-check-input" type="checkbox" id="privacy" required>
+                <label class="form-check-label small" for="privacy">
+                  Acconsento al trattamento dei dati personali secondo la <a href="#" class="text-success">Privacy Policy</a>
+                </label>
+              </div>
+
+              <div class="text-center mt-4">
+                <button type="submit" class="btn btn-success btn-lg px-5 py-3 fw-bold">
+                  <i class="bi bi-send me-2"></i>Invia messaggio
+                </button>
+              </div>
+            </form>
+          </div>
+        </div>
+      </div>
+
+      <!-- Contact Info - Mobile First -->
+      <div class="col-12 col-lg-4">
+        <div class="row g-4">
+          <!-- Contact Details -->
+          <div class="col-12">
+            <div class="card border-0 shadow-sm h-100">
+              <div class="card-body p-4 text-center">
+                <div class="icon-wrapper mb-3">
+                  <i class="bi bi-info-circle display-4 text-success"></i>
+                </div>
+                <h5 class="card-title fw-bold mb-3">I nostri recapiti</h5>
+                <div class="contact-info">
+                  <p class="mb-3">
+                    <i class="bi bi-geo-alt text-success me-2"></i>
+                    <strong>Indirizzo:</strong><br>
+                    Via dello Sport 123<br>
+                    Borgo Vercelli (VC)
+                  </p>
+                  <p class="mb-3">
+                    <i class="bi bi-telephone text-success me-2"></i>
+                    <strong>Telefono:</strong><br>
+                    +39 0123 456789
+                  </p>
+                  <p class="mb-3">
+                    <i class="bi bi-envelope text-success me-2"></i>
+                    <strong>Email:</strong><br>
+                    info@asdborgovercelli.it
+                  </p>
+                  <p class="mb-2">
+                    <i class="bi bi-clock text-success me-2"></i>
+                    <strong>Orari:</strong><br>
+                    Lun-Ven: 8:00-18:00<br>
+                    Sab: 8:00-12:00
+                  </p>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <!-- Social Media -->
+          <div class="col-12">
+            <div class="card border-0 shadow-sm">
+              <div class="card-body p-4 text-center">
+                <h5 class="card-title fw-bold mb-3">Seguici sui social</h5>
+                <div class="d-flex justify-content-center gap-3">
+                  <a href="#" class="btn btn-outline-success btn-lg rounded-circle" aria-label="Facebook">
+                    <i class="bi bi-facebook"></i>
+                  </a>
+                  <a href="#" class="btn btn-outline-success btn-lg rounded-circle" aria-label="Instagram">
+                    <i class="bi bi-instagram"></i>
+                  </a>
+                  <a href="#" class="btn btn-outline-success btn-lg rounded-circle" aria-label="LinkedIn">
+                    <i class="bi bi-linkedin"></i>
+                  </a>
+                  <a href="#" class="btn btn-outline-success btn-lg rounded-circle" aria-label="Twitter">
+                    <i class="bi bi-twitter-x"></i>
+                  </a>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <!-- Quick Actions -->
+          <div class="col-12">
+            <div class="card border-0 shadow-sm">
+              <div class="card-body p-4 text-center">
+                <h5 class="card-title fw-bold mb-3">Azioni rapide</h5>
+                <div class="d-grid gap-2">
+                  <a href="tel:+390123456789" class="btn btn-success">
+                    <i class="bi bi-telephone me-2"></i>Chiama ora
+                  </a>
+                  <a href="mailto:info@asdborgovercelli.it" class="btn btn-outline-success">
+                    <i class="bi bi-envelope me-2"></i>Scrivi email
+                  </a>
+                  <a href="servizi.html" class="btn btn-outline-success">
+                    <i class="bi bi-gear me-2"></i>Vedi servizi
+                  </a>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Map Section (Optional) -->
+    <div class="row mt-5">
+      <div class="col-12">
+        <div class="card border-0 shadow-sm">
+          <div class="card-body p-0">
+            <div class="ratio ratio-16x9">
+              <iframe
+                src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d2817.123456789012!2d8.123456!3d45.123456!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x0%3A0x0!2zNDUuMTIzNDU2LDguMTIzNDU2!5e0!3m2!1sit!2sit!4v1234567890123!5m2!1sit!2sit"
+                allowfullscreen=""
+                loading="lazy"
+                referrerpolicy="no-referrer-when-downgrade"
+                class="rounded">
+              </iframe>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- Footer Mobile-First -->
+<footer class="bg-dark text-white py-5">
+  <div class="container">
+    <div class="row g-4">
+      <!-- Company Info -->
+      <div class="col-12 col-md-6">
+        <div class="card bg-transparent border-0 text-white">
+          <div class="card-body p-0">
+            <h5 class="card-title fw-bold mb-3">
+              <i class="bi bi-info-circle me-2"></i>Vercam
+            </h5>
+            <p class="mb-3 text-muted">
+              Smaltimento sanitario, trasporto rifiuti pericolosi, consulenza ambientale e gestione documentale digitale.
+              Soluzioni Web 3.0 per la sostenibilità ambientale.
+            </p>
+            <div class="mb-3">
+              <p class="mb-2">
+                <i class="bi bi-geo-alt me-2"></i>
+                Via dello Sport 123, Borgo Vercelli (VC)
+              </p>
+              <p class="mb-2">
+                <i class="bi bi-telephone me-2"></i>
+                +39 0123 456789
+              </p>
+              <p class="mb-2">
+                <i class="bi bi-envelope me-2"></i>
+                info@asdborgovercelli.it
+              </p>
+            </div>
+
+            <!-- Social Media -->
+            <div class="d-flex gap-3">
+              <a href="#" class="text-white fs-5" aria-label="Facebook">
+                <i class="bi bi-facebook"></i>
+              </a>
+              <a href="#" class="text-white fs-5" aria-label="Instagram">
+                <i class="bi bi-instagram"></i>
+              </a>
+              <a href="#" class="text-white fs-5" aria-label="Twitter">
+                <i class="bi bi-twitter-x"></i>
+              </a>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Quick Links -->
+      <div class="col-12 col-md-6">
+        <div class="card bg-transparent border-0 text-white">
+          <div class="card-body p-0">
+            <h5 class="card-title fw-bold mb-3">
+              <i class="bi bi-link-45deg me-2"></i>Link utili
+            </h5>
+            <div class="row">
+              <div class="col-6">
+                <ul class="list-unstyled">
+                  <li class="mb-2">
+                    <a href="index.html" class="text-white text-decoration-none">
+                      <i class="bi bi-chevron-right me-1"></i>Home
+                    </a>
+                  </li>
+                  <li class="mb-2">
+                    <a href="chi-siamo.html" class="text-white text-decoration-none">
+                      <i class="bi bi-chevron-right me-1"></i>Chi siamo
+                    </a>
+                  </li>
+                  <li class="mb-2">
+                    <a href="servizi.html" class="text-white text-decoration-none">
+                      <i class="bi bi-chevron-right me-1"></i>Servizi
+                    </a>
+                  </li>
+                </ul>
+              </div>
+              <div class="col-6">
+                <ul class="list-unstyled">
+                  <li class="mb-2">
+                    <a href="documenti.html" class="text-white text-decoration-none">
+                      <i class="bi bi-chevron-right me-1"></i>Documenti
+                    </a>
+                  </li>
+                  <li class="mb-2">
+                    <a href="contatti.html" class="text-white text-decoration-none">
+                      <i class="bi bi-chevron-right me-1"></i>Contatti
+                    </a>
+                  </li>
+                  <li class="mb-2">
+                    <a href="area-venditore.html" class="text-white text-decoration-none">
+                      <i class="bi bi-chevron-right me-1"></i>Area Venditore
+                    </a>
+                  </li>
+                </ul>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Copyright -->
+    <hr class="my-4">
+    <div class="row">
+      <div class="col-12 text-center">
+        <p class="mb-0 small">&copy; 2025 Vercam. Tutti i diritti riservati.</p>
+      </div>
+    </div>
+  </div>
+</footer>
+
+</body>
 </html>

@@ -1,0 +1,577 @@
+<!DOCTYPE html>
+<html lang="it">
+<head>
+  <meta charset="UTF-8">
+  <title>Area Venditore - Vercam</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet">
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.10.5/font/bootstrap-icons.css" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap" rel="stylesheet">
+  <link href="./Css/navbar.css" rel="stylesheet">
+  <link href="./Css/footer.css" rel="stylesheet">
+  <link href="./Css/area-venditore.css" rel="stylesheet">
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js" defer></script>
+</head>
+<body>
+
+<header>
+  <nav class="navbar navbar-expand-lg sticky-top shadow-sm navbar-mobile-web3">
+  <div class="container-fluid px-4 d-flex justify-content-between align-items-center navbar-mobile-container">
+      <a class="navbar-brand mx-0" href="index.html">
+        <img src="https://cdn-icons-png.flaticon.com/512/616/616494.png" alt="Vercam Logo" width="60" height="60" class="logo-solo">
+      </a>
+      <button class="navbar-toggler ms-auto" type="button" data-bs-toggle="collapse" data-bs-target="#navbarMenu"
+        aria-controls="navbarMenu" aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+      </button>
+      <div class="collapse navbar-collapse justify-content-center" id="navbarMenu">
+        <ul class="navbar-nav mb-2 mb-lg-0 d-flex justify-content-center align-items-center w-100" style="gap:16px;">
+          <li class="nav-item"><a class="nav-link" href="index.html">Home</a></li>
+          <li class="nav-item"><a class="nav-link" href="chi-siamo.html">Chi siamo</a></li>
+          <li class="nav-item"><a class="nav-link" href="servizi.html">Servizi</a></li>
+          <li class="nav-item"><a class="nav-link" href="documenti.html">Documenti</a></li>
+          <li class="nav-item"><a class="nav-link" href="contatti.html">Contatti</a></li>
+          <li class="nav-item d-lg-none">
+            <a href="login.html" class="btn-area-venditore-mobile active">
+              <i class="bi bi-person-badge me-2"></i>Logout
+            </a>
+          </li>
+        </ul>
+      </div>
+      <a href="login.html" class="btn-area-venditore ms-3 d-none d-lg-block active">
+        <i class="bi bi-box-arrow-right me-2"></i>Logout
+      </a>
+    </div>
+  </nav>
+</header>
+
+<!-- Hero Area Venditore -->
+<section class="hero-section-venditore position-relative text-center text-white">
+  <div class="container position-relative z-2">
+    <h1 class="display-3 fw-bold mb-3" style="text-shadow:0 4px 24px rgba(67,233,123,0.13);">Area Venditore</h1>
+    <p class="lead mb-4">Piattaforma riservata per la gestione documentale e upload sicuri.<br>Accesso esclusivo per il personale autorizzato.</p>
+    <div class="badge-web3 mx-auto mb-4">Web 3.0 Secure</div>
+  </div>
+  <!-- Particelle decorative -->
+  <div class="particles-bg">
+    <div class="particle particle-v1"></div>
+    <div class="particle particle-v2"></div>
+    <div class="particle particle-v3"></div>
+    <div class="particle particle-v4"></div>
+    <div class="particle particle-v5"></div>
+  </div>
+</section>
+
+<!-- Sezione Upload File -->
+<section class="upload-section py-5">
+  <div class="container">
+    <div class="row justify-content-center">
+      <div class="col-lg-10">
+        <!-- Form Upload -->
+        <div class="upload-card mb-5">
+          <h2 class="upload-title text-center mb-4">Carica Nuovo Documento</h2>
+          <form class="upload-form" id="uploadForm">
+            <div class="row g-3">
+              <div class="col-md-6">
+                <label for="fileName" class="form-label fw-bold">Nome Documento</label>
+                <input type="text" class="form-control" id="fileName" placeholder="Es: Contratto_Servizi_2025" required>
+              </div>
+              <div class="col-md-6">
+                <label for="fileCategory" class="form-label fw-bold">Categoria</label>
+                <select class="form-select" id="fileCategory" required>
+                  <option value="">Seleziona categoria...</option>
+                  <option value="contratti">Contratti</option>
+                  <option value="certificati">Certificati</option>
+                  <option value="manuali">Manuali</option>
+                  <option value="procedure">Procedure</option>
+                  <option value="modulistica">Modulistica</option>
+                  <option value="altro">Altro</option>
+                </select>
+              </div>
+              <div class="col-12">
+                <label for="fileDescription" class="form-label fw-bold">Descrizione (opzionale)</label>
+                <textarea class="form-control" id="fileDescription" rows="3" placeholder="Breve descrizione del documento..."></textarea>
+              </div>
+              <div class="col-12">
+                <label for="fileUpload" class="form-label fw-bold">Seleziona File</label>
+                <input type="file" class="form-control" id="fileUpload" accept=".pdf,.doc,.docx,.xls,.xlsx,.jpg,.jpeg,.png" required>
+                <div class="form-text">Formati supportati: PDF, DOC, DOCX, XLS, XLSX, JPG, PNG. Max 10MB.</div>
+              </div>
+            </div>
+            <div class="text-center mt-4">
+              <button type="submit" class="btn btn-success btn-lg px-5">
+                <i class="bi bi-cloud-upload me-2"></i>Carica Documento
+              </button>
+            </div>
+          </form>
+        </div>
+
+        <!-- Lista Documenti Gestiti -->
+        <div class="documents-management">
+          <h2 class="section-title text-center mb-4">Documenti Caricati</h2>
+
+          <!-- Filtri -->
+          <div class="filters mb-4">
+            <div class="row g-3 align-items-center">
+              <div class="col-md-4">
+                <select class="form-select" id="filterCategory">
+                  <option value="">Tutte le categorie</option>
+                  <option value="contratti">Contratti</option>
+                  <option value="certificati">Certificati</option>
+                  <option value="manuali">Manuali</option>
+                  <option value="procedure">Procedure</option>
+                  <option value="modulistica">Modulistica</option>
+                  <option value="altro">Altro</option>
+                </select>
+              </div>
+              <div class="col-md-4">
+                <input type="text" class="form-control" id="searchDocs" placeholder="Cerca documenti...">
+              </div>
+              <div class="col-md-4">
+                <button class="btn btn-outline-primary w-100" id="clearFilters">
+                  <i class="bi bi-x-circle me-2"></i>Pulisci Filtri
+                </button>
+              </div>
+            </div>
+          </div>
+
+          <!-- Lista Documenti -->
+          <div class="documents-list" id="documentsList">
+            <!-- Documenti verranno popolati dinamicamente -->
+            <div class="document-item" data-category="contratti" data-id="1">
+              <div class="document-icon">
+                <i class="bi bi-file-earmark-text"></i>
+              </div>
+              <div class="document-info">
+                <h6 class="document-name">Contratto_Servizi_2025.pdf</h6>
+                <p class="document-desc">Contratto di servizi per smaltimento rifiuti 2025</p>
+                <div class="document-meta">
+                  <span class="badge bg-success">contratti</span>
+                  <span class="file-size">2.4 MB</span>
+                  <span class="upload-date">06/10/2025</span>
+                </div>
+              </div>
+              <div class="document-actions">
+                <button class="btn btn-sm btn-outline-primary me-2 edit-doc" data-id="1">
+                  <i class="bi bi-pencil"></i>
+                </button>
+                <button class="btn btn-sm btn-outline-danger delete-doc" data-id="1">
+                  <i class="bi bi-trash"></i>
+                </button>
+              </div>
+            </div>
+
+            <div class="document-item" data-category="certificati" data-id="2">
+              <div class="document-icon">
+                <i class="bi bi-file-earmark-check"></i>
+              </div>
+              <div class="document-info">
+                <h6 class="document-name">Certificato_ISO_14001.pdf</h6>
+                <p class="document-desc">Certificazione ambientale ISO 14001</p>
+                <div class="document-meta">
+                  <span class="badge bg-info">certificati</span>
+                  <span class="file-size">1.8 MB</span>
+                  <span class="upload-date">05/10/2025</span>
+                </div>
+              </div>
+              <div class="document-actions">
+                <button class="btn btn-sm btn-outline-primary me-2 edit-doc" data-id="2">
+                  <i class="bi bi-pencil"></i>
+                </button>
+                <button class="btn btn-sm btn-outline-danger delete-doc" data-id="2">
+                  <i class="bi bi-trash"></i>
+                </button>
+              </div>
+            </div>
+
+            <div class="document-item" data-category="manuali" data-id="3">
+              <div class="document-icon">
+                <i class="bi bi-file-earmark-ruled"></i>
+              </div>
+              <div class="document-info">
+                <h6 class="document-name">Manuale_Sicurezza.pdf</h6>
+                <p class="document-desc">Manuale di sicurezza per operatori</p>
+                <div class="document-meta">
+                  <span class="badge bg-warning">manuali</span>
+                  <span class="file-size">3.2 MB</span>
+                  <span class="upload-date">04/10/2025</span>
+                </div>
+              </div>
+              <div class="document-actions">
+                <button class="btn btn-sm btn-outline-primary me-2 edit-doc" data-id="3">
+                  <i class="bi bi-pencil"></i>
+                </button>
+                <button class="btn btn-sm btn-outline-danger delete-doc" data-id="3">
+                  <i class="bi bi-trash"></i>
+                </button>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- Modal Modifica Documento -->
+<div class="modal fade" id="editDocumentModal" tabindex="-1">
+  <div class="modal-dialog">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title">Modifica Documento</h5>
+        <button type="button" class="btn-close" data-bs-dismiss="modal"></button>
+      </div>
+      <div class="modal-body">
+        <form id="editDocumentForm">
+          <div class="mb-3">
+            <label for="editFileName" class="form-label">Nome Documento</label>
+            <input type="text" class="form-control" id="editFileName" required>
+          </div>
+          <div class="mb-3">
+            <label for="editFileCategory" class="form-label">Categoria</label>
+            <select class="form-select" id="editFileCategory" required>
+              <option value="contratti">Contratti</option>
+              <option value="certificati">Certificati</option>
+              <option value="manuali">Manuali</option>
+              <option value="procedure">Procedure</option>
+              <option value="modulistica">Modulistica</option>
+              <option value="altro">Altro</option>
+            </select>
+          </div>
+          <div class="mb-3">
+            <label for="editFileDescription" class="form-label">Descrizione</label>
+            <textarea class="form-control" id="editFileDescription" rows="3"></textarea>
+          </div>
+        </form>
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Annulla</button>
+        <button type="button" class="btn btn-primary" id="saveEditDocument">Salva Modifiche</button>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- Footer -->
+<footer class="footer-web3 position-relative py-5 text-white">
+  <div class="footer-bg-gradient position-absolute top-0 start-0 w-100 h-100 z-0"></div>
+  <div class="particles-bg">
+    <div class="particle particle-f1"></div>
+    <div class="particle particle-f2"></div>
+    <div class="particle particle-f3"></div>
+    <div class="particle particle-f4"></div>
+    <div class="particle particle-f5"></div>
+  </div>
+  <div class="container position-relative z-2">
+    <div class="row gy-4">
+      <!-- Contact Form Column -->
+      <div class="col-lg-6 mb-4 mb-lg-0">
+        <div class="footer-card p-4 shadow-lg">
+          <h5 class="mb-4 text-center overflow-hidden">Contattaci</h5>
+          <form id="emailForm" action="" method="POST">
+            <div class="row g-3 mb-3">
+              <div class="col-sm-6">
+                <input type="text" class="form-control" placeholder="Nome e Cognome" name="name" required>
+              </div>
+              <div class="col-sm-6">
+                <input type="email" class="form-control" placeholder="Email" name="email" required>
+              </div>
+            </div>
+            <div class="mb-3">
+              <input type="text" class="form-control" placeholder="Oggetto" name="subject" required>
+            </div>
+            <div class="mb-4">
+              <textarea class="form-control" placeholder="Messaggio" name="message" rows="4" required></textarea>
+            </div>
+            <div class="text-center">
+              <button type="submit" class="btn btn-light px-4 py-2">Invia Messaggio</button>
+            </div>
+          </form>
+        </div>
+      </div>
+      <!-- Info Column -->
+      <div class="col-lg-6 text-center m-auto">
+        <div class="footer-card p-4 shadow-lg">
+          <h5 class="mb-4 text-center overflow-hidden">Vercam</h5>
+          <div class="d-flex flex-column align-items-center mb-4">
+            <p class="mb-3"><i class="bi bi-geo-alt-fill me-2"></i> Via dello Sport 123, Borgo Vercelli (VC)</p>
+            <p class="mb-3"><i class="bi bi-telephone-fill me-2"></i> +39 0123 456789</p>
+            <p class="mb-3"><i class="bi bi-envelope-fill me-2"></i> info@asdborgovercelli.it</p>
+          </div>
+          <!-- Social Media Icons -->
+          <div class="text-center mb-4">
+            <a href="#" class="text-white mx-2"><i class="bi bi-facebook fs-4"></i></a>
+            <a href="#" class="text-white mx-2"><i class="bi bi-instagram fs-4"></i></a>
+            <a href="#" class="text-white mx-2"><i class="bi bi-twitter-x fs-4"></i></a>
+          </div>
+        </div>
+      </div>
+    </div>
+    <!-- Copyright -->
+    <div class="row mt-5">
+      <div class="col-12 text-center">
+        <hr class="my-4 bg-light opacity-50">
+        <p class="mb-0">&copy; Vercam. Tutti i diritti riservati.</p>
+      </div>
+    </div>
+  </div>
+</footer>
+
+<script>
+// Gestione Documenti - JavaScript Mock
+document.addEventListener('DOMContentLoaded', function() {
+    // Dati mock per i documenti
+    let documents = [
+        {
+            id: 1,
+            name: 'Contratto_Servizi_2025.pdf',
+            description: 'Contratto di servizi per smaltimento rifiuti 2025',
+            category: 'contratti',
+            size: '2.4 MB',
+            uploadDate: '06/10/2025',
+            icon: 'bi-file-earmark-text'
+        },
+        {
+            id: 2,
+            name: 'Certificato_ISO_14001.pdf',
+            description: 'Certificazione ambientale ISO 14001',
+            category: 'certificati',
+            size: '1.8 MB',
+            uploadDate: '05/10/2025',
+            icon: 'bi-file-earmark-check'
+        },
+        {
+            id: 3,
+            name: 'Manuale_Sicurezza.pdf',
+            description: 'Manuale di sicurezza per operatori',
+            category: 'manuali',
+            size: '3.2 MB',
+            uploadDate: '04/10/2025',
+            icon: 'bi-file-earmark-ruled'
+        }
+    ];
+
+    let nextId = 4;
+
+    // Elementi DOM
+    const uploadForm = document.getElementById('uploadForm');
+    const documentsList = document.getElementById('documentsList');
+    const filterCategory = document.getElementById('filterCategory');
+    const searchDocs = document.getElementById('searchDocs');
+    const clearFilters = document.getElementById('clearFilters');
+    const editModal = new bootstrap.Modal(document.getElementById('editDocumentModal'));
+    const editForm = document.getElementById('editDocumentForm');
+    const saveEditBtn = document.getElementById('saveEditDocument');
+
+    let editingDocumentId = null;
+
+    // Funzione per renderizzare i documenti
+    function renderDocuments(filteredDocs = documents) {
+        documentsList.innerHTML = '';
+
+        if (filteredDocs.length === 0) {
+            documentsList.innerHTML = `
+                <div class="text-center py-5">
+                    <i class="bi bi-file-earmark-x fs-1 text-muted mb-3"></i>
+                    <h5 class="text-muted">Nessun documento trovato</h5>
+                    <p class="text-muted">Prova a modificare i filtri di ricerca</p>
+                </div>
+            `;
+            return;
+        }
+
+        filteredDocs.forEach(doc => {
+            const badgeClass = getBadgeClass(doc.category);
+            const documentItem = document.createElement('div');
+            documentItem.className = 'document-item';
+            documentItem.setAttribute('data-category', doc.category);
+            documentItem.setAttribute('data-id', doc.id);
+
+            documentItem.innerHTML = `
+                <div class="document-icon">
+                    <i class="bi ${doc.icon}"></i>
+                </div>
+                <div class="document-info">
+                    <h6 class="document-name">${doc.name}</h6>
+                    <p class="document-desc">${doc.description}</p>
+                    <div class="document-meta">
+                        <span class="badge ${badgeClass}">${doc.category}</span>
+                        <span class="file-size">${doc.size}</span>
+                        <span class="upload-date">${doc.uploadDate}</span>
+                    </div>
+                </div>
+                <div class="document-actions">
+                    <button class="btn btn-sm btn-outline-primary me-2 edit-doc" data-id="${doc.id}">
+                        <i class="bi bi-pencil"></i>
+                    </button>
+                    <button class="btn btn-sm btn-outline-danger delete-doc" data-id="${doc.id}">
+                        <i class="bi bi-trash"></i>
+                    </button>
+                </div>
+            `;
+
+            documentsList.appendChild(documentItem);
+        });
+
+        // Riattacca gli event listener
+        attachDocumentEventListeners();
+    }
+
+    // Funzione per ottenere la classe del badge
+    function getBadgeClass(category) {
+        const badgeClasses = {
+            'contratti': 'bg-success',
+            'certificati': 'bg-info',
+            'manuali': 'bg-warning',
+            'procedure': 'bg-secondary',
+            'modulistica': 'bg-primary',
+            'altro': 'bg-dark'
+        };
+        return badgeClasses[category] || 'bg-secondary';
+    }
+
+    // Funzione per filtrare i documenti
+    function filterDocuments() {
+        const categoryFilter = filterCategory.value;
+        const searchFilter = searchDocs.value.toLowerCase();
+
+        let filtered = documents;
+
+        if (categoryFilter) {
+            filtered = filtered.filter(doc => doc.category === categoryFilter);
+        }
+
+        if (searchFilter) {
+            filtered = filtered.filter(doc =>
+                doc.name.toLowerCase().includes(searchFilter) ||
+                doc.description.toLowerCase().includes(searchFilter)
+            );
+        }
+
+        renderDocuments(filtered);
+    }
+
+    // Funzione per attaccare gli event listener ai documenti
+    function attachDocumentEventListeners() {
+        // Edit buttons
+        document.querySelectorAll('.edit-doc').forEach(btn => {
+            btn.addEventListener('click', function() {
+                const docId = parseInt(this.getAttribute('data-id'));
+                const doc = documents.find(d => d.id === docId);
+                if (doc) {
+                    editingDocumentId = docId;
+                    document.getElementById('editFileName').value = doc.name;
+                    document.getElementById('editFileCategory').value = doc.category;
+                    document.getElementById('editFileDescription').value = doc.description;
+                    editModal.show();
+                }
+            });
+        });
+
+        // Delete buttons
+        document.querySelectorAll('.delete-doc').forEach(btn => {
+            btn.addEventListener('click', function() {
+                const docId = parseInt(this.getAttribute('data-id'));
+                if (confirm('Sei sicuro di voler eliminare questo documento?')) {
+                    documents = documents.filter(doc => doc.id !== docId);
+                    filterDocuments();
+                    showToast('Documento eliminato con successo!', 'success');
+                }
+            });
+        });
+    }
+
+    // Funzione per mostrare toast notifications
+    function showToast(message, type = 'info') {
+        // Mock toast - in produzione usare una libreria toast
+        alert(message);
+    }
+
+    // Event Listeners
+    uploadForm.addEventListener('submit', function(e) {
+        e.preventDefault();
+
+        const fileName = document.getElementById('fileName').value;
+        const category = document.getElementById('fileCategory').value;
+        const description = document.getElementById('fileDescription').value;
+        const fileInput = document.getElementById('fileUpload');
+
+        if (!fileInput.files[0]) {
+            showToast('Seleziona un file da caricare', 'error');
+            return;
+        }
+
+        const file = fileInput.files[0];
+        const fileSize = (file.size / (1024 * 1024)).toFixed(1) + ' MB';
+
+        // Mock upload - in produzione gestire upload reale
+        const newDoc = {
+            id: nextId++,
+            name: fileName,
+            description: description || 'Nessuna descrizione',
+            category: category,
+            size: fileSize,
+            uploadDate: new Date().toLocaleDateString('it-IT'),
+            icon: getFileIcon(file.name)
+        };
+
+        documents.push(newDoc);
+        filterDocuments();
+
+        // Reset form
+        uploadForm.reset();
+        showToast('Documento caricato con successo!', 'success');
+    });
+
+    // Funzione per ottenere l'icona del file
+    function getFileIcon(fileName) {
+        const ext = fileName.split('.').pop().toLowerCase();
+        const iconMap = {
+            'pdf': 'bi-file-earmark-pdf',
+            'doc': 'bi-file-earmark-word',
+            'docx': 'bi-file-earmark-word',
+            'xls': 'bi-file-earmark-excel',
+            'xlsx': 'bi-file-earmark-excel',
+            'jpg': 'bi-file-earmark-image',
+            'jpeg': 'bi-file-earmark-image',
+            'png': 'bi-file-earmark-image'
+        };
+        return iconMap[ext] || 'bi-file-earmark';
+    }
+
+    // Filtri
+    filterCategory.addEventListener('change', filterDocuments);
+    searchDocs.addEventListener('input', filterDocuments);
+    clearFilters.addEventListener('click', function() {
+        filterCategory.value = '';
+        searchDocs.value = '';
+        renderDocuments();
+    });
+
+    // Salva modifiche documento
+    saveEditBtn.addEventListener('click', function() {
+        if (!editingDocumentId) return;
+
+        const newName = document.getElementById('editFileName').value;
+        const newCategory = document.getElementById('editFileCategory').value;
+        const newDescription = document.getElementById('editFileDescription').value;
+
+        const docIndex = documents.findIndex(d => d.id === editingDocumentId);
+        if (docIndex !== -1) {
+            documents[docIndex].name = newName;
+            documents[docIndex].category = newCategory;
+            documents[docIndex].description = newDescription;
+            documents[docIndex].icon = getFileIcon(newName);
+
+            filterDocuments();
+            editModal.hide();
+            showToast('Documento modificato con successo!', 'success');
+        }
+    });
+
+    // Inizializzazione
+    renderDocuments();
+});
+</script>
+</body>
+</html>

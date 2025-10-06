@@ -27,14 +27,22 @@
         <span class="navbar-toggler-icon"></span>
       </button>
       <div class="collapse navbar-collapse justify-content-center" id="navbarMenu">
-        <ul class="navbar-nav mb-2 mb-lg-0 d-flex justify-content-center align-items-center w-100" style="gap:1rem;">
+        <ul class="navbar-nav mb-2 mb-lg-0 d-flex justify-content-center align-items-center w-100" style="gap:16px;">
           <li class="nav-item"><a class="nav-link" href="index.html">Home</a></li>
           <li class="nav-item"><a class="nav-link" href="chi-siamo.html">Chi siamo</a></li>
           <li class="nav-item"><a class="nav-link" href="servizi.html">Servizi</a></li>
           <li class="nav-item"><a class="nav-link active" href="documenti.html">Documenti</a></li>
           <li class="nav-item"><a class="nav-link" href="contatti.html">Contatti</a></li>
+          <li class="nav-item d-lg-none">
+            <a href="area-venditore.html" class="btn-area-venditore-mobile">
+              <i class="bi bi-person-badge me-2"></i>Area Venditore
+            </a>
+          </li>
         </ul>
       </div>
+      <a href="area-venditore.html" class="btn-area-venditore ms-3 d-none d-lg-block">
+        <i class="bi bi-person-badge me-2"></i>Area Venditore
+      </a>
     </div>
   </nav>
 </header>
@@ -56,78 +64,50 @@
   <main class="container py-5 documenti-main-container">
 
     <!-- Barra di ricerca documenti -->
-  <form class="doc-search-box mb-4 doc-search-mobile" autocomplete="off">
+    <form class="doc-search-box mb-4 doc-search-mobile" autocomplete="off">
       <div class="doc-search-wrapper">
-        <input type="search" class="doc-search-input" placeholder="Cerca un documento..." name="search" />
+        <input type="search" class="doc-search-input" placeholder="Cerca un documento..." name="search" id="docSearch" />
         <button type="submit" class="doc-search-btn" aria-label="Cerca">
           <i class="bi bi-search"></i>
         </button>
       </div>
     </form>
 
-  <div class="accordion modern-accordion documenti-accordion-mobile" id="documentiAccordion">
-      <!-- Categorie esempio -->
-      <div class="accordion-item modern-accordion-item">
-        <h2 class="accordion-header" id="cat1">
-          <button class="accordion-button modern-accordion-btn" type="button" data-bs-toggle="collapse" data-bs-target="#collapse1">
-            Normative
+    <!-- Filtri per categoria -->
+    <div class="filters-section mb-4">
+      <div class="row g-3 align-items-center justify-content-center">
+        <div class="col-auto">
+          <label class="form-label fw-bold mb-0">Filtra per categoria:</label>
+        </div>
+        <div class="col-auto">
+          <select class="form-select" id="categoryFilter">
+            <option value="">Tutte le categorie</option>
+            <option value="contratti">Contratti</option>
+            <option value="certificati">Certificati</option>
+            <option value="manuali">Manuali</option>
+            <option value="procedure">Procedure</option>
+            <option value="modulistica">Modulistica</option>
+            <option value="altro">Altro</option>
+          </select>
+        </div>
+        <div class="col-auto">
+          <button class="btn btn-outline-primary" id="clearDocFilters">
+            <i class="bi bi-x-circle me-2"></i>Pulisci Filtri
           </button>
-        </h2>
-        <div id="collapse1" class="accordion-collapse collapse show modern-accordion-collapse">
-          <div class="accordion-body modern-accordion-body">
-            <ul class="modern-accordion-list">
-              <li class="doc-list-item">
-                <span class="doc-link-wrap">
-                  <a href="#" class="doc-link">D.Lgs 152/2006 - Testo Unico Ambientale</a>
-                </span>
-                <a href="#" class="doc-download" download aria-label="Scarica">
-                  <i class="bi bi-download"></i>
-                </a>
-              </li>
-              <li class="doc-list-item">
-                <span class="doc-link-wrap">
-                  <a href="#" class="doc-link">Regolamento UE n. 1357/2014</a>
-                </span>
-                <a href="#" class="doc-download" download aria-label="Scarica">
-                  <i class="bi bi-download"></i>
-                </a>
-              </li>
-            </ul>
-          </div>
         </div>
       </div>
+    </div>
 
-      <div class="accordion-item modern-accordion-item">
-        <h2 class="accordion-header" id="cat2">
-          <button class="accordion-button collapsed modern-accordion-btn" type="button" data-bs-toggle="collapse" data-bs-target="#collapse2">
-            Certificazioni
-          </button>
-        </h2>
-        <div id="collapse2" class="accordion-collapse collapse modern-accordion-collapse">
-          <div class="accordion-body modern-accordion-body">
-            <ul class="modern-accordion-list">
-              <li class="doc-list-item">
-                <span class="doc-link-wrap">
-                  <a href="#" class="doc-link">ISO 14001</a>
-                </span>
-                <a href="#" class="doc-download" download aria-label="Scarica">
-                  <i class="bi bi-download"></i>
-                </a>
-              </li>
-              <li class="doc-list-item">
-                <span class="doc-link-wrap">
-                  <a href="#" class="doc-link">Autorizzazioni Regionali</a>
-                </span>
-                <a href="#" class="doc-download" download aria-label="Scarica">
-                  <i class="bi bi-download"></i>
-                </a>
-              </li>
-            </ul>
-          </div>
-        </div>
-      </div>
+    <!-- Sezione documenti dinamici -->
+    <div id="documentsContainer">
+      <!-- I documenti verranno caricati dinamicamente -->
+    </div>
 
-      <!-- Altre categorie -->
+    <!-- Messaggio quando non ci sono documenti -->
+    <div id="noDocumentsMessage" class="text-center py-5" style="display: none;">
+      <i class="bi bi-file-earmark-x fs-1 text-muted mb-3"></i>
+      <h4 class="text-muted">Nessun documento disponibile</h4>
+      <p class="text-muted">I documenti verranno pubblicati a breve nell'area riservata.</p>
     </div>
   </main>
    <footer class="footer-web3 position-relative py-5 text-white">
@@ -193,6 +173,171 @@
         </div>
       </div>
     </footer>
+    <script>
+// Gestione Documenti Pubblici - JavaScript
+console.log('Script loaded');
+document.addEventListener('DOMContentLoaded', function() {
+    console.log('DOMContentLoaded fired');
+    console.log('DOMContentLoaded fired');
+    
+    // Elementi DOM
+    const documentsContainer = document.getElementById('documentsContainer');
+    const noDocumentsMessage = document.getElementById('noDocumentsMessage');
+    const docSearch = document.getElementById('docSearch');
+    const categoryFilter = document.getElementById('categoryFilter');
+    const clearDocFilters = document.getElementById('clearDocFilters');
 
+    console.log('Elements found:', { documentsContainer, noDocumentsMessage, docSearch, categoryFilter, clearDocFilters });
+
+    // Documenti di esempio (in produzione verrebbero da un database/server)
+    const sampleDocuments = [
+        {
+            id: 1,
+            name: 'Contratto_Servizi_2025.pdf',
+            description: 'Contratto di servizi per smaltimento rifiuti 2025',
+            category: 'contratti',
+            size: '2.4 MB',
+            uploadDate: '06/10/2025',
+            icon: 'bi-file-earmark-text'
+        },
+        {
+            id: 2,
+            name: 'Certificato_ISO_14001.pdf',
+            description: 'Certificazione ambientale ISO 14001',
+            category: 'certificati',
+            size: '1.8 MB',
+            uploadDate: '05/10/2025',
+            icon: 'bi-file-earmark-check'
+        },
+        {
+            id: 3,
+            name: 'Manuale_Sicurezza.pdf',
+            description: 'Manuale di sicurezza per operatori',
+            category: 'manuali',
+            size: '3.2 MB',
+            uploadDate: '04/10/2025',
+            icon: 'bi-file-earmark-ruled'
+        },
+        {
+            id: 4,
+            name: 'Procedura_Raccolta.pdf',
+            description: 'Procedura operativa per raccolta rifiuti',
+            category: 'procedure',
+            size: '1.5 MB',
+            uploadDate: '03/10/2025',
+            icon: 'bi-file-earmark-text'
+        },
+        {
+            id: 5,
+            name: 'Modulistica_Richiesta.docx',
+            description: 'Moduli per richiesta servizi',
+            category: 'modulistica',
+            size: '956 KB',
+            uploadDate: '02/10/2025',
+            icon: 'bi-file-earmark-word'
+        }
+    ];
+
+    // Funzione per ottenere documenti da localStorage (simulando dati dinamici)
+    function getDocuments() {
+        // In produzione, questi verrebbero da un'API
+        // Per ora usiamo i dati di esempio
+        return sampleDocuments;
+    }
+
+    // Funzione per raggruppare documenti per categoria
+    function groupDocumentsByCategory(documents) {
+        const grouped = {};
+        documents.forEach(doc => {
+            if (!grouped[doc.category]) {
+                grouped[doc.category] = [];
+            }
+            grouped[doc.category].push(doc);
+        });
+        return grouped;
+    }
+
+    // Funzione per ottenere il nome della categoria
+    function getCategoryName(category) {
+        const names = {
+            'contratti': 'Contratti',
+            'certificati': 'Certificati',
+            'manuali': 'Manuali',
+            'procedure': 'Procedure',
+            'modulistica': 'Modulistica',
+            'altro': 'Altro'
+        };
+        return names[category] || category;
+    }
+
+    // Funzione per ottenere la classe del badge
+    function getBadgeClass(category) {
+        const badgeClasses = {
+            'contratti': 'bg-success',
+            'certificati': 'bg-info',
+            'manuali': 'bg-warning',
+            'procedure': 'bg-secondary',
+            'modulistica': 'bg-primary',
+            'altro': 'bg-dark'
+        };
+        return badgeClasses[category] || 'bg-secondary';
+    }
+
+    // Funzione per renderizzare i documenti
+    function renderDocuments(documents = getDocuments()) {
+        console.log('renderDocuments called with', documents.length, 'documents');
+        
+        if (documents.length === 0) {
+            documentsContainer.innerHTML = '<p>Nessun documento disponibile</p>';
+            return;
+        }
+
+        let html = '<h3>Documenti disponibili:</h3><ul>';
+        documents.forEach(doc => {
+            html += `<li>${doc.name} - ${doc.description} (${doc.size})</li>`;
+        });
+        html += '</ul>';
+        
+        documentsContainer.innerHTML = html;
+        console.log('HTML set to documentsContainer');
+    }
+
+    // Funzione per filtrare documenti
+    function filterDocuments() {
+        const searchTerm = docSearch.value.toLowerCase();
+        const categoryFilterValue = categoryFilter.value;
+
+        let filteredDocs = getDocuments();
+
+        // Filtro per categoria
+        if (categoryFilterValue) {
+            filteredDocs = filteredDocs.filter(doc => doc.category === categoryFilterValue);
+        }
+
+        // Filtro per ricerca
+        if (searchTerm) {
+            filteredDocs = filteredDocs.filter(doc =>
+                doc.name.toLowerCase().includes(searchTerm) ||
+                doc.description.toLowerCase().includes(searchTerm)
+            );
+        }
+
+        renderDocuments(filteredDocs);
+    }
+
+    // Event Listeners
+    docSearch.addEventListener('input', filterDocuments);
+    categoryFilter.addEventListener('change', filterDocuments);
+
+    clearDocFilters.addEventListener('click', function() {
+        docSearch.value = '';
+        categoryFilter.value = '';
+        renderDocuments();
+    });
+
+    // Inizializzazione
+    renderDocuments();
+});
+</script>
 </body>
 </html>
