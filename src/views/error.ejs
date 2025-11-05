@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Errore</title>
+    <link href="/stylesheets/homepage.css" rel="stylesheet">
+  </head>
+  <body>
+    <div class="container py-5">
+      <h1 class="text-center">Errore</h1>
+      <p class="text-center"><strong><%= message %></strong></p>
+      <% if (error && error.status) { %>
+        <p class="text-center">Codice: <%= error.status %></p>
+      <% } %>
+      <% if (error && error.stack) { %>
+        <pre><%= error.stack %></pre>
+      <% } %>
+      <div class="text-center mt-4">
+        <a href="/" class="btn btn-primary">Torna alla home</a>
+      </div>
+    </div>
+  </body>
+</html>

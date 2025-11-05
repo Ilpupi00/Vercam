@@ -123,3 +123,44 @@
     }
 }
 
+/* Privacy checkbox styles inside footer cards */
+.footer-card .form-check {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+}
+.footer-card .form-check-input {
+    width: 18px;
+    height: 18px;
+    margin-top: 0;
+    -webkit-appearance: checkbox;
+    appearance: checkbox;
+    border-radius: 4px;
+    border: 1px solid rgba(255,255,255,0.6);
+    background: transparent;
+    /* modern way to color the native checkbox tick */
+    accent-color: #ffffff;
+    cursor: pointer;
+}
+.footer-card .form-check-input:focus {
+    box-shadow: 0 0 0 6px rgba(67,233,123,0.12);
+    outline: none;
+}
+.footer-card .form-check-label {
+    color: #ffffff;
+    font-size: 0.95rem;
+    cursor: pointer;
+}
+.footer-card .form-check-label {
+    color: #ffffff;
+    font-size: 0.95rem;
+}
+.footer-card .form-check-label a {
+    color: #ffffff;
+    text-decoration: underline;
+}
+.footer-card .form-check-label a:hover {
+    opacity: 0.9;
+}
+
+

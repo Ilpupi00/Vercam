@@ -30,7 +30,7 @@
 
 .hero-section {
   position: relative;
-  background: linear-gradient(135deg, var(--vercam-primary) 0%, var(--vercam-secondary) 100%);
+  background: linear-gradient(135deg, const(--vercam-primary) 0%, const(--vercam-secondary) 100%);
   overflow: hidden;
   min-height: 600px;
   display: flex;
@@ -51,9 +51,9 @@
 .hero-section h1 {
   font-size: 3.5rem;
   font-weight: 900;
-  color: var(--bg-white);
+  color: const(--bg-white);
   letter-spacing: 1px;
-  text-shadow: 0 4px 24px var(--shadow-medium);
+  text-shadow: 0 4px 24px const(--shadow-medium);
   margin-bottom: 1.5rem;
   text-align: center;
   line-height: 1.1;
@@ -68,7 +68,7 @@
   transform: translateX(-50%);
   width: 100px;
   height: 4px;
-  background: var(--bg-white);
+  background: const(--bg-white);
   border-radius: 2px;
   opacity: 0.8;
 }
@@ -92,9 +92,9 @@
 .hero-section .btn {
   font-size: 1.1875rem;
   font-weight: 700;
-  border-radius: var(--border-radius-xl);
-  box-shadow: 0 8px 32px var(--shadow-strong);
-  transition: all var(--transition-normal);
+  border-radius: const(--border-radius-xl);
+  box-shadow: 0 8px 32px const(--shadow-strong);
+  transition: all const(--transition-normal);
   padding: 1rem 2.5rem;
   margin: 0 0.5rem;
   border: none;
@@ -118,8 +118,8 @@
 }
 
 .hero-section .btn:hover {
-  box-shadow: 0 12px 40px var(--shadow-strong);
-  background: linear-gradient(135deg, var(--vercam-secondary) 0%, var(--vercam-primary) 100%);
+  box-shadow: 0 12px 40px const(--shadow-strong);
+  background: linear-gradient(135deg, const(--vercam-secondary) 0%, const(--vercam-primary) 100%);
   transform: translateY(-3px) scale(1.05);
 }
 
@@ -141,7 +141,7 @@
 .particle {
   position: absolute;
   border-radius: 50%;
-  background: linear-gradient(120deg, var(--vercam-primary) 0%, rgba(234, 255, 242, 0.9) 100%);
+  background: linear-gradient(120deg, const(--vercam-primary) 0%, rgba(234, 255, 242, 0.9) 100%);
   opacity: 0.15;
   animation: floatParticle 8s infinite ease-in-out;
 }
@@ -166,7 +166,7 @@
   padding-top: 6rem;
   padding-bottom: 6rem;
   min-height: 520px;
-  background: var(--bg-light);
+  background: const(--bg-light);
   position: relative;
 }
 
@@ -177,7 +177,7 @@
   left: 0;
   right: 0;
   height: 4px;
-  background: linear-gradient(135deg, var(--vercam-primary) 0%, var(--vercam-secondary) 100%);
+  background: linear-gradient(135deg, const(--vercam-primary) 0%, const(--vercam-secondary) 100%);
 }
 
 /* ===========================================
@@ -187,11 +187,11 @@
 .badge-web3 {
   font-size: 1.0625rem;
   padding: 0.625rem 1.75rem;
-  border-radius: var(--border-radius-lg);
-  background: linear-gradient(135deg, var(--vercam-primary) 0%, var(--vercam-accent) 100%);
-  color: var(--bg-white);
+  border-radius: const(--border-radius-lg);
+  background: linear-gradient(135deg, const(--vercam-primary) 0%, const(--vercam-accent) 100%);
+  color: const(--bg-white);
   font-weight: 700;
-  box-shadow: 0 4px 16px var(--shadow-medium);
+  box-shadow: 0 4px 16px const(--shadow-medium);
   animation: badgePulse 2.5s infinite;
   position: relative;
   overflow: hidden;
@@ -249,7 +249,7 @@
   .hero-section .btn {
     font-size: 1.125rem;
     padding: 1rem 2rem;
-    border-radius: var(--border-radius-lg);
+    border-radius: const(--border-radius-lg);
     font-weight: 700;
     margin: 0.5rem 0.25rem;
     display: block;
@@ -262,7 +262,7 @@
   .badge-web3 {
     font-size: 1rem;
     padding: 0.625rem 1.5rem;
-    border-radius: var(--border-radius-md);
+    border-radius: const(--border-radius-md);
   }
 
   .section-servizi {

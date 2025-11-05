@@ -29,8 +29,12 @@
             <div class="mb-4">
               <textarea class="form-control" placeholder="Messaggio" name="message" rows="4" required></textarea>
             </div>
+            <div class="mb-3 form-check">
+              <input class="form-check-input" type="checkbox" value="on" id="privacyFooter" name="privacy" required>
+              <label class="form-check-label text-white" for="privacyFooter">Accetto la <a href="/privacy" class="text-white text-decoration-underline">informativa sulla privacy</a> e il trattamento dei dati personali.</label>
+            </div>
             <div class="text-center">
-              <button type="submit" class="btn btn-light px-4 py-2">Invia Messaggio</button>
+                <button type="submit" class="btn btn-light px-4 py-2">Invia Messaggio</button>
             </div>
           </form>
         </div>
@@ -62,3 +66,25 @@
     </div>
   </div>
 </footer>
+<!-- Modal per messaggi (success / error) - disponibile in tutte le pagine -->
+<div class="modal fade" id="vcMessageModal" tabindex="-1" aria-labelledby="vcMessageModalLabel" aria-hidden="true">
+  <div class="modal-dialog modal-dialog-centered">
+    <div class="modal-content">
+      <div class="modal-header border-0">
+        <h5 class="modal-title" id="vcMessageModalLabel">Messaggio</h5>
+        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Chiudi"></button>
+      </div>
+      <div class="modal-body">
+        <div class="d-flex align-items-start gap-3">
+          <div id="vcModalIcon" class="flex-shrink-0" aria-hidden></div>
+          <div id="vcModalBody" class="flex-grow-1"></div>
+        </div>
+      </div>
+      <div class="modal-footer border-0">
+        <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Chiudi</button>
+      </div>
+    </div>
+  </div>
+</div>
+
+<script src="/javascripts/email.js"></script>

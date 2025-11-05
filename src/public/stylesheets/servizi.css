@@ -52,10 +52,10 @@
 .servizi-title {
   font-size: 3rem;
   font-weight: 900;
-  color: var(--vercam-secondary);
+  color: const(--vercam-secondary);
   letter-spacing: 1px;
   font-family: 'Roboto', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
-  text-shadow: 0 4px 24px var(--shadow-medium);
+  text-shadow: 0 4px 24px const(--shadow-medium);
   margin-bottom: 3rem;
   text-align: center;
   position: relative;
@@ -69,14 +69,14 @@
   transform: translateX(-50%);
   width: 80px;
   height: 4px;
-  background: linear-gradient(135deg, var(--vercam-primary) 0%, var(--vercam-secondary) 100%);
+  background: linear-gradient(135deg, const(--vercam-primary) 0%, const(--vercam-secondary) 100%);
   border-radius: 2px;
 }
 
 .servizio-title {
   font-size: 1.5rem;
   font-weight: 700;
-  color: var(--vercam-secondary);
+  color: const(--vercam-secondary);
   margin-bottom: 1rem;
   font-family: 'Roboto', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
   letter-spacing: 0.5px;
@@ -84,7 +84,7 @@
 
 .servizio-text {
   font-size: 1.0625rem;
-  color: var(--text-primary);
+  color: const(--text-primary);
   margin-bottom: 1rem;
   line-height: 1.6;
 }
@@ -97,17 +97,17 @@
   display: inline-flex;
   align-items: center;
   gap: 0.75rem;
-  background: linear-gradient(135deg, var(--vercam-primary) 0%, var(--vercam-secondary) 100%);
-  color: var(--bg-white);
+  background: linear-gradient(135deg, const(--vercam-primary) 0%, const(--vercam-secondary) 100%);
+  color: const(--bg-white);
   font-weight: 700;
-  border-radius: var(--border-radius-xl);
+  border-radius: const(--border-radius-xl);
   border: none;
-  box-shadow: 0 8px 32px var(--shadow-medium);
+  box-shadow: 0 8px 32px const(--shadow-medium);
   font-size: 1.125rem;
   padding: 1rem 3rem;
   text-decoration: none;
   letter-spacing: 0.5px;
-  transition: all var(--transition-normal);
+  transition: all const(--transition-normal);
   position: relative;
   overflow: hidden;
 }
@@ -128,16 +128,16 @@
 }
 
 .servizio-btn:hover, .servizio-btn:focus {
-  background: linear-gradient(135deg, var(--vercam-secondary) 0%, var(--vercam-primary) 100%);
+  background: linear-gradient(135deg, const(--vercam-secondary) 0%, const(--vercam-primary) 100%);
   transform: translateY(-2px) scale(1.05);
-  box-shadow: 0 12px 40px var(--shadow-strong);
-  color: var(--bg-white);
+  box-shadow: 0 12px 40px const(--shadow-strong);
+  color: const(--bg-white);
   text-decoration: none;
 }
 
 .servizio-btn .bi {
   font-size: 1.25rem;
-  transition: all var(--transition-normal);
+  transition: all const(--transition-normal);
   animation: iconPulse 2s infinite;
 }
 
@@ -160,7 +160,7 @@
     filter: drop-shadow(0 0 0 rgba(67, 233, 123, 0.3));
   }
   50% {
-    filter: drop-shadow(0 0 16px var(--vercam-primary));
+    filter: drop-shadow(0 0 16px const(--vercam-primary));
   }
 }
 
@@ -170,13 +170,13 @@
 
 .badge-web3 {
   display: inline-block;
-  background: linear-gradient(135deg, var(--vercam-primary) 0%, var(--vercam-secondary) 100%);
-  color: var(--bg-white);
+  background: linear-gradient(135deg, const(--vercam-primary) 0%, const(--vercam-secondary) 100%);
+  color: const(--bg-white);
   font-weight: 700;
   font-size: 1rem;
   padding: 0.625rem 1.5rem;
-  border-radius: var(--border-radius-xl);
-  box-shadow: 0 4px 16px var(--shadow-medium);
+  border-radius: const(--border-radius-xl);
+  box-shadow: 0 4px 16px const(--shadow-medium);
   letter-spacing: 0.5px;
   position: absolute;
   top: -1.5rem;
@@ -224,17 +224,17 @@
   backdrop-filter: blur(20px) saturate(1.2);
   -webkit-backdrop-filter: blur(20px) saturate(1.2);
   background: rgba(255, 255, 255, 0.9);
-  box-shadow: 0 16px 64px var(--shadow-medium), 0 2px 12px var(--shadow-light);
+  box-shadow: 0 16px 64px const(--shadow-medium), 0 2px 12px const(--shadow-light);
   border: 1px solid rgba(67, 233, 123, 0.15);
-  border-radius: var(--border-radius-xl);
+  border-radius: const(--border-radius-xl);
   position: relative;
   z-index: 2;
-  transition: all var(--transition-normal);
+  transition: all const(--transition-normal);
   animation: fadeInCard 1.2s cubic-bezier(0.4, 0, 0.2, 1) forwards;
 }
 
 .servizio-full:hover {
-  box-shadow: 0 32px 96px var(--shadow-strong), 0 2px 12px var(--shadow-light);
+  box-shadow: 0 32px 96px const(--shadow-strong), 0 2px 12px const(--shadow-light);
   background: rgba(255, 255, 255, 0.95);
   transform: translateY(-4px);
 }
@@ -242,15 +242,15 @@
 .servizio-img {
   width: 100%;
   max-width: 370px;
-  border-radius: var(--border-radius-lg);
-  box-shadow: 0 16px 48px var(--shadow-medium);
-  transition: var(--transition-normal);
+  border-radius: const(--border-radius-lg);
+  box-shadow: 0 16px 48px const(--shadow-medium);
+  transition: const(--transition-normal);
   margin-bottom: 2rem;
 }
 
 .servizio-img:hover {
   transform: scale(1.05) translateY(-8px);
-  box-shadow: 0 24px 64px var(--shadow-strong);
+  box-shadow: 0 24px 64px const(--shadow-strong);
 }
 
 /* ===========================================
@@ -271,7 +271,7 @@
 .particle {
   position: absolute;
   border-radius: 50%;
-  background: linear-gradient(120deg, var(--vercam-primary) 0%, rgba(234, 255, 242, 0.8) 100%);
+  background: linear-gradient(120deg, const(--vercam-primary) 0%, rgba(234, 255, 242, 0.8) 100%);
   opacity: 0.15;
   animation: floatParticle 8s infinite ease-in-out;
 }
@@ -315,7 +315,7 @@
 @media (max-width: 991px) {
   .servizio-full {
     padding: 3.5rem 2.5rem;
-    border-radius: var(--border-radius-xl);
+    border-radius: const(--border-radius-xl);
     max-width: 95vw;
     margin: 0 auto 3rem auto;
     min-height: 350px;
@@ -323,7 +323,7 @@
 
   .servizio-img {
     max-width: 85vw;
-    border-radius: var(--border-radius-lg);
+    border-radius: const(--border-radius-lg);
     margin: 0 auto 2rem auto;
     display: block;
   }
