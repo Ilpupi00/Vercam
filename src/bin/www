@@ -4,13 +4,9 @@
  * Module dependencies.
  */
 
-<<<<<<< HEAD
 // Load environment variables from project root .env early
 require('dotenv').config({ path: require('path').join(__dirname, '..', '..', '.env') });
 const app = require('../configuration/app');
-=======
-const app = require('../app');
->>>>>>> refs/remotes/origin/main
 const debug = require('debug')('vercam:server');
 const http = require('http');
 const https = require('https');

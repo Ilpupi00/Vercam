@@ -10,74 +10,15 @@
   <link href="/stylesheets/navbar.css" rel="stylesheet">
   <link href="/stylesheets/footer.css" rel="stylesheet">
   <link href="/stylesheets/hero.css" rel="stylesheet">
-<<<<<<< HEAD
   <link href="/stylesheets/contatti.css" rel="stylesheet">
-=======
-  <link href="./Css/contatti.css" rel="stylesheet">
->>>>>>> refs/remotes/origin/main
   <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js" defer></script>
 </head>
 <body>
 
 <!-- Navbar Mobile-First -->
-<<<<<<< HEAD
+
 <%- include('partials/navbar') %>
-=======
-<header>
-  <nav class="navbar navbar-expand-lg navbar-dark bg-success shadow-sm sticky-top">
-    <div class="container-fluid px-3">
-      <!-- Logo -->
-      <a class="navbar-brand d-flex align-items-center" href="index.html">
-        <img src="https://cdn-icons-png.flaticon.com/512/616/616494.png" alt="Vercam Logo" width="40" height="40" class="me-2">
-        <span class="fw-bold">Vercam</span>
-      </a>
 
-      <!-- Mobile Toggle Button -->
-      <button class="navbar-toggler border-0" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
-        <span class="navbar-toggler-icon"></span>
-      </button>
-
-      <!-- Navigation Menu -->
-      <div class="collapse navbar-collapse" id="navbarNav">
-        <ul class="navbar-nav me-auto mb-2 mb-lg-0">
-          <li class="nav-item">
-            <a class="nav-link px-3 py-2" href="index.html">
-              <i class="bi bi-house-door me-1"></i>Home
-            </a>
-          </li>
-          <li class="nav-item">
-            <a class="nav-link px-3 py-2" href="chi-siamo.html">
-              <i class="bi bi-info-circle me-1"></i>Chi siamo
-            </a>
-          </li>
-          <li class="nav-item">
-            <a class="nav-link px-3 py-2" href="servizi.html">
-              <i class="bi bi-gear me-1"></i>Servizi
-            </a>
-          </li>
-          <li class="nav-item">
-            <a class="nav-link px-3 py-2" href="documenti.html">
-              <i class="bi bi-file-earmark-text me-1"></i>Documenti
-            </a>
-          </li>
-          <li class="nav-item">
-            <a class="nav-link active px-3 py-2" href="contatti.html">
-              <i class="bi bi-envelope me-1"></i>Contatti
-            </a>
-          </li>
-        </ul>
-
-        <!-- Area Venditore Button -->
-        <div class="d-grid d-lg-flex justify-content-lg-end mt-3 mt-lg-0">
-          <a href="area-venditore.html" class="btn btn-outline-light btn-sm px-3 py-2">
-            <i class="bi bi-person-badge me-1"></i>Area Venditore
-          </a>
-        </div>
-      </div>
-    </div>
-  </nav>
-</header>
->>>>>>> refs/remotes/origin/main
 
 <!-- Hero Section Mobile-First -->
 <section class="hero-section bg-success text-white py-5">
@@ -110,7 +51,7 @@
 </section>
 
 <!-- Contact Section Mobile-First -->
-<section class="py-5 bg-light">
+<section class="py-5 bg-light " id="contatto">
   <div class="container">
     <div class="row g-4">
       <!-- Contact Form - Mobile First -->
@@ -126,11 +67,9 @@
               <div class="row g-3">
                 <div class="col-12 col-md-6">
                   <div class="form-floating">
-<<<<<<< HEAD
-                    <input type="text" name="name" class="form-control" id="name" placeholder="Nome e Cognome" required>
-=======
+
                     <input type="text" class="form-control" id="name" placeholder="Nome e Cognome" required>
->>>>>>> refs/remotes/origin/main
+
                     <label for="name">
                       <i class="bi bi-person me-1"></i>Nome e Cognome
                     </label>
@@ -138,11 +77,9 @@
                 </div>
                 <div class="col-12 col-md-6">
                   <div class="form-floating">
-<<<<<<< HEAD
+
                     <input type="email" name="email" class="form-control" id="email" placeholder="Email" required>
-=======
-                    <input type="email" class="form-control" id="email" placeholder="Email" required>
->>>>>>> refs/remotes/origin/main
+
                     <label for="email">
                       <i class="bi bi-envelope me-1"></i>Email
                     </label>
@@ -153,11 +90,8 @@
               <div class="row g-3 mt-1">
                 <div class="col-12 col-md-6">
                   <div class="form-floating">
-<<<<<<< HEAD
-                    <input type="tel" name="phone" class="form-control" id="phone" placeholder="Telefono">
-=======
                     <input type="tel" class="form-control" id="phone" placeholder="Telefono">
->>>>>>> refs/remotes/origin/main
+
                     <label for="phone">
                       <i class="bi bi-telephone me-1"></i>Telefono (opzionale)
                     </label>
@@ -165,11 +99,10 @@
                 </div>
                 <div class="col-12 col-md-6">
                   <div class="form-floating">
-<<<<<<< HEAD
+
                     <select name="service" class="form-select" id="service" required>
-=======
-                    <select class="form-select" id="service" required>
->>>>>>> refs/remotes/origin/main
+
+
                       <option value="">Seleziona un servizio</option>
                       <option value="smaltimento">Smaltimento rifiuti sanitari</option>
                       <option value="trasporto">Trasporto rifiuti pericolosi</option>
@@ -185,33 +118,27 @@
               </div>
 
               <div class="form-floating mt-3">
-<<<<<<< HEAD
+
                 <input type="text" name="subject" class="form-control" id="subject" placeholder="Oggetto" required>
-=======
-                <input type="text" class="form-control" id="subject" placeholder="Oggetto" required>
->>>>>>> refs/remotes/origin/main
+
                 <label for="subject">
                   <i class="bi bi-chat-dots me-1"></i>Oggetto
                 </label>
               </div>
 
               <div class="form-floating mt-3">
-<<<<<<< HEAD
+
                 <textarea name="message" class="form-control" id="message" placeholder="Messaggio" style="height: 120px" required></textarea>
-=======
-                <textarea class="form-control" id="message" placeholder="Messaggio" style="height: 120px" required></textarea>
->>>>>>> refs/remotes/origin/main
+
                 <label for="message">
                   <i class="bi bi-pencil me-1"></i>Messaggio
                 </label>
               </div>
 
               <div class="form-check mt-3">
-<<<<<<< HEAD
+
                 <input class="form-check-input" name="privacy" type="checkbox" id="privacy" required>
-=======
-                <input class="form-check-input" type="checkbox" id="privacy" required>
->>>>>>> refs/remotes/origin/main
+
                 <label class="form-check-label small" for="privacy">
                   Acconsento al trattamento dei dati personali secondo la <a href="#" class="text-success">Privacy Policy</a>
                 </label>
@@ -315,73 +242,9 @@
 </section>
 
 <!-- Footer -->
-<<<<<<< HEAD
+
 <%- include('partials/footer') %>
-=======
-<footer class="footer-web3 position-relative py-5 text-white">
-  <div class="footer-bg-gradient position-absolute top-0 start-0 w-100 h-100 z-0"></div>
-  <div class="particles-bg">
-    <div class="particle particle-f1"></div>
-    <div class="particle particle-f2"></div>
-    <div class="particle particle-f3"></div>
-    <div class="particle particle-f4"></div>
-    <div class="particle particle-f5"></div>
-  </div>
-  <div class="container position-relative z-2">
-    <div class="row gy-4">
-      <!-- Contact Form Column -->
-      <div class="col-lg-6 mb-4 mb-lg-0">
-        <div class="footer-card p-4 shadow-lg">
-          <h5 class="mb-4 text-center overflow-hidden">Contattaci</h5>
-          <form id="emailForm" action="" method="POST">
-            <div class="row g-3 mb-3">
-              <div class="col-sm-6">
-                <input type="text" class="form-control" placeholder="Nome e Cognome" name="name" required>
-              </div>
-              <div class="col-sm-6">
-                <input type="email" class="form-control" placeholder="Email" name="email" required>
-              </div>
-            </div>
-            <div class="mb-3">
-              <input type="text" class="form-control" placeholder="Oggetto" name="subject" required>
-            </div>
-            <div class="mb-4">
-              <textarea class="form-control" placeholder="Messaggio" name="message" rows="4" required></textarea>
-            </div>
-            <div class="text-center">
-              <button type="submit" class="btn btn-light px-4 py-2">Invia Messaggio</button>
-            </div>
-          </form>
-        </div>
-      </div>
-      <!-- Info Column -->
-      <div class="col-lg-6 text-center m-auto">
-        <div class="footer-card p-4 shadow-lg">
-          <h5 class="mb-4 text-center overflow-hidden">Vercam</h5>
-          <div class="d-flex flex-column align-items-center mb-4">
-            <p class="mb-3"><i class="bi bi-geo-alt-fill me-2"></i> Via dello Sport 123, Borgo Vercelli (VC)</p>
-            <p class="mb-3"><i class="bi bi-telephone-fill me-2"></i> +39 0123 456789</p>
-            <p class="mb-3"><i class="bi bi-envelope-fill me-2"></i> info@asdborgovercelli.it</p>
-          </div>
-          <!-- Social Media Icons -->
-          <div class="text-center mb-4">
-            <a href="#" class="text-white mx-2"><i class="bi bi-facebook fs-4"></i></a>
-            <a href="#" class="text-white mx-2"><i class="bi bi-instagram fs-4"></i></a>
-            <a href="#" class="text-white mx-2"><i class="bi bi-twitter-x fs-4"></i></a>
-          </div>
-        </div>
-      </div>
-    </div>
-    <!-- Copyright -->
-    <div class="row mt-5">
-      <div class="col-12 text-center">
-        <hr class="my-4 bg-light opacity-50">
-        <p class="mb-0">&copy; Vercam. Tutti i diritti riservati.</p>
-      </div>
-    </div>
-  </div>
-</footer>
->>>>>>> refs/remotes/origin/main
+
 
 </body>
 </html>
