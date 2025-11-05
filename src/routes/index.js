@@ -42,5 +42,20 @@ router.get('/contatti',(req,res,next)=>{
   }
 });
 
+router.get('/area-venditore',(req,res,next)=>{
+  try{
+    res.render('area_venditore.ejs',{title: 'Area Venditore', user: req.user });
+  }catch(err){
+    next(err);
+  }
+});
+
+router.get('/login',(req,res,next)=>{
+  try{
+    res.render('login.ejs',{title: 'Login' , user: req.user });
+  }catch(err){
+    next(err);
+  }
+});
 
 module.exports = router;

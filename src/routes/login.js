@@ -1,5 +1,6 @@
 const express = require('express');
 const bcrypt = require('bcrypt');
+const passport = require('passport');
 const jwt = require('jsonwebtoken');
 const rateLimit = require('express-rate-limit');
 const { body, validationResult } = require('express-validator');
@@ -17,21 +18,7 @@ const loginLimiter = rateLimit({
     message: { ok: false, error: 'Too many login attempts, try again later' }
 });
 
-// ---- Dummy user store (replace with real DB lookups) ----
-const users = [
-    // password for this example user is "password123"
-    {
-        id: '1',
-        email: 'user@example.com',
-        name: 'Demo User',
-        passwordHash: bcrypt.hashSync('password123', 10)
-    }
-];
-
-async function findUserByEmail(email) {
-    return users.find(u => u.email.toLowerCase() === String(email).toLowerCase());
-}
-// ---------------------------------------------------------
+const { findUserByEmail } = require('../lib/users');
 
 // Auth middleware: checks JWT from cookie or Authorization header
 function authenticateJWT(req, res, next) {
@@ -68,36 +55,32 @@ router.post(
     loginLimiter,
     body('email').isEmail().normalizeEmail(),
     body('password').isString().isLength({ min: 6 }),
-    async (req, res) => {
+    async (req, res, next) => {
         const errors = validationResult(req);
         if (!errors.isEmpty()) {
             return res.status(400).json({ ok: false, errors: errors.array() });
         }
 
-        const { email, password } = req.body;
-        const user = await findUserByEmail(email);
-        if (!user) {
-            return res.status(401).json({ ok: false, error: 'Invalid credentials' });
-        }
+        // Use Passport local strategy (configured in app)
+        passport.authenticate('local', { session: false }, async (err, user, info) => {
+            if (err) return next(err);
+            if (!user) {
+                return res.status(401).json({ ok: false, error: info && info.message ? info.message : 'Invalid credentials' });
+            }
 
-        const matched = await bcrypt.compare(password, user.passwordHash);
-        if (!matched) {
-            return res.status(401).json({ ok: false, error: 'Invalid credentials' });
-        }
+            // On success create JWT as before
+            const tokenPayload = { id: user.id, email: user.email, name: user.name };
+            const token = jwt.sign(tokenPayload, JWT_SECRET, { expiresIn: JWT_EXPIRES_IN });
 
-        const tokenPayload = { id: user.id, email: user.email, name: user.name };
-        const token = jwt.sign(tokenPayload, JWT_SECRET, { expiresIn: JWT_EXPIRES_IN });
+            res.cookie('token', token, {
+                httpOnly: true,
+                secure: process.env.NODE_ENV === 'production',
+                sameSite: 'lax',
+                maxAge: 60 * 60 * 1000 // 1 hour
+            });
 
-        // Set httpOnly cookie (adjust secure sameSite options per your deployment)
-        res.cookie('token', token, {
-            httpOnly: true,
-            secure: process.env.NODE_ENV === 'production',
-            sameSite: 'lax',
-            maxAge: 60 * 60 * 1000 // 1 hour
-        });
-
-        // Return user info without sensitive data
-        res.json({ ok: true, user: { id: user.id, email: user.email, name: user.name } });
+            res.json({ ok: true, user: { id: user.id, email: user.email, name: user.name } });
+        })(req, res, next);
     }
 );
 
