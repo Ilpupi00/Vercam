@@ -4,11 +4,19 @@ const path = require('path');
 const cookieParser = require('cookie-parser');
 const logger = require('morgan');
 
+<<<<<<< HEAD:src/configuration/app.js
 const indexRouter = require('../routes/index');
 const usersRouter = require('../routes/users');
 const emailRouter = require('../routes/email');
 
 const app = express();
+=======
+const indexRouter = require('./routes/index');
+const usersRouter = require('./routes/users');
+
+const app = express();
+
+>>>>>>> refs/remotes/origin/main:src/app.js
 
 // view engine setup
 // Il file `app.js` si trova in `src/configuration`, le views sono in `src/views`.
