@@ -106,3 +106,25 @@ class NavActive {
 
 // Inizializza per i link nella navbar (selector puntuale)
 new NavActive('.navbar-nav .nav-link', 'active');
+
+// Logout function
+async function logout() {
+  try {
+    const response = await fetch('/logout', {
+      method: 'POST',
+      headers: {
+        'Content-Type': 'application/json'
+      },
+      credentials: 'same-origin'
+    });
+    if (response.ok) {
+      // Redirect to home or login
+      window.location.href = '/';
+    } else {
+      alert('Errore durante il logout');
+    }
+  } catch (error) {
+    console.error('Logout error:', error);
+    alert('Errore di rete durante il logout');
+  }
+}

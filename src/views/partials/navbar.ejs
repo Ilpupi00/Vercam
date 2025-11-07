@@ -4,8 +4,10 @@
     <div class="container-fluid px-3">
       <!-- Logo -->
       <a class="navbar-brand d-flex align-items-center" href="/">
-        <img src="https://cdn-icons-png.flaticon.com/512/616/616494.png" alt="Vercam Logo" width="40" height="40" class="me-2">
-        <span class="fw-bold">Vercam</span>
+        <!-- Logo locale: posiziona l'immagine fornita in src/public/images/vercam-logo.png -->
+     <img src="/images/vercam-logo.png" alt="Vercam Logo" width="120" height="60" class="me-2"
+       style="border-radius:0 !important; background:transparent !important; padding:0 !important; display:block; width:110px; height:75px;"
+       onerror="this.onerror=null;this.src='https://cdn-icons-png.flaticon.com/512/616/616494.png';">
       </a>
 
           <!-- Mobile Toggle Button -->
@@ -46,9 +48,12 @@
             <!-- Area Venditore Button -->
             <div class="d-grid d-lg-flex justify-content-lg-end mt-3 mt-lg-0">
               <% if(user) { %>
-              <a href="/area-venditore" class="btn btn-outline-light btn-sm px-3 py-2">
+              <a href="/area-venditore" class="btn btn-outline-light btn-sm px-3 py-2 me-2">
                 <i class="bi bi-person-badge me-1"></i>Area Venditore
               </a>
+              <button type="button" class="btn btn-danger btn-sm px-3 py-2 btn-logout" onclick="logout()">
+                <i class="bi bi-box-arrow-right me-1"></i>Logout
+              </button>
               <% } else { %>
               <a href="/login" class="btn btn-outline-light btn-sm px-3 py-2">
                 <i class="bi bi-person-badge me-1"></i>Area Venditore

@@ -296,6 +296,17 @@
    ANIMATIONS & EFFECTS
    =========================================== */
 
+/* Logout button hover effect */
+.btn-logout {
+  transition: all 0.3s ease;
+}
+
+.btn-logout:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 4px 8px rgba(220, 53, 69, 0.3);
+  background-color: #c82333;
+}
+
 /* Smooth slide-in animation for mobile menu */
 .navbar-collapse {
   animation: slideInDown 0.3s ease-out;

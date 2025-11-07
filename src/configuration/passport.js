@@ -6,14 +6,23 @@ module.exports = function(passport) {
     passport.use(new LocalStrategy({ usernameField: 'email', passwordField: 'password' },
         async (email, password, done) => {
             try {
+                // Diagnostic logging to help debug failed logins
+                // Avoid logging the raw password
+                console.debug && console.debug(`LocalStrategy: authentication attempt for email="${email}"`);
                 const user = await findUserByEmail(email);
-                if (!user) return done(null, false, { message: 'Invalid credentials' });
-
+                if (!user) {
+                    console.debug && console.debug(`LocalStrategy: no user found for email="${email}"`);
+                    return done(null, false, { message: 'Invalid credentials' });
+                }
                 const matched = await bcrypt.compare(password, user.passwordHash);
-                if (!matched) return done(null, false, { message: 'Invalid credentials' });
+                console.debug && console.debug(`LocalStrategy: password match for email="${email}" -> ${matched}`);
+                if (!matched) {
+                    return done(null, false, { message: 'Invalid credentials' });
+                }
 
                 return done(null, user);
             } catch (err) {
+                console.error('LocalStrategy: error during authentication', err && err.message ? err.message : err);
                 return done(err);
             }
         }

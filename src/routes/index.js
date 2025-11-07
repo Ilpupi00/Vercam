@@ -1,5 +1,6 @@
 const express = require('express');
 const router = express.Router();
+const { authenticateJWT } = require('./login');
 
 /* GET home page. */
 router.get('/', (req, res, next)=> {
@@ -44,7 +45,12 @@ router.get('/contatti',(req,res,next)=>{
 
 router.get('/area-venditore',(req,res,next)=>{
   try{
-    res.render('area_venditore.ejs',{title: 'Area Venditore', user: req.user });
+    // Require authentication
+    if (!req.user) {
+      return res.redirect('/login');
+    }
+    // view file is named `area-venditore.ejs` in src/views
+    res.render('area-venditore', { title: 'Area Venditore', user: req.user });
   }catch(err){
     next(err);
   }
@@ -52,6 +58,10 @@ router.get('/area-venditore',(req,res,next)=>{
 
 router.get('/login',(req,res,next)=>{
   try{
+    // If already logged in, redirect to area-venditore
+    if (req.user) {
+      return res.redirect('/area-venditore');
+    }
     res.render('login.ejs',{title: 'Login' , user: req.user });
   }catch(err){
     next(err);

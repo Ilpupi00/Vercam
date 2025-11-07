@@ -27,7 +27,8 @@ function authenticateJWT(req, res, next) {
     const token = tokenFromHeader || req.cookies && req.cookies.token;
 
     if (!token) {
-        return res.status(401).json({ ok: false, error: 'Missing token' });
+        req.user = null;
+        return next();
     }
 
     try {
@@ -35,16 +36,17 @@ function authenticateJWT(req, res, next) {
         req.user = { id: payload.id, email: payload.email, name: payload.name };
         next();
     } catch (err) {
-        return res.status(401).json({ ok: false, error: 'Invalid or expired token' });
+        req.user = null;
+        next();
     }
 }
 
-// GET /login
+module.exports = { authenticateJWT, router };
 // If using server-side rendering, implement a view named 'login'.
 // Otherwise this returns a JSON hint.
 router.get('/login', (req, res) => {
     if (typeof res.render === 'function') {
-        return res.render('login');
+        return res.render('login', { title: 'Login', user: req.user });
     }
     res.json({ ok: true, message: 'POST /login with { email, password } to authenticate' });
 });
@@ -65,6 +67,10 @@ router.post(
         passport.authenticate('local', { session: false }, async (err, user, info) => {
             if (err) return next(err);
             if (!user) {
+                // Log failed attempt for debugging (do not leak sensitive info)
+                try {
+                    console.warn(`Login failed for email="${req.body && req.body.email}" - reason: ${info && info.message}`);
+                } catch (e) { /* ignore logging errors */ }
                 return res.status(401).json({ ok: false, error: info && info.message ? info.message : 'Invalid credentials' });
             }
 
@@ -79,7 +85,8 @@ router.post(
                 maxAge: 60 * 60 * 1000 // 1 hour
             });
 
-            res.json({ ok: true, user: { id: user.id, email: user.email, name: user.name } });
+            // Respond with redirect for client-side navigation
+            res.json({ ok: true, user: { id: user.id, email: user.email, name: user.name }, redirect: '/area-venditore' });
         })(req, res, next);
     }
 );
@@ -95,4 +102,4 @@ router.get('/me', authenticateJWT, (req, res) => {
     res.json({ ok: true, user: req.user });
 });
 
-module.exports = router;
+module.exports = { authenticateJWT, router };

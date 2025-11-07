@@ -8,7 +8,8 @@ const passport = require('passport');
 const indexRouter = require('../routes/index');
 const usersRouter = require('../routes/users');
 const emailRouter = require('../routes/email');
-const loginRouter = require('../routes/login');
+const { router: loginRouter } = require('../routes/login');
+const { authenticateJWT } = require('../routes/login');
 const session = require('express-session');
 const db = require('../../db/database');
 const app = express();
@@ -21,6 +22,8 @@ app.use(logger('dev'));
 app.use(express.json());
 app.use(express.urlencoded({ extended: false }));
 app.use(cookieParser());
+// Global auth middleware to populate req.user if token present
+app.use(authenticateJWT);
 // Initialize Passport (Local strategy configured in src/configuration/passport.js)
 require('./passport')(passport);
 app.use(passport.initialize());

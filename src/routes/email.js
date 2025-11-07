@@ -9,6 +9,11 @@ router.post('/', async (req, res) => {
 		if (!name || !email || !message) {
 				return res.status(400).json({ error: 'name, email and message are required' });
 		}
+		// Accept several truthy representations for the privacy consent
+		const privacyAccepted = (privacy === true || privacy === 'on' || privacy === 'true');
+		if (!privacyAccepted) {
+				return res.status(400).json({ error: 'Devi accettare la privacy policy' });
+		}
 
 		// prefer MAIL_TO, fallback to MAIL_FROM
 		const mailTo = process.env.MAIL_TO || process.env.MAIL_FROM;
