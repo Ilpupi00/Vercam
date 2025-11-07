@@ -8,54 +8,57 @@
         <span class="fw-bold">Vercam</span>
       </a>
 
-      <!-- Mobile Toggle Button -->
-      <button class="navbar-toggler border-0" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
-        <span class="navbar-toggler-icon"></span>
-      </button>
+          <!-- Mobile Toggle Button -->
+          <button class="navbar-toggler border-0" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+          </button>
 
-      <!-- Navigation Menu -->
-      <div class="collapse navbar-collapse" id="navbarNav">
-        <ul class="navbar-nav me-auto mb-2 mb-lg-0">
-          <li class="nav-item">
-            <a class="nav-link active px-3 py-2" href="/">
-              <i class="bi bi-house-door me-1"></i>Home
-            </a>
-          </li>
-          <li class="nav-item">
-            <a class="nav-link px-3 py-2" href="/chi-siamo">
-              <i class="bi bi-info-circle me-1"></i>Chi siamo
-            </a>
-          </li>
-          <li class="nav-item">
-            <a class="nav-link px-3 py-2" href="/servizi">
-              <i class="bi bi-gear me-1"></i>Servizi
-            </a>
-          </li>
-          <li class="nav-item">
-            <a class="nav-link px-3 py-2" href="/documenti">
-              <i class="bi bi-file-earmark-text me-1"></i>Documenti
-            </a>
-          </li>
-          <li class="nav-item">
-            <a class="nav-link px-3 py-2" href="/contatti">
-              <i class="bi bi-envelope me-1"></i>Contatti
-            </a>
-          </li>
-        </ul>
+          <!-- Navigation Menu -->
+          <div class="collapse navbar-collapse" id="navbarNav">
+            <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+              <li class="nav-item">
+                <a class="nav-link px-3 py-2" href="/">
+                  <i class="bi bi-house-door me-1"></i>Home
+                </a>
+              </li>
+              <li class="nav-item">
+                <a class="nav-link px-3 py-2" href="/chi-siamo">
+                  <i class="bi bi-info-circle me-1"></i>Chi siamo
+                </a>
+              </li>
+              <li class="nav-item">
+                <a class="nav-link px-3 py-2" href="/servizi">
+                  <i class="bi bi-gear me-1"></i>Servizi
+                </a>
+              </li>
+              <li class="nav-item">
+                <a class="nav-link px-3 py-2" href="/documenti">
+                  <i class="bi bi-file-earmark-text me-1"></i>Documenti
+                </a>
+              </li>
+              <li class="nav-item">
+                <a class="nav-link px-3 py-2" href="/contatti">
+                  <i class="bi bi-envelope me-1"></i>Contatti
+                </a>
+              </li>
+            </ul>
 
-        <!-- Area Venditore Button -->
-        <div class="d-grid d-lg-flex justify-content-lg-end mt-3 mt-lg-0">
-          <% if(user) { %>
-          <a href="/area-venditore" class="btn btn-outline-light btn-sm px-3 py-2">
-            <i class="bi bi-person-badge me-1"></i>Area Venditore
-          </a>
-          <% } else { %>
-          <a href="/login" class="btn btn-outline-light btn-sm px-3 py-2">
-            <i class="bi bi-person-badge me-1"></i>Area Venditore
-          </a>
-          <% } %>
+            <!-- Area Venditore Button -->
+            <div class="d-grid d-lg-flex justify-content-lg-end mt-3 mt-lg-0">
+              <% if(user) { %>
+              <a href="/area-venditore" class="btn btn-outline-light btn-sm px-3 py-2">
+                <i class="bi bi-person-badge me-1"></i>Area Venditore
+              </a>
+              <% } else { %>
+              <a href="/login" class="btn btn-outline-light btn-sm px-3 py-2">
+                <i class="bi bi-person-badge me-1"></i>Area Venditore
+              </a>
+              <% } %>
+            </div>
+          </div>
         </div>
-      </div>
-    </div>
-  </nav>
-</header>
+      </nav>
+      <script src="/javascripts/navbar.js" defer></script>
+    </header>
+
+
