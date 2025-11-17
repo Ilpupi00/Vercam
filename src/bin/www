@@ -56,6 +56,8 @@ httpServer.listen(8080);
 httpServer.on('error', onError);
 httpServer.on('listening', function() {
   debug('HTTP redirect server listening on port 8080');
+  const host = process.env.HOST || 'localhost';
+  console.log('HTTP redirect server: http://' + host + ':8080 -> https://' + host + ':' + port + '/');
 });
 
 /**
@@ -116,4 +118,13 @@ function onListening() {
     ? 'pipe ' + addr
     : 'port ' + addr.port;
   debug('Listening on ' + bind);
+  try {
+    const host = process.env.HOST || 'localhost';
+    const portNum = (typeof addr === 'string') ? addr : addr.port;
+    const protocol = 'https';
+    console.log('Server listening at ' + protocol + '://' + host + ':' + portNum + '/');
+    console.log('Also available (HTTP redirect) at http://' + host + ':8080/');
+  } catch (err) {
+    // no-op: logging should not crash server
+  }
 }

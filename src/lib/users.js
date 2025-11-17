@@ -27,8 +27,8 @@ async function findUserByEmail(email) {
     // Prefer database lookup when available
     if (db && typeof db.get === 'function') {
         return new Promise((resolve, reject) => {
-            // Case-insensitive match using COLLATE NOCASE
-            const sql = 'SELECT id, username AS name, email, password_hash AS passwordHash FROM users WHERE email = ? COLLATE NOCASE LIMIT 1';
+            // Case-insensitive match
+            const sql = 'SELECT id, username AS name, email, password_hash AS passwordHash FROM users WHERE LOWER(email) = LOWER(?) LIMIT 1';
             db.get(sql, [emailStr], (err, row) => {
                 if (err) return reject(err);
                 if (!row) {
@@ -41,7 +41,7 @@ async function findUserByEmail(email) {
                     id: String(row.id),
                     email: row.email,
                     name: row.name || row.email.split('@')[0],
-                    passwordHash: row.passwordHash
+                    passwordHash: row.passwordhash
                 };
                 resolve(user);
             });
@@ -52,4 +52,31 @@ async function findUserByEmail(email) {
     return users.find(u => u.email.toLowerCase() === emailStr.toLowerCase()) || null;
 }
 
-module.exports = { users, findUserByEmail };
+async function findUserById(id) {
+    if (!id) return null;
+    const idStr = String(id).trim();
+
+    // Prefer database lookup when available
+    if (db && typeof db.get === 'function') {
+        return new Promise((resolve, reject) => {
+            const sql = 'SELECT id, username AS name, email, password_hash AS passwordHash FROM users WHERE id = ? LIMIT 1';
+            db.get(sql, [idStr], (err, row) => {
+                if (err) return reject(err);
+                if (!row) return resolve(null);
+                // Normalize row to expected shape
+                const user = {
+                    id: String(row.id),
+                    email: row.email,
+                    name: row.name || row.email.split('@')[0],
+                    passwordHash: row.passwordhash
+                };
+                resolve(user);
+            });
+        });
+    }
+
+    // Fallback: search in-memory users
+    return users.find(u => u.id === idStr) || null;
+}
+
+module.exports = { users, findUserByEmail, findUserById };

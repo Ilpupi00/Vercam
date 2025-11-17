@@ -10,6 +10,7 @@ const usersRouter = require('../routes/users');
 const emailRouter = require('../routes/email');
 const { router: loginRouter } = require('../routes/login');
 const { authenticateJWT } = require('../routes/login');
+const documentsRouter = require('../routes/documents');
 const session = require('express-session');
 const db = require('../../db/database');
 const app = express();
@@ -30,6 +31,12 @@ app.use(passport.initialize());
 // static files (public) sono in `src/public`.
 app.use(express.static(path.join(__dirname, '..', 'public')));
 
+// Add db to req
+app.use((req, res, next) => {
+  req.db = db;
+  next();
+});
+
 // Configure trust proxy so express-rate-limit and req.ip work correctly when
 // the app is behind a proxy or a load balancer that sets X-Forwarded-For.
 // Controlled by the TRUST_PROXY env var. Default to '1' (trust first proxy)
@@ -47,6 +54,7 @@ app.use('/', indexRouter);
 app.use('/users', usersRouter);
 app.use('/email', emailRouter);
 app.use('/', loginRouter);
+app.use('/documents', documentsRouter);
 
 // catch 404 and forward to error handler
 app.use(function(req, res, next) {
@@ -62,11 +70,6 @@ app.use(function(err, req, res, next) {
   // render the error page
   res.status(err.status || 500);
   res.render('error');
-});
-
-app.use((req, res, next) => {
-  req.db = db;
-  next();
 });
 
 module.exports = app;

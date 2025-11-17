@@ -1,0 +1,579 @@
+/* ===========================================
+   VERCAM PRIVACY POLICY - Modern CSS
+   =========================================== */
+
+/* CSS Custom Properties */
+:root {
+  --vercam-primary: #43e97b;
+  --vercam-secondary: #198754;
+  --vercam-accent: #00b4d8;
+  --vercam-dark: #0d6efd;
+  --text-primary: #222;
+  --text-secondary: #666;
+  --bg-white: #ffffff;
+  --bg-light: #f8f9fa;
+  --shadow-light: rgba(67, 233, 123, 0.07);
+  --shadow-medium: rgba(67, 233, 123, 0.15);
+  --shadow-strong: rgba(67, 233, 123, 0.25);
+  --border-radius-sm: 8px;
+  --border-radius-md: 12px;
+  --border-radius-lg: 16px;
+  --border-radius-xl: 20px;
+  --transition-fast: 0.2s ease;
+  --transition-normal: 0.3s ease;
+  --transition-slow: 0.5s ease;
+}
+
+/* ===========================================
+   PRIVACY SECTION
+   =========================================== */
+
+.privacy-section {
+  background: linear-gradient(180deg, #f8f9fa 0%, #ffffff 100%);
+  min-height: 100vh;
+}
+
+/* ===========================================
+   SIDEBAR NAVIGATION
+   =========================================== */
+
+.privacy-sidebar {
+  background: white;
+  border-radius: var(--border-radius-lg);
+  padding: 1.5rem;
+  box-shadow: 0 4px 20px var(--shadow-light);
+  border: 1px solid rgba(67, 233, 123, 0.1);
+  top: 100px;
+  max-height: calc(100vh - 120px);
+  overflow-y: auto;
+}
+
+.privacy-sidebar h5 {
+  color: var(--vercam-secondary);
+  font-size: 1.1rem;
+  margin-bottom: 1rem;
+  padding-bottom: 0.75rem;
+  border-bottom: 2px solid rgba(67, 233, 123, 0.2);
+}
+
+.privacy-sidebar .nav-link {
+  color: var(--text-secondary);
+  font-size: 0.9rem;
+  padding: 0.6rem 1rem;
+  border-radius: var(--border-radius-md);
+  transition: all var(--transition-fast);
+  border-left: 3px solid transparent;
+  margin-bottom: 0.3rem;
+}
+
+.privacy-sidebar .nav-link:hover {
+  background: rgba(67, 233, 123, 0.1);
+  color: var(--vercam-secondary);
+  border-left-color: var(--vercam-primary);
+  transform: translateX(4px);
+}
+
+.privacy-sidebar .nav-link.active {
+  background: linear-gradient(135deg, rgba(67, 233, 123, 0.15) 0%, rgba(25, 135, 84, 0.15) 100%);
+  color: var(--vercam-secondary);
+  font-weight: 600;
+  border-left-color: var(--vercam-secondary);
+}
+
+/* Custom scrollbar for sidebar */
+.privacy-sidebar::-webkit-scrollbar {
+  width: 6px;
+}
+
+.privacy-sidebar::-webkit-scrollbar-track {
+  background: #f1f1f1;
+  border-radius: 10px;
+}
+
+.privacy-sidebar::-webkit-scrollbar-thumb {
+  background: var(--vercam-primary);
+  border-radius: 10px;
+}
+
+.privacy-sidebar::-webkit-scrollbar-thumb:hover {
+  background: var(--vercam-secondary);
+}
+
+/* ===========================================
+   PRIVACY CONTENT
+   =========================================== */
+
+.privacy-content {
+  padding-left: 2rem;
+}
+
+.privacy-card {
+  background: white;
+  border-radius: var(--border-radius-xl);
+  padding: 2.5rem;
+  box-shadow: 0 8px 32px var(--shadow-medium);
+  border: 1px solid rgba(67, 233, 123, 0.1);
+  position: relative;
+  transition: all var(--transition-normal);
+}
+
+.privacy-card:hover {
+  box-shadow: 0 12px 40px var(--shadow-strong);
+  transform: translateY(-2px);
+}
+
+.privacy-card::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  height: 4px;
+  background: linear-gradient(90deg, var(--vercam-primary) 0%, var(--vercam-secondary) 100%);
+  border-radius: var(--border-radius-xl) var(--border-radius-xl) 0 0;
+}
+
+.card-icon {
+  width: 60px;
+  height: 60px;
+  background: linear-gradient(135deg, var(--vercam-primary) 0%, var(--vercam-secondary) 100%);
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-bottom: 1.5rem;
+  box-shadow: 0 4px 16px var(--shadow-medium);
+}
+
+.card-icon i {
+  font-size: 1.8rem;
+  color: white;
+}
+
+.section-title {
+  color: var(--vercam-secondary);
+  font-weight: 800;
+  font-size: 2rem;
+  margin-bottom: 1.5rem;
+  position: relative;
+  display: inline-block;
+}
+
+.section-title::after {
+  content: '';
+  position: absolute;
+  bottom: -5px;
+  left: 0;
+  width: 50px;
+  height: 3px;
+  background: var(--vercam-primary);
+  border-radius: 2px;
+}
+
+.subsection-title {
+  color: var(--vercam-secondary);
+  font-weight: 700;
+  font-size: 1.3rem;
+  margin-top: 1.5rem;
+  margin-bottom: 1rem;
+}
+
+.privacy-content p {
+  color: var(--text-primary);
+  line-height: 1.8;
+  margin-bottom: 1rem;
+  font-size: 1.05rem;
+}
+
+.privacy-content strong {
+  color: var(--vercam-secondary);
+  font-weight: 600;
+}
+
+/* ===========================================
+   INFO BOXES
+   =========================================== */
+
+.info-box {
+  background: linear-gradient(135deg, rgba(67, 233, 123, 0.05) 0%, rgba(25, 135, 84, 0.05) 100%);
+  border: 2px solid rgba(67, 233, 123, 0.2);
+  border-radius: var(--border-radius-lg);
+  padding: 1.5rem;
+  margin: 1rem 0;
+  border-left: 4px solid var(--vercam-primary);
+}
+
+.info-box p {
+  margin-bottom: 0.5rem;
+  font-size: 1rem;
+}
+
+.info-box p:last-child {
+  margin-bottom: 0;
+}
+
+.info-box a {
+  color: var(--vercam-secondary);
+  font-weight: 600;
+  text-decoration: none;
+  transition: color var(--transition-fast);
+}
+
+.info-box a:hover {
+  color: var(--vercam-primary);
+  text-decoration: underline;
+}
+
+/* ===========================================
+   LISTS
+   =========================================== */
+
+.custom-list {
+  list-style: none;
+  padding-left: 0;
+  margin: 1rem 0;
+}
+
+.custom-list li {
+  position: relative;
+  padding-left: 2rem;
+  margin-bottom: 0.75rem;
+  line-height: 1.7;
+  color: var(--text-primary);
+}
+
+.custom-list li::before {
+  content: '✓';
+  position: absolute;
+  left: 0;
+  top: 0;
+  width: 24px;
+  height: 24px;
+  background: linear-gradient(135deg, var(--vercam-primary) 0%, var(--vercam-secondary) 100%);
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-weight: bold;
+  color: white;
+  font-size: 0.8rem;
+}
+
+/* ===========================================
+   PURPOSE & LEGAL BASIS ITEMS
+   =========================================== */
+
+.purpose-item,
+.legal-basis-item {
+  background: white;
+  border: 2px solid rgba(67, 233, 123, 0.1);
+  border-radius: var(--border-radius-lg);
+  padding: 1.5rem;
+  margin: 1rem 0;
+  transition: all var(--transition-fast);
+}
+
+.purpose-item:hover,
+.legal-basis-item:hover {
+  border-color: rgba(67, 233, 123, 0.3);
+  box-shadow: 0 4px 16px var(--shadow-light);
+  transform: translateX(4px);
+}
+
+.purpose-item h5,
+.legal-basis-item h5 {
+  color: var(--text-primary);
+  font-weight: 700;
+  margin-bottom: 1rem;
+}
+
+.purpose-item ul,
+.legal-basis-item ul {
+  margin-bottom: 0;
+}
+
+/* ===========================================
+   RETENTION ITEMS
+   =========================================== */
+
+.retention-item {
+  background: linear-gradient(135deg, rgba(255, 255, 255, 0.95) 0%, rgba(248, 249, 250, 0.95) 100%);
+  border-left: 4px solid var(--vercam-accent);
+  border-radius: var(--border-radius-md);
+  padding: 1.25rem;
+  margin: 1rem 0;
+  box-shadow: 0 2px 8px var(--shadow-light);
+}
+
+.retention-item h5 {
+  color: var(--vercam-secondary);
+  font-size: 1.1rem;
+  font-weight: 700;
+  margin-bottom: 0.75rem;
+}
+
+.retention-item p {
+  margin-bottom: 0;
+  color: var(--text-secondary);
+}
+
+/* ===========================================
+   RIGHTS CARDS
+   =========================================== */
+
+.right-card {
+  background: white;
+  border: 2px solid rgba(67, 233, 123, 0.1);
+  border-radius: var(--border-radius-lg);
+  padding: 1.25rem;
+  height: 100%;
+  transition: all var(--transition-fast);
+}
+
+.right-card:hover {
+  border-color: var(--vercam-primary);
+  box-shadow: 0 8px 24px var(--shadow-medium);
+  transform: translateY(-4px);
+}
+
+.right-card h5 {
+  color: var(--text-primary);
+  font-size: 1rem;
+  font-weight: 700;
+  margin-bottom: 0.75rem;
+}
+
+.right-card p {
+  color: var(--text-secondary);
+  font-size: 0.95rem;
+  margin-bottom: 0;
+  line-height: 1.6;
+}
+
+/* ===========================================
+   COOKIE TYPES
+   =========================================== */
+
+.cookie-type {
+  background: rgba(248, 249, 250, 0.5);
+  border: 1px solid rgba(67, 233, 123, 0.2);
+  border-radius: var(--border-radius-md);
+  padding: 1.25rem;
+  margin: 0.75rem 0;
+}
+
+.cookie-type h5 {
+  color: var(--text-primary);
+  font-size: 1.1rem;
+  margin-bottom: 0.75rem;
+}
+
+.cookie-type p {
+  margin-bottom: 0.5rem;
+  font-size: 1rem;
+}
+
+.cookie-type ul {
+  margin-bottom: 0;
+  padding-left: 1.5rem;
+}
+
+.cookie-type ul li {
+  color: var(--text-secondary);
+  margin-bottom: 0.3rem;
+}
+
+/* ===========================================
+   ALERTS
+   =========================================== */
+
+.alert {
+  border-radius: var(--border-radius-lg);
+  border: none;
+  padding: 1.25rem 1.5rem;
+  margin: 1.5rem 0;
+  box-shadow: 0 4px 16px var(--shadow-light);
+}
+
+.alert-info {
+  background: linear-gradient(135deg, rgba(13, 110, 253, 0.1) 0%, rgba(0, 180, 216, 0.1) 100%);
+  border-left: 4px solid var(--vercam-dark);
+}
+
+.alert-success {
+  background: linear-gradient(135deg, rgba(67, 233, 123, 0.1) 0%, rgba(25, 135, 84, 0.1) 100%);
+  border-left: 4px solid var(--vercam-secondary);
+}
+
+.alert-warning {
+  background: linear-gradient(135deg, rgba(255, 193, 7, 0.1) 0%, rgba(255, 152, 0, 0.1) 100%);
+  border-left: 4px solid #ffc107;
+}
+
+.alert-heading {
+  color: var(--text-primary);
+  font-weight: 700;
+  margin-bottom: 0.75rem;
+}
+
+/* ===========================================
+   HERO SECTION SPECIFIC
+   =========================================== */
+
+.min-vh-50 {
+  min-height: 50vh;
+}
+
+/* ===========================================
+   RESPONSIVE DESIGN
+   =========================================== */
+
+@media (max-width: 991px) {
+  .privacy-sidebar {
+    position: relative !important;
+    top: 0;
+    max-height: none;
+    margin-bottom: 2rem;
+  }
+
+  .privacy-content {
+    padding-left: 0;
+  }
+
+  .privacy-card {
+    padding: 1.5rem;
+  }
+
+  .section-title {
+    font-size: 1.75rem;
+  }
+
+  .card-icon {
+    width: 50px;
+    height: 50px;
+  }
+
+  .card-icon i {
+    font-size: 1.5rem;
+  }
+}
+
+@media (max-width: 768px) {
+  .privacy-card {
+    padding: 1.25rem;
+  }
+
+  .section-title {
+    font-size: 1.5rem;
+  }
+
+  .subsection-title {
+    font-size: 1.15rem;
+  }
+
+  .privacy-content p {
+    font-size: 1rem;
+  }
+
+  .info-box {
+    padding: 1rem;
+  }
+
+  .custom-list li {
+    padding-left: 1.75rem;
+    font-size: 0.95rem;
+  }
+
+  .right-card {
+    margin-bottom: 1rem;
+  }
+
+  .purpose-item,
+  .legal-basis-item,
+  .retention-item {
+    padding: 1rem;
+  }
+}
+
+/* ===========================================
+   PRINT STYLES
+   =========================================== */
+
+@media print {
+  .privacy-sidebar {
+    display: none;
+  }
+
+  .privacy-card {
+    box-shadow: none;
+    border: 1px solid #ddd;
+    page-break-inside: avoid;
+  }
+
+  .hero-section {
+    display: none;
+  }
+
+  .particles-bg {
+    display: none;
+  }
+}
+
+/* ===========================================
+   ANIMATIONS
+   =========================================== */
+
+@keyframes fadeInUp {
+  from {
+    opacity: 0;
+    transform: translateY(30px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.privacy-card {
+  animation: fadeInUp 0.6s ease-out;
+}
+
+/* Stagger animation for multiple cards */
+.privacy-card:nth-child(1) { animation-delay: 0.1s; }
+.privacy-card:nth-child(2) { animation-delay: 0.2s; }
+.privacy-card:nth-child(3) { animation-delay: 0.3s; }
+.privacy-card:nth-child(4) { animation-delay: 0.4s; }
+.privacy-card:nth-child(5) { animation-delay: 0.5s; }
+
+/* ===========================================
+   ACCESSIBILITY
+   =========================================== */
+
+.privacy-sidebar .nav-link:focus,
+.right-card:focus-within,
+.info-box a:focus {
+  outline: 2px solid var(--vercam-primary);
+  outline-offset: 2px;
+}
+
+/* High contrast mode support */
+@media (prefers-contrast: high) {
+  .privacy-card {
+    border: 2px solid var(--vercam-secondary);
+  }
+
+  .custom-list li::before {
+    border: 2px solid white;
+  }
+}
+
+/* Reduced motion support */
+@media (prefers-reduced-motion: reduce) {
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+  }
+}

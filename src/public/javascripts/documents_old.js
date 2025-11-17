@@ -1,5 +1,6 @@
 class DocumentManager {
     constructor() {
+        // Dati interni: inizialmente vuoti (nessun esempio)
         this.documents = [];
         this.nextId = 1;
 
@@ -17,7 +18,7 @@ class DocumentManager {
         this.editingDocumentId = null;
     }
 
-    async init() {
+    init() {
         // Attach listeners
         if (this.uploadForm) this.uploadForm.addEventListener('submit', this.handleUpload.bind(this));
         if (this.filterCategory) this.filterCategory.addEventListener('change', this.filterDocuments.bind(this));
@@ -25,57 +26,41 @@ class DocumentManager {
         if (this.clearFilters) this.clearFilters.addEventListener('click', this.clearAllFilters.bind(this));
         if (this.saveEditBtn) this.saveEditBtn.addEventListener('click', this.saveEdit.bind(this));
 
-        // Carica documenti dal backend
-        await this.loadDocuments();
+        // Initial render (empty)
+        this.renderDocuments();
     }
 
-    async loadDocuments() {
-        try {
-            const response = await fetch('/documents');
-            const data = await response.json();
-            if (data.ok) {
-                this.documents = data.documents.map(doc => ({
-                    id: doc.id,
-                    name: doc.name,
-                    description: doc.description,
-                    category: doc.category,
-                    path: doc.path,
-                    uploadDate: doc.uploadDate,
-                    icon: this.getFileIcon(doc.name)
-                }));
-                this.renderDocuments();
-            } else {
-                this.showToast('Errore nel caricamento dei documenti', 'error');
-            }
-        } catch (error) {
-            console.error('Errore caricamento documenti:', error);
-            this.showToast('Errore di connessione', 'error');
-        }
-    }
-
-    async handleUpload(e) {
+    handleUpload(e) {
         e.preventDefault();
 
-        const formData = new FormData(this.uploadForm);
+        const fileNameInput = document.getElementById('fileName');
+        const categoryInput = document.getElementById('fileCategory');
+        const descriptionInput = document.getElementById('fileDescription');
+        const fileInput = document.getElementById('fileUpload');
 
-        try {
-            const response = await fetch('/documents/upload', {
-                method: 'POST',
-                body: formData
-            });
-
-            const data = await response.json();
-            if (data.ok) {
-                this.showToast('Documento caricato con successo!', 'success');
-                this.uploadForm.reset();
-                await this.loadDocuments();
-            } else {
-                this.showToast(data.error || 'Errore nell\'upload', 'error');
-            }
-        } catch (error) {
-            console.error('Errore upload:', error);
-            this.showToast('Errore di connessione', 'error');
+        if (!fileInput || !fileInput.files || !fileInput.files[0]) {
+            this.showToast('Seleziona un file da caricare', 'error');
+            return;
         }
+
+        const file = fileInput.files[0];
+        const fileSize = (file.size / (1024 * 1024)).toFixed(1) + ' MB';
+
+        const newDoc = {
+            id: this.nextId++,
+            name: (fileNameInput && fileNameInput.value) ? fileNameInput.value : file.name,
+            description: descriptionInput && descriptionInput.value ? descriptionInput.value : 'Nessuna descrizione',
+            category: categoryInput ? categoryInput.value : '',
+            size: fileSize,
+            uploadDate: new Date().toLocaleDateString('it-IT'),
+            icon: this.getFileIcon(file.name)
+        };
+
+        this.documents.push(newDoc);
+        this.filterDocuments();
+
+        if (this.uploadForm) this.uploadForm.reset();
+        this.showToast('Documento caricato con successo!', 'success');
     }
 
     renderDocuments(filteredDocs = null) {
@@ -112,6 +97,7 @@ class DocumentManager {
                     <p class="document-desc">${doc.description}</p>
                     <div class="document-meta">
                         <span class="badge ${badgeClass}">${doc.category}</span>
+                        <span class="file-size">${doc.size}</span>
                         <span class="upload-date">${doc.uploadDate}</span>
                     </div>
                 </div>
@@ -184,60 +170,34 @@ class DocumentManager {
 
         // Delete
         this.documentsList.querySelectorAll('.delete-doc').forEach(btn => {
-            btn.addEventListener('click', async (ev) => {
-                const id = parseInt(ev.target.closest('.delete-doc').getAttribute('data-id'));
+            btn.addEventListener('click', (ev) => {
+                const id = parseInt(btn.getAttribute('data-id'));
                 if (confirm('Sei sicuro di voler eliminare questo documento?')) {
-                    try {
-                        const response = await fetch(`/documents/${id}`, {
-                            method: 'DELETE'
-                        });
-                        const data = await response.json();
-                        if (data.ok) {
-                            this.showToast('Documento eliminato con successo!', 'success');
-                            await this.loadDocuments();
-                        } else {
-                            this.showToast(data.error || 'Errore nell\'eliminazione', 'error');
-                        }
-                    } catch (error) {
-                        console.error('Errore eliminazione:', error);
-                        this.showToast('Errore di connessione', 'error');
-                    }
+                    this.documents = this.documents.filter(d => d.id !== id);
+                    this.filterDocuments();
+                    this.showToast('Documento eliminato con successo!', 'success');
                 }
             });
         });
     }
 
-    async saveEdit() {
+    saveEdit() {
         if (!this.editingDocumentId) return;
 
         const newName = document.getElementById('editFileName') ? document.getElementById('editFileName').value : '';
         const newCategory = document.getElementById('editFileCategory') ? document.getElementById('editFileCategory').value : '';
         const newDescription = document.getElementById('editFileDescription') ? document.getElementById('editFileDescription').value : '';
 
-        try {
-            const response = await fetch(`/documents/${this.editingDocumentId}`, {
-                method: 'PUT',
-                headers: {
-                    'Content-Type': 'application/json'
-                },
-                body: JSON.stringify({
-                    fileName: newName,
-                    fileCategory: newCategory,
-                    fileDescription: newDescription
-                })
-            });
+        const idx = this.documents.findIndex(d => d.id === this.editingDocumentId);
+        if (idx !== -1) {
+            this.documents[idx].name = newName;
+            this.documents[idx].category = newCategory;
+            this.documents[idx].description = newDescription;
+            this.documents[idx].icon = this.getFileIcon(newName);
 
-            const data = await response.json();
-            if (data.ok) {
-                this.showToast('Documento modificato con successo!', 'success');
-                if (this.editModal) this.editModal.hide();
-                await this.loadDocuments();
-            } else {
-                this.showToast(data.error || 'Errore nella modifica', 'error');
-            }
-        } catch (error) {
-            console.error('Errore modifica:', error);
-            this.showToast('Errore di connessione', 'error');
+            this.filterDocuments();
+            if (this.editModal) this.editModal.hide();
+            this.showToast('Documento modificato con successo!', 'success');
         }
     }
 
@@ -264,6 +224,7 @@ class DocumentManager {
 
     showToast(message, type = 'info') {
         // Placeholder: usare una vera toast library o Bootstrap Toast in produzione
+        // Tipo può essere 'success','error','info'
         alert(message);
     }
 }

@@ -12,555 +12,252 @@
   <link href="/stylesheets/hero.css" rel="stylesheet">
   <link href="/stylesheets/documenti.css" rel="stylesheet">
   <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js" defer></script>
+  <script src="/javascripts/documenti.js" defer></script>
 </head>
 <body>
 
   <%- include('partials/navbar') %>
-  <section class="hero-section bg-success text-white py-5">
+    <section class="hero-section-doc bg-success text-white py-5">
   <div class="container">
     <div class="row align-items-center min-vh-75">
       <div class="col-12 text-center">
-        <!-- Mobile-First Content -->
-        <h1 class="display-4 fw-bold mb-3 text-shadow">
-          Documenti
-        </h1>
-        <p class="lead mb-4 fs-6 fs-md-5 px-3">
-          Scarica normative, certificazioni e risorse ambientali in modo semplice e sicuro.
-        </p>
-        <div class="d-grid gap-2 d-md-flex justify-content-md-center">
+                <!-- Page title -->
+                <h1 class="display-4 fw-bold mb-3 text-shadow">Documenti</h1>
+                <p class="lead">Scarica le procedure, modulistica e documenti utili.</p>
+                        <div class="d-grid gap-2 d-md-flex justify-content-md-center">
           <a href="#documenti" class="btn btn-light btn-lg px-4 py-3 fw-bold shadow">
             <i class="bi bi-file-earmark-text me-2"></i>Esplora documenti
           </a>
         </div>
-      </div>
-    </div>
-  </div>
-
-  <!-- Background Particles -->
-  <div class="particles-bg">
+            </div>
+        </div>
+          <div class="particles-bg">
     <div class="particle" style="width: 30px; height: 30px; top: 20%; left: 10%; animation-delay: 0s;"></div>
     <div class="particle" style="width: 20px; height: 20px; top: 60%; left: 80%; animation-delay: 1s;"></div>
     <div class="particle" style="width: 25px; height: 25px; top: 40%; left: 70%; animation-delay: 2s;"></div>
     <div class="particle" style="width: 15px; height: 15px; top: 80%; left: 20%; animation-delay: 0.5s;"></div>
-  </div>
-</section>
-  <main class="container-fluid px-3 px-md-4 py-5 documenti-main-container" id="documenti">
+  </div>        
 
-    <!-- Barra di ricerca documenti -->
-    <div class="doc-search-box mb-4">
-      <div class="doc-search-wrapper">
-        <input type="search" class="doc-search-input form-control form-control-lg" placeholder="Cerca un documento..." name="search" id="docSearch" />
-        <button type="submit" class="doc-search-btn btn btn-success" aria-label="Cerca">
-          <i class="bi bi-search"></i>
-        </button>
-      </div>
     </div>
+    </section>
 
-    <!-- Filtri per categoria -->
-    <div class="filters-section mb-4" >
-      <div class="row g-3 align-items-end">
-        <div class="col-12 col-md-auto">
-          <label for="categoryFilter" class="form-label fw-bold mb-2 mb-md-0">Filtra per categoria:</label>
-        </div>
-        <div class="col-12 col-md-auto">
-          <select class="form-select" id="categoryFilter">
-            <option value="">Tutte le categorie</option>
-            <option value="contratti">Contratti</option>
-            <option value="certificati">Certificati</option>
-            <option value="manuali">Manuali</option>
-            <option value="procedure">Procedure</option>
-            <option value="modulistica">Modulistica</option>
-            <option value="altro">Altro</option>
-          </select>
-        </div>
-        <div class="col-12 col-md-auto">
-          <button type="button" class="btn btn-outline-secondary w-100" id="clearDocFilters">
-            <i class="bi bi-x-circle me-1"></i>Pulisci filtri
-          </button>
-        </div>
-      </div>
-    </div>
-
-    <!-- Sezione documenti dinamici -->
-    <div id="documentsContainer">
-      <!-- I documenti verranno caricati dinamicamente -->
-    </div>
-
-    <!-- Messaggio quando non ci sono documenti -->
-    <div id="noDocumentsMessage" class="text-center py-5 px-3" style="display: none;">
-      <i class="bi bi-file-earmark-x fs-1 text-muted mb-3"></i>
-      <h4 class="text-muted h5">Nessun documento disponibile</h4>
-      <p class="text-muted small">I documenti verranno pubblicati a breve nell'area riservata.</p>
-    </div>
-  </main>
-<%- include('partials/footer') %>
-    <script>
-// Gestione Documenti Pubblici - JavaScript
-console.log('Script loaded');
-
-// Funzioni globali necessarie per downloadDocument
-function getCategoryName(category) {
-    const names = {
-        'contratti': 'Contratti',
-        'certificati': 'Certificati',
-        'manuali': 'Manuali',
-        'procedure': 'Procedure',
-        'modulistica': 'Modulistica',
-        'altro': 'Altro'
-    };
-    return names[category] || category;
-}
-
-function getBadgeClass(category) {
-    const badgeClasses = {
-        'contratti': 'bg-success',
-        'certificati': 'bg-info',
-        'manuali': 'bg-warning',
-        'procedure': 'bg-secondary',
-        'modulistica': 'bg-primary',
-        'altro': 'bg-dark'
-    };
-    return badgeClasses[category] || 'bg-secondary';
-}
-
-document.addEventListener('DOMContentLoaded', function() {
-    console.log('DOMContentLoaded fired');
-    console.log('DOMContentLoaded fired');
-    
-    // Elementi DOM
-    const documentsContainer = document.getElementById('documentsContainer');
-    const noDocumentsMessage = document.getElementById('noDocumentsMessage');
-    const docSearch = document.getElementById('docSearch');
-    const categoryFilter = document.getElementById('categoryFilter');
-    const clearDocFilters = document.getElementById('clearDocFilters');
-
-    console.log('Elements found:', { documentsContainer, noDocumentsMessage, docSearch, categoryFilter, clearDocFilters });
-
-    // Documenti di esempio (in produzione verrebbero da un database/server)
-    const sampleDocuments = [
-        // CONTRATTI
-        {
-            id: 1,
-            name: 'Contratto_Servizi_2025.pdf',
-            description: 'Contratto di servizi per smaltimento rifiuti 2025',
-            category: 'contratti',
-            size: '2.4 MB',
-            uploadDate: '06/10/2025',
-            icon: 'bi-file-earmark-text'
-        },
-        {
-            id: 2,
-            name: 'Contratto_Trasporto_Speciale.pdf',
-            description: 'Contratto per trasporto rifiuti speciali e pericolosi',
-            category: 'contratti',
-            size: '1.8 MB',
-            uploadDate: '04/10/2025',
-            icon: 'bi-file-earmark-text'
-        },
-        {
-            id: 3,
-            name: 'Accordo_Consulenza_Ambientale.pdf',
-            description: 'Accordo quadro per servizi di consulenza ambientale',
-            category: 'contratti',
-            size: '3.1 MB',
-            uploadDate: '02/10/2025',
-            icon: 'bi-file-earmark-text'
-        },
-        
-        // CERTIFICATI
-        {
-            id: 4,
-            name: 'Certificato_ISO_14001.pdf',
-            description: 'Certificazione ambientale ISO 14001:2015',
-            category: 'certificati',
-            size: '1.8 MB',
-            uploadDate: '05/10/2025',
-            icon: 'bi-file-earmark-check'
-        },
-        {
-            id: 5,
-            name: 'Certificato_ISO_9001.pdf',
-            description: 'Certificazione qualità ISO 9001:2015',
-            category: 'certificati',
-            size: '2.2 MB',
-            uploadDate: '03/10/2025',
-            icon: 'bi-file-earmark-check'
-        },
-        {
-            id: 6,
-            name: 'Certificato_Sicurezza_Sul_Lavoro.pdf',
-            description: 'Certificato di conformità sicurezza sul lavoro',
-            category: 'certificati',
-            size: '1.5 MB',
-            uploadDate: '01/10/2025',
-            icon: 'bi-file-earmark-check'
-        },
-        {
-            id: 7,
-            name: 'Autorizzazione_ALBO_Gestori.pdf',
-            description: 'Autorizzazione all\'esercizio dell\'attività di gestione rifiuti',
-            category: 'certificati',
-            size: '4.2 MB',
-            uploadDate: '28/09/2025',
-            icon: 'bi-file-earmark-check'
-        },
-        
-        // MANUALI
-        {
-            id: 8,
-            name: 'Manuale_Sicurezza.pdf',
-            description: 'Manuale di sicurezza per operatori e tecnici',
-            category: 'manuali',
-            size: '3.2 MB',
-            uploadDate: '04/10/2025',
-            icon: 'bi-file-earmark-ruled'
-        },
-        {
-            id: 9,
-            name: 'Manuale_Qualita.pdf',
-            description: 'Manuale qualità e procedure operative',
-            category: 'manuali',
-            size: '2.8 MB',
-            uploadDate: '02/10/2025',
-            icon: 'bi-file-earmark-ruled'
-        },
-        {
-            id: 10,
-            name: 'Guida_Prima_Aiuto.pdf',
-            description: 'Guida alle procedure di primo soccorso',
-            category: 'manuali',
-            size: '1.9 MB',
-            uploadDate: '30/09/2025',
-            icon: 'bi-file-earmark-ruled'
-        },
-        
-        // PROCEDURE
-        {
-            id: 11,
-            name: 'Procedura_Raccolta.pdf',
-            description: 'Procedura operativa per raccolta rifiuti',
-            category: 'procedure',
-            size: '1.5 MB',
-            uploadDate: '03/10/2025',
-            icon: 'bi-file-earmark-text'
-        },
-        {
-            id: 12,
-            name: 'Procedura_Smaltimento.pdf',
-            description: 'Procedura di smaltimento rifiuti speciali',
-            category: 'procedure',
-            size: '2.1 MB',
-            uploadDate: '01/10/2025',
-            icon: 'bi-file-earmark-text'
-        },
-        {
-            id: 13,
-            name: 'Procedura_Emergenza.pdf',
-            description: 'Piano di emergenza e evacuazione',
-            category: 'procedure',
-            size: '1.7 MB',
-            uploadDate: '29/09/2025',
-            icon: 'bi-file-earmark-text'
-        },
-        {
-            id: 14,
-            name: 'Procedura_Formazione.pdf',
-            description: 'Procedura per la formazione del personale',
-            category: 'procedure',
-            size: '1.3 MB',
-            uploadDate: '27/09/2025',
-            icon: 'bi-file-earmark-text'
-        },
-        
-        // MODULISTICA
-        {
-            id: 15,
-            name: 'Modulistica_Richiesta.docx',
-            description: 'Moduli per richiesta servizi di smaltimento',
-            category: 'modulistica',
-            size: '956 KB',
-            uploadDate: '02/10/2025',
-            icon: 'bi-file-earmark-word'
-        },
-        {
-            id: 16,
-            name: 'Scheda_Identificazione_Rifiuti.pdf',
-            description: 'Scheda di identificazione rifiuti pericolosi',
-            category: 'modulistica',
-            size: '1.2 MB',
-            uploadDate: '30/09/2025',
-            icon: 'bi-file-earmark-text'
-        },
-        {
-            id: 17,
-            name: 'Registro_Carico_Scarico.xlsx',
-            description: 'Registro di carico e scarico rifiuti',
-            category: 'modulistica',
-            size: '2.5 MB',
-            uploadDate: '28/09/2025',
-            icon: 'bi-file-earmark-spreadsheet'
-        },
-        {
-            id: 18,
-            name: 'Formulario_Valutazione_Rischi.docx',
-            description: 'Formulario per valutazione rischi ambientali',
-            category: 'modulistica',
-            size: '1.8 MB',
-            uploadDate: '26/09/2025',
-            icon: 'bi-file-earmark-word'
-        },
-        
-        // ALTRO
-        {
-            id: 19,
-            name: 'Presentazione_Aziendale.pdf',
-            description: 'Presentazione aziendale Vercam 2025',
-            category: 'altro',
-            size: '5.4 MB',
-            uploadDate: '05/10/2025',
-            icon: 'bi-file-earmark-presentation'
-        },
-        {
-            id: 20,
-            name: 'Listino_Prezzi_2025.pdf',
-            description: 'Listino prezzi servizi 2025',
-            category: 'altro',
-            size: '1.1 MB',
-            uploadDate: '01/10/2025',
-            icon: 'bi-file-earmark-text'
-        }
-    ];
-
-    // Funzione per ottenere documenti da localStorage (simulando dati dinamici)
-    function getDocuments() {
-        // In produzione, questi verrebbero da un'API
-        // Per ora usiamo i dati di esempio
-        return sampleDocuments;
-    }
-
-    // Funzione per raggruppare documenti per categoria
-    function groupDocumentsByCategory(documents) {
-        const grouped = {};
-        documents.forEach(doc => {
-            if (!grouped[doc.category]) {
-                grouped[doc.category] = [];
-            }
-            grouped[doc.category].push(doc);
-        });
-        return grouped;
-    }
-
-    // Funzione per verificare se un documento è nuovo (ultimi 6 giorni)
-    function isDocumentNew(uploadDate) {
-        // Considera "nuovo" se caricato negli ultimi 6 giorni (dal 01/10/2025)
-        const today = new Date('2025-10-06'); // Data corrente
-        const uploadDateObj = new Date(uploadDate.split('/').reverse().join('-')); // Converte DD/MM/YYYY in YYYY-MM-DD
-        const diffTime = today - uploadDateObj;
-        const diffDays = Math.ceil(diffTime / (1000 * 60 * 60 * 24));
-        return diffDays <= 6;
-    }
-
-    // Funzione per renderizzare i documenti
-    function renderDocuments(documents = getDocuments()) {
-        console.log('renderDocuments called with', documents.length, 'documents');
-        
-        if (documents.length === 0) {
-            documentsContainer.innerHTML = '<div class="text-center py-5 px-3"><i class="bi bi-file-earmark-x fs-1 text-muted mb-3"></i><h4 class="text-muted h5">Nessun documento trovato</h4><p class="text-muted small">Prova a modificare i filtri di ricerca.</p></div>';
-            noDocumentsMessage.style.display = 'none';
-            return;
-        }
-
-        // Raggruppa documenti per categoria
-        const groupedDocuments = groupDocumentsByCategory(documents);
-        
-        let html = '';
-        
-        // Se stiamo filtrando per una categoria specifica, mostra solo quella categoria
-        const categoryFilterValue = categoryFilter.value;
-        if (categoryFilterValue && groupedDocuments[categoryFilterValue]) {
-            const categoryDocs = groupedDocuments[categoryFilterValue];
-            const categoryName = getCategoryName(categoryFilterValue);
-            const badgeClass = getBadgeClass(categoryFilterValue);
-            const collapseId = `category-${categoryFilterValue}`;
-            
-            html += `<div class="category-section mb-4">
-                <div class="category-header d-flex flex-column flex-sm-row align-items-start align-items-sm-center justify-content-between p-3 bg-light rounded shadow-sm" data-bs-toggle="collapse" data-bs-target="#${collapseId}" style="cursor: pointer;">
-                    <div class="d-flex flex-column flex-sm-row align-items-start align-items-sm-center mb-2 mb-sm-0">
-                        <h3 class="mb-2 mb-sm-0 me-sm-3 h4">${categoryName}</h3>
-                        <span class="badge ${badgeClass}">${categoryDocs.length} documento${categoryDocs.length !== 1 ? 'i' : ''}</span>
+        <main class="container-fluid px-3 px-md-4 py-5 documenti-main-container" id="documenti">
+                <!-- Barra di ricerca (seguo struttura di documenti.html) -->
+                <div class="doc-search-box mb-4">
+                    <div class="doc-search-wrapper mx-auto">
+                        <input type="search" id="docSearch" name="q" class="doc-search-input form-control form-control-lg" placeholder="Cerca un documento..." value="<%= query && query.q ? query.q : '' %>">
+                        <button type="button" class="doc-search-btn btn btn-success" aria-label="Cerca" id="docSearchBtn">
+                            <i class="bi bi-search"></i>
+                        </button>
                     </div>
-                    <i class="bi bi-chevron-down category-chevron align-self-end align-self-sm-center"></i>
                 </div>
-                <div id="${collapseId}" class="collapse show mt-3">
-                    <div class="row g-3 g-md-4">`;
-            
-            categoryDocs.forEach(doc => {
-                html += createDocumentCard(doc);
-            });
-            
-            html += `</div></div></div>`;
-        } else {
-            // Mostra tutte le categorie con tendine
-            Object.keys(groupedDocuments).forEach((category, index) => {
-                const categoryDocs = groupedDocuments[category];
-                const categoryName = getCategoryName(category);
-                const badgeClass = getBadgeClass(category);
-                const collapseId = `category-${category}`;
-                const isFirst = index === 0; // Prima categoria aperta di default
-                
-                html += `<div class="category-section mb-4">
-                    <div class="category-header d-flex flex-column flex-sm-row align-items-start align-items-sm-center justify-content-between p-3 bg-light rounded shadow-sm" data-bs-toggle="collapse" data-bs-target="#${collapseId}" style="cursor: pointer;">
-                        <div class="d-flex flex-column flex-sm-row align-items-start align-items-sm-center mb-2 mb-sm-0">
-                            <h3 class="mb-2 mb-sm-0 me-sm-3 h4">${categoryName}</h3>
-                            <span class="badge ${badgeClass}">${categoryDocs.length} documento${categoryDocs.length !== 1 ? 'i' : ''}</span>
-                        </div>
-                        <i class="bi bi-chevron-down category-chevron align-self-end align-self-sm-center"></i>
-                    </div>
-                    <div id="${collapseId}" class="collapse ${isFirst ? 'show' : ''} mt-3">
-                        <div class="row g-3 g-md-4">`;
-                
-                categoryDocs.forEach(doc => {
-                    html += createDocumentCard(doc);
-                });
-                
-                html += `</div></div></div>`;
-            });
-        }
-        
-        documentsContainer.innerHTML = html;
-        noDocumentsMessage.style.display = 'none';
-        console.log('HTML set to documentsContainer');
-    }
 
-    // Funzione per creare una card documento
-    function createDocumentCard(doc) {
-        const badgeClass = getBadgeClass(doc.category);
-        const isNew = isDocumentNew(doc.uploadDate);
-        const newBadge = isNew ? '<span class="badge bg-danger ms-2">Nuovo</span>' : '';
-        
-        return `
-            <div class="col-12 col-md-6 col-lg-6 col-xl-4">
-                <div class="card h-100 shadow-sm border-0 ${isNew ? 'border-danger' : ''}" style="${isNew ? 'border-width: 2px;' : ''}">
-                    <div class="card-body d-flex flex-column">
-                        <div class="d-flex align-items-start mb-3">
-                            <i class="bi ${doc.icon} fs-2 text-success me-3 flex-shrink-0"></i>
-                            <div class="flex-grow-1 min-w-0">
-                                <h5 class="card-title mb-1 d-flex align-items-center flex-wrap">
-                                    <span class="text-truncate">${doc.name}</span>${newBadge}
-                                </h5>
-                                <p class="card-text text-muted small mb-2">${doc.description}</p>
-                                <div class="d-flex justify-content-between align-items-center flex-wrap gap-2">
-                                    <span class="badge ${badgeClass}">${getCategoryName(doc.category)}</span>
-                                    <small class="text-muted">${doc.size}</small>
-                                </div>
-                            </div>
+                <!-- Filtri per categoria (stessa struttura e ID usati nello statico) -->
+                <div class="filters-section mb-4">
+                    <div class="row g-3 align-items-end justify-content-center">
+                        <div class="col-12 col-md-auto">
+                            <label for="categoryFilter" class="form-label fw-bold mb-2 mb-md-0">Filtra per categoria:</label>
                         </div>
-                        <div class="mt-auto">
-                            <div class="d-flex flex-column flex-sm-row justify-content-between align-items-start align-items-sm-center gap-2">
-                                <small class="text-muted">Caricato: ${doc.uploadDate}</small>
-                                <button class="btn btn-success btn-sm w-100 w-sm-auto" onclick="downloadDocument(${doc.id})">
-                                    <i class="bi bi-download me-1"></i>Scarica
-                                </button>
-                            </div>
+                        <div class="col-12 col-md-auto">
+                            <select class="form-select" id="categoryFilter" name="category">
+                                <option value="">Tutte le categorie</option>
+                                <% Object.keys(groupedDocuments || {}).forEach(function(cat){ %>
+                                    <option value="<%= cat %>" <%= (query && query.category === cat) ? 'selected' : '' %>><%= cat.charAt(0).toUpperCase() + cat.slice(1) %></option>
+                                <% }) %>
+                            </select>
+                        </div>
+                        <div class="col-12 col-md-auto">
+                            <button type="button" class="btn btn-outline-secondary w-100" id="clearDocFilters">
+                                <i class="bi bi-x-circle me-1"></i>Pulisci filtri
+                            </button>
                         </div>
                     </div>
                 </div>
+
+        <!-- Sezione documenti dinamici (popolata da server-side rendering) -->
+        <div id="documentsContainer">
+          <% 
+               // Helper: consider documents "Nuovo" if uploaded within the last N days
+               const NEW_WINDOW_DAYS = 6;
+               function isNewDate(uploadDate) {
+                   try {
+                       if (!uploadDate) return false;
+                       const parts = String(uploadDate).split('/'); // expected DD/MM/YYYY
+                       if (parts.length !== 3) return false;
+                       const iso = parts[2] + '-' + parts[1] + '-' + parts[0];
+                       const d = new Date(iso);
+                       const now = new Date();
+                       const diffDays = Math.ceil((now - d) / (1000 * 60 * 60 * 24));
+                       return diffDays <= NEW_WINDOW_DAYS;
+                   } catch (e) {
+                       return false;
+                   }
+               }
+               
+               function getCategoryBadgeClass(cat) {
+                 const map = {
+                   'contratti': 'bg-success',
+                   'certificati': 'bg-info',
+                   'manuali': 'bg-warning',
+                   'procedure': 'bg-secondary',
+                   'modulistica': 'bg-primary',
+                   'altro': 'bg-dark'
+                 };
+                 return map[cat] || 'bg-secondary';
+               }
+               
+               function getDocIcon(category) {
+                 const map = {
+                   'contratti': 'bi-file-earmark-text',
+                   'certificati': 'bi-file-earmark-check',
+                   'manuali': 'bi-file-earmark-ruled',
+                   'procedure': 'bi-file-earmark-text',
+                   'modulistica': 'bi-file-earmark-word',
+                   'altro': 'bi-file-earmark-presentation'
+                 };
+                 return map[category] || 'bi-file-earmark-text';
+               }
+          %>
+          <% if (!groupedDocuments || Object.keys(groupedDocuments).length === 0) { %>
+              <!-- Nessun documento -->
+          <% } else { %>
+              <% Object.keys(groupedDocuments).forEach(function(category, idx){
+                       const docs = groupedDocuments[category] || [];
+                       const collapseId = 'category-' + category;
+                       const badgeClass = getCategoryBadgeClass(category);
+                       const categoryName = category.charAt(0).toUpperCase() + category.slice(1);
+              %>
+                  <div class="category-section mb-4">
+                      <div class="category-header d-flex flex-column flex-sm-row align-items-start align-items-sm-center justify-content-between p-3 bg-light rounded shadow-sm" data-bs-toggle="collapse" data-bs-target="#<%= collapseId %>" style="cursor: pointer;">
+                          <div class="d-flex flex-column flex-sm-row align-items-start align-items-sm-center mb-2 mb-sm-0">
+                              <h3 class="mb-2 mb-sm-0 me-sm-3 h4"><%= categoryName %></h3>
+                              <span class="badge <%= badgeClass %>"><%= docs.length %> documento<%= docs.length !== 1 ? 'i' : '' %></span>
+                          </div>
+                          <i class="bi bi-chevron-down category-chevron align-self-end align-self-sm-center"></i>
+                      </div>
+
+                      <div id="<%= collapseId %>" class="collapse <%= idx === 0 ? 'show' : '' %> mt-3">
+                          <div class="row g-3 g-md-4">
+                              <% docs.forEach(function(doc){ 
+                                   const isNew = isNewDate(doc.uploadDate);
+                                   const icon = getDocIcon(category);
+                              %>
+                                  <div class="col-12 col-md-6 col-lg-6 col-xl-4">
+                                      <div class="card h-100 shadow-sm border-0 <%= isNew ? 'border-danger' : '' %>" <%= isNew ? 'style="border-width: 2px;"' : '' %>>
+                                          <div class="card-body d-flex flex-column">
+                                              <div class="d-flex align-items-start mb-3">
+                                                  <i class="bi <%= icon %> fs-2 text-success me-3 flex-shrink-0"></i>
+                                                  <div class="flex-grow-1 min-w-0">
+                                                      <h5 class="card-title mb-1 d-flex align-items-center flex-wrap">
+                                                          <span class="text-truncate"><%= doc.name %></span>
+                                                          <% if (isNew) { %>
+                                                              <span class="badge bg-danger ms-2">Nuovo</span>
+                                                          <% } %>
+                                                      </h5>
+                                                      <% if (doc.description) { %>
+                                                          <p class="card-text text-muted small mb-2"><%= doc.description %></p>
+                                                      <% } %>
+                                                      <div class="d-flex justify-content-between align-items-center flex-wrap gap-2">
+                                                          <span class="badge <%= badgeClass %>"><%= categoryName %></span>
+                                                          <% if (doc.size) { %><small class="text-muted"><%= doc.size %></small><% } %>
+                                                      </div>
+                                                  </div>
+                                              </div>
+
+                                              <div class="mt-auto">
+                                                  <div class="d-flex flex-column flex-sm-row justify-content-between align-items-start align-items-sm-center gap-2">
+                                                      <small class="text-muted">Caricato: <%= doc.uploadDate %></small>
+                                                      <% if (doc.path) { %>
+                                                          <% const href = doc.path.startsWith('/') ? doc.path : '/' + doc.path; %>
+                                                          <a class="btn btn-success btn-sm w-100 w-sm-auto" href="<%= href %>" target="_blank" rel="noopener noreferrer">
+                                                            <i class="bi bi-download me-1"></i>Scarica
+                                                          </a>
+                                                      <% } else { %>
+                                                          <button class="btn btn-secondary btn-sm w-100 w-sm-auto" disabled><i class="bi bi-download me-1"></i>Scarica</button>
+                                                      <% } %>
+                                                  </div>
+                                              </div>
+                                          </div>
+                                      </div>
+                                  </div>
+                              <% }) %>
+                          </div>
+                      </div>
+                  </div>
+              <% }) %>
+          <% } %>
+        </div>
+
+        <!-- Messaggio quando non ci sono documenti -->
+        <div id="noDocumentsMessage" class="text-center py-5 px-3" style="display: none;">
+          <i class="bi bi-file-earmark-x fs-1 text-muted mb-3"></i>
+          <h4 class="text-muted h5">Nessun documento disponibile</h4>
+          <p class="text-muted small">I documenti verranno pubblicati a breve nell'area riservata.</p>
+        </div>
+    </main>
+
+    <footer class="footer position-relative py-5 text-white">
+      <div class="footer-bg-gradient position-absolute top-0 start-0 w-100 h-100 z-0"></div>
+      <div class="particles-bg">
+        <div class="particle particle-f1"></div>
+        <div class="particle particle-f2"></div>
+        <div class="particle particle-f3"></div>
+        <div class="particle particle-f4"></div>
+        <div class="particle particle-f5"></div>
+      </div>
+      <div class="container position-relative z-2">
+        <div class="row gy-4">
+          <!-- Contact Form Column -->
+          <div class="col-lg-6 mb-4 mb-lg-0">
+            <div class="footer-card p-4 shadow-lg">
+              <h5 class="mb-4 text-center overflow-hidden">Contattaci</h5>
+              <form id="emailForm" action="" method="POST">
+                <div class="row g-3 mb-3">
+                  <div class="col-sm-6">
+                    <input type="text" class="form-control" placeholder="Nome e Cognome" name="name" required>
+                  </div>
+                  <div class="col-sm-6">
+                    <input type="email" class="form-control" placeholder="Email" name="email" required>
+                  </div>
+                </div>
+                <div class="mb-3">
+                  <input type="text" class="form-control" placeholder="Oggetto" name="subject" required>
+                </div>
+                <div class="mb-4">
+                  <textarea class="form-control" placeholder="Messaggio" name="message" rows="4" required></textarea>
+                </div>
+                <div class="text-center">
+                  <button type="submit" class="btn btn-light px-4 py-2">Invia Messaggio</button>
+                </div>
+              </form>
             </div>
-        `;
-    }
-
-    // Funzione per simulare il download
-    function downloadDocument(docId) {
-        const doc = sampleDocuments.find(d => d.id === docId);
-        if (doc) {
-            alert(`Download simulato: ${doc.name}\n\nIn produzione, questo avvierà il download del file.`);
-        }
-    }
-
-    // Funzione per filtrare documenti
-    function filterDocuments() {
-        const searchTerm = docSearch.value.toLowerCase();
-        const categoryFilterValue = categoryFilter.value;
-
-        let filteredDocs = getDocuments();
-
-        // Filtro per categoria
-        if (categoryFilterValue) {
-            filteredDocs = filteredDocs.filter(doc => doc.category === categoryFilterValue);
-        }
-
-        // Filtro per ricerca
-        if (searchTerm) {
-            filteredDocs = filteredDocs.filter(doc =>
-                doc.name.toLowerCase().includes(searchTerm) ||
-                doc.description.toLowerCase().includes(searchTerm)
-            );
-        }
-
-        renderDocuments(filteredDocs);
-    }
-
-    // Event Listeners
-    docSearch.addEventListener('input', filterDocuments);
-    categoryFilter.addEventListener('change', filterDocuments);
-
-    clearDocFilters.addEventListener('click', function() {
-        docSearch.value = '';
-        categoryFilter.value = '';
-        renderDocuments();
-    });
-
-        // Inizializzazione
-    renderDocuments();
-    
-    // Gestione animazione delle chevron nelle categorie
-    document.addEventListener('show.bs.collapse', function (event) {
-        const header = event.target.previousElementSibling;
-        const chevron = header.querySelector('.category-chevron');
-        if (chevron) {
-            chevron.style.transform = 'rotate(180deg)';
-        }
-    });
-    
-    document.addEventListener('hide.bs.collapse', function (event) {
-        const header = event.target.previousElementSibling;
-        const chevron = header.querySelector('.category-chevron');
-        if (chevron) {
-            chevron.style.transform = 'rotate(0deg)';
-        }
-    });
-});
-
-// Funzione globale per il download
-window.downloadDocument = function(docId) {
-    const sampleDocuments = [
-        { id: 1, name: 'Contratto_Servizi_2025.pdf', description: 'Contratto di servizi per smaltimento rifiuti 2025', category: 'contratti', size: '2.4 MB', uploadDate: '06/10/2025', icon: 'bi-file-earmark-text' },
-        { id: 2, name: 'Contratto_Trasporto_Speciale.pdf', description: 'Contratto per trasporto rifiuti speciali e pericolosi', category: 'contratti', size: '1.8 MB', uploadDate: '04/10/2025', icon: 'bi-file-earmark-text' },
-        { id: 3, name: 'Accordo_Consulenza_Ambientale.pdf', description: 'Accordo quadro per servizi di consulenza ambientale', category: 'contratti', size: '3.1 MB', uploadDate: '02/10/2025', icon: 'bi-file-earmark-text' },
-        { id: 4, name: 'Certificato_ISO_14001.pdf', description: 'Certificazione ambientale ISO 14001:2015', category: 'certificati', size: '1.8 MB', uploadDate: '05/10/2025', icon: 'bi-file-earmark-check' },
-        { id: 5, name: 'Certificato_ISO_9001.pdf', description: 'Certificazione qualità ISO 9001:2015', category: 'certificati', size: '2.2 MB', uploadDate: '03/10/2025', icon: 'bi-file-earmark-check' },
-        { id: 6, name: 'Certificato_Sicurezza_Sul_Lavoro.pdf', description: 'Certificato di conformità sicurezza sul lavoro', category: 'certificati', size: '1.5 MB', uploadDate: '01/10/2025', icon: 'bi-file-earmark-check' },
-        { id: 7, name: 'Autorizzazione_ALBO_Gestori.pdf', description: 'Autorizzazione all\'esercizio dell\'attività di gestione rifiuti', category: 'certificati', size: '4.2 MB', uploadDate: '28/09/2025', icon: 'bi-file-earmark-check' },
-        { id: 8, name: 'Manuale_Sicurezza.pdf', description: 'Manuale di sicurezza per operatori e tecnici', category: 'manuali', size: '3.2 MB', uploadDate: '04/10/2025', icon: 'bi-file-earmark-ruled' },
-        { id: 9, name: 'Manuale_Qualita.pdf', description: 'Manuale qualità e procedure operative', category: 'manuali', size: '2.8 MB', uploadDate: '02/10/2025', icon: 'bi-file-earmark-ruled' },
-        { id: 10, name: 'Guida_Prima_Aiuto.pdf', description: 'Guida alle procedure di primo soccorso', category: 'manuali', size: '1.9 MB', uploadDate: '30/09/2025', icon: 'bi-file-earmark-ruled' },
-        { id: 11, name: 'Procedura_Raccolta.pdf', description: 'Procedura operativa per raccolta rifiuti', category: 'procedure', size: '1.5 MB', uploadDate: '03/10/2025', icon: 'bi-file-earmark-text' },
-        { id: 12, name: 'Procedura_Smaltimento.pdf', description: 'Procedura di smaltimento rifiuti speciali', category: 'procedure', size: '2.1 MB', uploadDate: '01/10/2025', icon: 'bi-file-earmark-text' },
-        { id: 13, name: 'Procedura_Emergenza.pdf', description: 'Piano di emergenza e evacuazione', category: 'procedure', size: '1.7 MB', uploadDate: '29/09/2025', icon: 'bi-file-earmark-text' },
-        { id: 14, name: 'Procedura_Formazione.pdf', description: 'Procedura per la formazione del personale', category: 'procedure', size: '1.3 MB', uploadDate: '27/09/2025', icon: 'bi-file-earmark-text' },
-        { id: 15, name: 'Modulistica_Richiesta.docx', description: 'Moduli per richiesta servizi di smaltimento', category: 'modulistica', size: '956 KB', uploadDate: '02/10/2025', icon: 'bi-file-earmark-word' },
-        { id: 16, name: 'Scheda_Identificazione_Rifiuti.pdf', description: 'Scheda di identificazione rifiuti pericolosi', category: 'modulistica', size: '1.2 MB', uploadDate: '30/09/2025', icon: 'bi-file-earmark-text' },
-        { id: 17, name: 'Registro_Carico_Scarico.xlsx', description: 'Registro di carico e scarico rifiuti', category: 'modulistica', size: '2.5 MB', uploadDate: '28/09/2025', icon: 'bi-file-earmark-spreadsheet' },
-        { id: 18, name: 'Formulario_Valutazione_Rischi.docx', description: 'Formulario per valutazione rischi ambientali', category: 'modulistica', size: '1.8 MB', uploadDate: '26/09/2025', icon: 'bi-file-earmark-word' },
-        { id: 19, name: 'Presentazione_Aziendale.pdf', description: 'Presentazione aziendale Vercam 2025', category: 'altro', size: '5.4 MB', uploadDate: '05/10/2025', icon: 'bi-file-earmark-presentation' },
-        { id: 20, name: 'Listino_Prezzi_2025.pdf', description: 'Listino prezzi servizi 2025', category: 'altro', size: '1.1 MB', uploadDate: '01/10/2025', icon: 'bi-file-earmark-text' }
-    ];
-    
-    const doc = sampleDocuments.find(d => d.id === docId);
-    if (doc) {
-        alert(`Download simulato: ${doc.name}\n\nDimensione: ${doc.size}\nCategoria: ${getCategoryName(doc.category)}\n\nIn produzione, questo avvierà il download del file.`);
-    }
-};
-</script>
+          </div>
+          <!-- Info Column -->
+          <div class="col-lg-6 text-center m-auto">
+            <div class="footer-card p-4 shadow-lg">
+              <h5 class="mb-4 text-center overflow-hidden">Vercam</h5>
+              <div class="d-flex flex-column align-items-center mb-4">
+                <p class="mb-3"><i class="bi bi-geo-alt-fill me-2"></i> Via dello Sport 123, Borgo Vercelli (VC)</p>
+                <p class="mb-3"><i class="bi bi-telephone-fill me-2"></i> +39 0123 456789</p>
+                <p class="mb-3"><i class="bi bi-envelope-fill me-2"></i> info@asdborgovercelli.it</p>
+              </div>
+              <!-- Social Media Icons -->
+              <div class="text-center mb-4">
+                <a href="#" class="text-white mx-2"><i class="bi bi-facebook fs-4"></i></a>
+                <a href="#" class="text-white mx-2"><i class="bi bi-instagram fs-4"></i></a>
+                <a href="#" class="text-white mx-2"><i class="bi bi-twitter-x fs-4"></i></a>
+              </div>
+            </div>
+          </div>
+        </div>
+        <!-- Copyright -->
+        <div class="row mt-5">
+          <div class="col-12 text-center">
+            <hr class="my-4 bg-light opacity-50">
+            <p class="mb-0">&copy; Vercam. Tutti i diritti riservati.</p>
+          </div>
+        </div>
+      </div>
+    </footer>
 </body>
 </html>

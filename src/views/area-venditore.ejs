@@ -54,15 +54,15 @@
         <!-- Form Upload -->
         <div class="upload-card mb-5">
           <h2 class="upload-title text-center mb-4">Carica Nuovo Documento</h2>
-          <form class="upload-form" id="uploadForm">
+          <form class="upload-form" id="uploadForm" enctype="multipart/form-data" method="post">
             <div class="row g-3">
               <div class="col-md-6">
                 <label for="fileName" class="form-label fw-bold">Nome Documento</label>
-                <input type="text" class="form-control" id="fileName" placeholder="Es: Contratto_Servizi_2025" required>
+                <input type="text" class="form-control" id="fileName" name="fileName" placeholder="Es: Contratto_Servizi_2025" required>
               </div>
               <div class="col-md-6">
                 <label for="fileCategory" class="form-label fw-bold">Categoria</label>
-                <select class="form-select" id="fileCategory" required>
+                <select class="form-select" id="fileCategory" name="fileCategory" required>
                   <option value="">Seleziona categoria...</option>
                   <option value="contratti">Contratti</option>
                   <option value="certificati">Certificati</option>
@@ -74,11 +74,11 @@
               </div>
               <div class="col-12">
                 <label for="fileDescription" class="form-label fw-bold">Descrizione (opzionale)</label>
-                <textarea class="form-control" id="fileDescription" rows="3" placeholder="Breve descrizione del documento..."></textarea>
+                <textarea class="form-control" id="fileDescription" name="fileDescription" rows="3" placeholder="Breve descrizione del documento..."></textarea>
               </div>
               <div class="col-12">
                 <label for="fileUpload" class="form-label fw-bold">Seleziona File</label>
-                <input type="file" class="form-control" id="fileUpload" accept=".pdf,.doc,.docx,.xls,.xlsx,.jpg,.jpeg,.png" required>
+                <input type="file" class="form-control" id="fileUpload" name="fileUpload" accept=".pdf,.doc,.docx,.xls,.xlsx,.jpg,.jpeg,.png" required>
                 <div class="form-text">Formati supportati: PDF, DOC, DOCX, XLS, XLSX, JPG, PNG. Max 10MB.</div>
               </div>
             </div>

@@ -30,7 +30,7 @@
 
 .hero-section-doc {
   position: relative;
-  background: linear-gradient(135deg, const(--vercam-primary) 0%, const(--vercam-secondary) 100%);
+  background: linear-gradient(135deg, var(--vercam-primary) 0%, var(--vercam-secondary) 100%);
   overflow: hidden;
   min-height: 480px;
   display: flex;
@@ -68,9 +68,10 @@
 .particle {
   position: absolute;
   border-radius: 50%;
-  background: linear-gradient(120deg, const(--vercam-primary) 0%, rgba(234, 255, 242, 0.8) 100%);
-  opacity: 0.15;
+  background: linear-gradient(120deg, var(--vercam-primary) 0%, rgba(234, 255, 242, 0.9) 100%);
+  opacity: 0.14;
   animation: floatParticle 8s infinite ease-in-out;
+  will-change: transform, opacity;
 }
 
 @keyframes floatParticle {
